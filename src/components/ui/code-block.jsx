@@ -24,7 +24,7 @@ export const CodeBlock = ({
         </div>
       )}
       
-      <pre className="p-4 overflow-x-auto">
+      <pre className="p-4 whitespace-pre-wrap break-words overflow-hidden">
         <code className={`language-${language}`}>
           {code}
         </code>
