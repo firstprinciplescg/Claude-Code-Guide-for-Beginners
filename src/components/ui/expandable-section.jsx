@@ -10,10 +10,12 @@ export const ExpandableSection = ({
   const [isExpanded, setIsExpanded] = useState(defaultExpanded)
 
   return (
-    <div className={`border rounded-lg ${className}`}>
+    <div className={`border border-gray-200 rounded-lg overflow-hidden ${className}`}>
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 transition-colors"
+        className={`w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 transition-colors ${
+          isExpanded ? 'rounded-t-lg' : 'rounded-lg'
+        }`}
       >
         <span className="font-medium text-gray-900">{title}</span>
         {isExpanded ? (
@@ -24,8 +26,8 @@ export const ExpandableSection = ({
       </button>
       
       {isExpanded && (
-        <div className="px-4 pb-4 border-t bg-gray-50">
-          <div className="pt-4">
+        <div className="border-t border-gray-200 bg-gray-50 rounded-b-lg">
+          <div className="p-6">
             {children}
           </div>
         </div>
