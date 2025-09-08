@@ -126,7 +126,7 @@ function App() {
         {/* Sidebar Navigation */}
         <aside className={`fixed inset-y-0 left-0 z-40 w-64 bg-white border-r transform transition-transform duration-300 ease-in-out ${
           isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
-        } md:translate-x-0 md:static md:inset-0`}>
+        } md:translate-x-0`}>
           <div className="pt-20 md:pt-4">
             <ScrollArea className="h-[calc(100vh-5rem)]">
               <nav className="p-4 space-y-2">
@@ -153,7 +153,7 @@ function App() {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 md:ml-0">
+        <main className="flex-1 md:ml-64">
           <div className="container mx-auto px-4 py-8 max-w-4xl">
             
             {/* Hero Section */}
