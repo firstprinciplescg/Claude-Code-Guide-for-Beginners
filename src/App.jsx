@@ -1099,54 +1099,414 @@ Actual: Application crashes with TypeError"
             <section data-section="best-practices" className="mb-16">
               <h2 className="text-3xl font-bold text-gray-900 mb-8">Best Practices & Pro Tips</h2>
               
-              <div className="grid gap-6">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Writing Effective Prompts</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3">
-                      <li className="flex items-start space-x-3">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                        <span className="text-gray-600"><strong>Be specific:</strong> Detailed requests get better results</span>
-                      </li>
-                      <li className="flex items-start space-x-3">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                        <span className="text-gray-600"><strong>Step-by-step:</strong> Break complex tasks into smaller steps</span>
-                      </li>
-                      <li className="flex items-start space-x-3">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                        <span className="text-gray-600"><strong>Let Claude explore:</strong> Allow codebase exploration first</span>
-                      </li>
-                    </ul>
-                  </CardContent>
-                </Card>
+              <SectionTOC 
+                sections={[
+                  { id: 'specific-requests', title: 'Be Specific: Detailed Requests Get Better Results' },
+                  { id: 'step-by-step', title: 'Step-by-Step: Break Complex Tasks into Smaller Steps' },
+                  { id: 'let-claude-explore', title: 'Let Claude Explore: Allow Codebase Exploration First' },
+                  { id: 'terminal-ui-tips', title: 'Terminal UI Tips' }
+                ]}
+                className="mb-8"
+              />
 
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Terminal UI Tips</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Badge variant="outline">Shift+Enter</Badge>
-                        <p className="text-sm text-gray-600">Create new lines</p>
-                      </div>
-                      <div className="space-y-2">
-                        <Badge variant="outline">Shift+Drag</Badge>
-                        <p className="text-sm text-gray-600">Reference files</p>
-                      </div>
-                      <div className="space-y-2">
-                        <Badge variant="outline">Ctrl+V</Badge>
-                        <p className="text-sm text-gray-600">Paste images</p>
-                      </div>
-                      <div className="space-y-2">
-                        <Badge variant="outline">Escape</Badge>
-                        <p className="text-sm text-gray-600">Stop Claude</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+              <div className="space-y-8">
+                {/* Be Specific Section */}
+                <div data-subsection="specific-requests">
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-6">Be Specific: Detailed Requests Get Better Results</h3>
+                  
+                  <div className="space-y-6">
+                    <p className="text-gray-700 text-lg">
+                      The quality of Claude's responses directly correlates with the specificity of your requests. 
+                      Instead of vague instructions, provide detailed context, specific requirements, and clear expectations.
+                    </p>
+
+                    <Card>
+                      <CardHeader>
+                        <CardTitle className="text-lg text-green-700">✓ Base Request vs Improved Request Examples</CardTitle>
+                      </CardHeader>
+                      <CardContent className="space-y-6">
+                        <ExpandableSection title="Example 1: API Integration" defaultExpanded={false}>
+                          <div className="space-y-4">
+                            <div>
+                              <h5 className="font-semibold text-red-600 mb-2">❌ Base Request</h5>
+                              <CodeBlock 
+                                code="Help me add an API"
+                                title="Vague request"
+                              />
+                            </div>
+
+                            <div>
+                              <h5 className="font-semibold text-green-600 mb-2">✅ Improved Request</h5>
+                              <CodeBlock 
+                                code="I need to integrate a REST API for user management that fetches user profiles from `/api/users/:id`, handles authentication with bearer tokens stored in localStorage, includes proper error handling for 401/403/500 responses, and updates the existing UserProfile component to display the fetched data with loading states."
+                                title="Detailed request"
+                              />
+                            </div>
+
+                            <div className="bg-blue-50 p-4 rounded-lg">
+                              <h6 className="font-semibold text-blue-900 mb-2">Why the improved request is better:</h6>
+                              <ul className="text-blue-800 text-sm space-y-1">
+                                <li>• Specifies the exact API endpoint and HTTP method</li>
+                                <li>• Identifies authentication method and storage location</li>
+                                <li>• Lists specific error scenarios to handle</li>
+                                <li>• Names the component to update</li>
+                                <li>• Includes UX considerations (loading states)</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </ExpandableSection>
+
+                        <ExpandableSection title="Example 2: Database Operations" defaultExpanded={false}>
+                          <div className="space-y-4">
+                            <div>
+                              <h5 className="font-semibold text-red-600 mb-2">❌ Base Request</h5>
+                              <CodeBlock 
+                                code="Fix my database"
+                                title="Vague request"
+                              />
+                            </div>
+
+                            <div>
+                              <h5 className="font-semibold text-green-600 mb-2">✅ Improved Request</h5>
+                              <CodeBlock 
+                                code="My PostgreSQL database queries are timing out when fetching user orders. The query joins three tables (users, orders, order_items) and needs to handle up to 10,000 records. I'm using Prisma ORM with Next.js. The specific query is in @lib/database/orders.js and the error occurs in the getUserOrderHistory function. I need optimization that maintains the same data structure for the frontend."
+                                title="Detailed request"
+                              />
+                            </div>
+
+                            <div className="bg-blue-50 p-4 rounded-lg">
+                              <h6 className="font-semibold text-blue-900 mb-2">Why the improved request is better:</h6>
+                              <ul className="text-blue-800 text-sm space-y-1">
+                                <li>• Identifies the specific database technology (PostgreSQL)</li>
+                                <li>• Describes the exact problem (query timeouts)</li>
+                                <li>• Provides scale context (10,000 records)</li>
+                                <li>• Mentions the ORM and framework being used</li>
+                                <li>• Uses @tags to reference specific files</li>
+                                <li>• Sets constraints (maintain data structure)</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </ExpandableSection>
+
+                        <ExpandableSection title="Example 3: UI Component Development" defaultExpanded={false}>
+                          <div className="space-y-4">
+                            <div>
+                              <h5 className="font-semibold text-red-600 mb-2">❌ Base Request</h5>
+                              <CodeBlock 
+                                code="Create a form"
+                                title="Vague request"
+                              />
+                            </div>
+
+                            <div>
+                              <h5 className="font-semibold text-green-600 mb-2">✅ Improved Request</h5>
+                              <CodeBlock 
+                                code="Create a responsive contact form component for our React/TypeScript project that includes fields for name, email, phone, and message. It should use our existing design system in @components/ui/, implement real-time validation with error messages, handle form submission to our /api/contact endpoint, show loading and success states, and follow WCAG accessibility guidelines. The form should match the styling patterns used in @components/auth/LoginForm.tsx."
+                                title="Detailed request"
+                              />
+                            </div>
+
+                            <div className="bg-blue-50 p-4 rounded-lg">
+                              <h6 className="font-semibold text-blue-900 mb-2">Why the improved request is better:</h6>
+                              <ul className="text-blue-800 text-sm space-y-1">
+                                <li>• Specifies technology stack (React/TypeScript)</li>
+                                <li>• Lists exact form fields needed</li>
+                                <li>• References existing design system with @tags</li>
+                                <li>• Includes validation and UX requirements</li>
+                                <li>• Mentions API endpoint for submission</li>
+                                <li>• Addresses accessibility compliance</li>
+                                <li>• References existing patterns to follow</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </ExpandableSection>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </div>
+
+                {/* Step-by-Step Section */}
+                <div data-subsection="step-by-step" className="mt-12">
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-6">Step-by-Step: Break Complex Tasks into Smaller Steps</h3>
+                  
+                  <div className="space-y-6">
+                    <p className="text-gray-700 text-lg">
+                      Large, complex tasks can overwhelm both you and Claude. Breaking them into smaller, 
+                      manageable steps leads to better results, easier debugging, and clearer progress tracking.
+                    </p>
+
+                    <Card>
+                      <CardHeader>
+                        <CardTitle className="text-lg text-blue-700">📝 Complex Task Breakdown Examples</CardTitle>
+                      </CardHeader>
+                      <CardContent className="space-y-6">
+                        <ExpandableSection title="Example 1: E-commerce Checkout System" defaultExpanded={false}>
+                          <div className="space-y-4">
+                            <div>
+                              <h5 className="font-semibold text-red-600 mb-2">❌ Large Task</h5>
+                              <CodeBlock 
+                                code="Build a complete checkout system for our e-commerce site"
+                                title="Overwhelming request"
+                              />
+                            </div>
+
+                            <div>
+                              <h5 className="font-semibold text-green-600 mb-2">✅ Broken into Smaller Steps</h5>
+                              <div className="space-y-2">
+                                {[
+                                  "Create shopping cart state management with add/remove/update quantity functions",
+                                  "Build cart display component with item details and price calculations", 
+                                  "Implement shipping address form with validation and address lookup",
+                                  "Add payment method selection (credit card, PayPal, etc.)",
+                                  "Create order summary component with tax and shipping calculations",
+                                  "Integrate payment processing with Stripe API",
+                                  "Build order confirmation page and email notifications",
+                                  "Add inventory checking and reservation during checkout",
+                                  "Implement order tracking and status updates"
+                                ].map((step, index) => (
+                                  <div key={index} className="flex items-start space-x-3 p-2 bg-green-50 rounded">
+                                    <span className="text-green-600 font-bold text-sm mt-0.5">{index + 1}.</span>
+                                    <span className="text-green-800 text-sm">{step}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+
+                            <div className="bg-blue-50 p-4 rounded-lg">
+                              <h6 className="font-semibold text-blue-900 mb-2">Why stepwise is better:</h6>
+                              <ul className="text-blue-800 text-sm space-y-1">
+                                <li>• Each step can be developed, tested, and refined individually</li>
+                                <li>• Allows validation of functionality at each stage</li>
+                                <li>• Makes debugging easier by isolating issues</li>
+                                <li>• Enables requirement adjustments based on learning</li>
+                                <li>• Provides clear progress milestones</li>
+                                <li>• Makes the project less overwhelming</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </ExpandableSection>
+
+                        <ExpandableSection title="Example 2: User Authentication System" defaultExpanded={false}>
+                          <div className="space-y-4">
+                            <div>
+                              <h5 className="font-semibold text-red-600 mb-2">❌ Large Task</h5>
+                              <CodeBlock 
+                                code="Implement user authentication across the entire application"
+                                title="Overwhelming request"
+                              />
+                            </div>
+
+                            <div>
+                              <h5 className="font-semibold text-green-600 mb-2">✅ Broken into Smaller Steps</h5>
+                              <div className="space-y-2">
+                                {[
+                                  "Set up user database schema and models",
+                                  "Create registration API endpoint with validation",
+                                  "Build login API with password hashing and JWT generation",
+                                  "Implement password reset functionality with email tokens",
+                                  "Create authentication middleware for protected routes",
+                                  "Build registration form component with real-time validation",
+                                  "Create login form component with error handling",
+                                  "Add authentication context/state management to React app",
+                                  "Implement route protection in frontend",
+                                  "Add user profile management (view/edit profile)",
+                                  "Create logout functionality and token cleanup"
+                                ].map((step, index) => (
+                                  <div key={index} className="flex items-start space-x-3 p-2 bg-green-50 rounded">
+                                    <span className="text-green-600 font-bold text-sm mt-0.5">{index + 1}.</span>
+                                    <span className="text-green-800 text-sm">{step}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+
+                            <div className="bg-blue-50 p-4 rounded-lg">
+                              <h6 className="font-semibold text-blue-900 mb-2">Why stepwise is better:</h6>
+                              <ul className="text-blue-800 text-sm space-y-1">
+                                <li>• Authentication touches many parts of an application</li>
+                                <li>• Building incrementally ensures each piece works correctly</li>
+                                <li>• Allows thorough testing of security features at each step</li>
+                                <li>• Makes troubleshooting issues much easier</li>
+                                <li>• Enables security review at each stage</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </ExpandableSection>
+
+                        <ExpandableSection title="Example 3: Data Dashboard with Analytics" defaultExpanded={false}>
+                          <div className="space-y-4">
+                            <div>
+                              <h5 className="font-semibold text-red-600 mb-2">❌ Large Task</h5>
+                              <CodeBlock 
+                                code="Create a comprehensive analytics dashboard for our SaaS application"
+                                title="Overwhelming request"
+                              />
+                            </div>
+
+                            <div>
+                              <h5 className="font-semibold text-green-600 mb-2">✅ Broken into Smaller Steps</h5>
+                              <div className="space-y-2">
+                                {[
+                                  "Design database schema for tracking user events and metrics",
+                                  "Implement event tracking API endpoints for data collection",
+                                  "Create data aggregation jobs for daily/weekly/monthly summaries",
+                                  "Build reusable chart components (line, bar, pie charts)",
+                                  "Develop key metrics calculations (user growth, retention, revenue)",
+                                  "Create individual dashboard widgets for each metric type",
+                                  "Implement dashboard layout with drag-and-drop customization",
+                                  "Add date range filtering and time period comparisons",
+                                  "Build export functionality for reports (PDF, CSV)",
+                                  "Add real-time updates and live data streaming",
+                                  "Implement user-specific dashboard configurations"
+                                ].map((step, index) => (
+                                  <div key={index} className="flex items-start space-x-3 p-2 bg-green-50 rounded">
+                                    <span className="text-green-600 font-bold text-sm mt-0.5">{index + 1}.</span>
+                                    <span className="text-green-800 text-sm">{step}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+
+                            <div className="bg-blue-50 p-4 rounded-lg">
+                              <h6 className="font-semibold text-blue-900 mb-2">Why stepwise is better:</h6>
+                              <ul className="text-blue-800 text-sm space-y-1">
+                                <li>• Analytics dashboards involve complex data processing</li>
+                                <li>• Breaking it down allows data accuracy validation at each step</li>
+                                <li>• Ensures performance with each new component</li>
+                                <li>• Enables user feedback on individual features</li>
+                                <li>• Prevents building a complete system before validation</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </ExpandableSection>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </div>
+
+                {/* Let Claude Explore Section */}
+                <div data-subsection="let-claude-explore" className="mt-12">
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-6">Let Claude Explore: Allow Codebase Exploration First</h3>
+                  
+                  <div className="space-y-6">
+                    <p className="text-gray-700 text-lg">
+                      Before diving into implementation, let Claude explore your codebase to understand existing patterns, 
+                      technologies, and architectural decisions. This leads to solutions that integrate seamlessly with your project.
+                    </p>
+
+                    <Card>
+                      <CardHeader>
+                        <CardTitle className="text-lg text-purple-700">🔍 Exploration Strategy</CardTitle>
+                      </CardHeader>
+                      <CardContent className="space-y-6">
+                        <ExpandableSection title="Example of Prompting Claude to Explore" defaultExpanded={true}>
+                          <div className="space-y-4">
+                            <div>
+                              <h5 className="font-semibold text-purple-600 mb-2">Exploration Prompt</h5>
+                              <CodeBlock 
+                                code="Before we start working on the user notification system, can you explore the codebase to understand how we currently handle user communications, what technologies we're using for messaging, and what patterns we follow for user-facing features? Please examine @src/, @package.json, and any files related to email, notifications, or user communication."
+                                title="Comprehensive exploration request"
+                              />
+                            </div>
+
+                            <div className="bg-purple-50 p-4 rounded-lg">
+                              <h6 className="font-semibold text-purple-900 mb-2">What Exploration Means:</h6>
+                              <p className="text-purple-800 text-sm mb-3">
+                                When Claude explores a codebase, it systematically examines:
+                              </p>
+                              <ul className="text-purple-800 text-sm space-y-1">
+                                <li>• Project structure and organization patterns</li>
+                                <li>• Existing conventions and code styles</li>
+                                <li>• Technology stack and dependencies</li>
+                                <li>• Component relationships and data flow</li>
+                                <li>• Relevant existing functionality to build upon</li>
+                              </ul>
+                            </div>
+
+                            <div className="bg-green-50 p-4 rounded-lg">
+                              <h6 className="font-semibold text-green-900 mb-2">Benefits of Exploration:</h6>
+                              <ul className="text-green-800 text-sm space-y-1">
+                                <li>• Ensures consistency with existing code styles</li>
+                                <li>• Identifies reusable components or utilities</li>
+                                <li>• Avoids duplicating existing functionality</li>
+                                <li>• Follows established architectural patterns</li>
+                                <li>• Provides context-aware suggestions</li>
+                                <li>• Integrates seamlessly with project ecosystem</li>
+                              </ul>
+                            </div>
+
+                            <div className="bg-blue-50 p-4 rounded-lg">
+                              <h6 className="font-semibold text-blue-900 mb-2">What Claude Might Discover:</h6>
+                              <ul className="text-blue-800 text-sm space-y-1">
+                                <li>• Existing notification infrastructure you weren't aware of</li>
+                                <li>• Patterns for handling user preferences to follow</li>
+                                <li>• Utility functions that can be reused</li>
+                                <li>• Styling systems and component patterns</li>
+                                <li>• Testing frameworks and conventions</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </ExpandableSection>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </div>
+
+                {/* Terminal UI Tips Section */}
+                <div data-subsection="terminal-ui-tips" className="mt-12">
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-6">Terminal UI Tips</h3>
+                  
+                  <div className="space-y-6">
+                    <p className="text-gray-700 text-lg">
+                      Master these essential terminal commands and shortcuts to work more efficiently with Claude Code.
+                    </p>
+
+                    <Card>
+                      <CardHeader>
+                        <CardTitle className="text-lg text-indigo-700">⌨️ Essential Terminal Commands and Tips</CardTitle>
+                      </CardHeader>
+                      <CardContent className="space-y-6">
+                        <div className="grid md:grid-cols-2 gap-6">
+                          {[
+                            { command: "claude-code --help", description: "Display comprehensive help information including all available commands, flags, and usage examples" },
+                            { command: "claude-code --version", description: "Check your current Claude Code version for compatibility and troubleshooting" },
+                            { command: "claude-code init", description: "Initialize Claude Code in a new project directory with configuration files" },
+                            { command: "claude-code --config", description: "Access and modify Claude Code configuration settings, API keys, and preferences" },
+                            { command: "claude-code --verbose", description: "Enable detailed logging for debugging internal operations and decision-making" },
+                            { command: "Ctrl + C", description: "Gracefully interrupt ongoing operations without losing session context" },
+                            { command: "/save [filename]", description: "Save current conversation to file for future reference and documentation" },
+                            { command: "/load [filename]", description: "Load previously saved conversation to continue complex development tasks" },
+                            { command: "/export", description: "Export code changes and conversation history in various formats (markdown, diff)" },
+                            { command: "/status", description: "Display current session information including active file watchers and context size" },
+                            { command: "/diff [file]", description: "Show detailed diff view for any file modified during the session" },
+                            { command: "/undo", description: "Revert the last set of changes applied by Claude Code safely" },
+                            { command: "/files", description: "List all files currently being watched or referenced in conversation" },
+                            { command: "/search [query]", description: "Search across entire codebase for specific terms, functions, or patterns" },
+                            { command: "/commit [message]", description: "Create git commits with AI-generated or custom commit messages" }
+                          ].map((tip, index) => (
+                            <div key={index} className="p-4 border border-gray-200 rounded-lg">
+                              <code className="text-indigo-600 font-semibold text-sm bg-indigo-50 px-2 py-1 rounded">
+                                {tip.command}
+                              </code>
+                              <p className="text-gray-600 text-sm mt-2">{tip.description}</p>
+                            </div>
+                          ))}
+                        </div>
+
+                        <div className="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                          <h6 className="font-semibold text-yellow-900 mb-2">💡 Pro Tips:</h6>
+                          <ul className="text-yellow-800 text-sm space-y-1">
+                            <li>• Use `/clear` frequently when switching between different development tasks</li>
+                            <li>• Combine multiple @ tags in one message to provide comprehensive context</li>
+                            <li>• Save important debugging sessions with `/save` for team knowledge sharing</li>
+                            <li>• Use `/status` to monitor context size and session health during long sessions</li>
+                            <li>• The `/search` command understands code semantics, not just text matching</li>
+                          </ul>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </div>
               </div>
             </section>
 
