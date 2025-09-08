@@ -91,7 +91,12 @@ function App() {
   const scrollToSection = (sectionId) => {
     const element = document.querySelector(`[data-section="${sectionId}"]`)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      const headerHeight = 80 // Account for sticky header height
+      const elementPosition = element.offsetTop - headerHeight
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      })
     }
     setIsMobileMenuOpen(false)
   }
