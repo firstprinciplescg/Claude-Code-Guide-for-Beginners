@@ -348,7 +348,7 @@ function App() {
                         />
                       </div>
                       
-                      <ExpandableSection title="Key Terminal Features" className="mb-4">
+                      <ExpandableSection title="Key Terminal Features" className="mb-4 mt-6">
                         <ul className="space-y-3 text-gray-600">
                           <li className="flex items-start space-x-2">
                             <span className="font-medium text-blue-600">•</span>
@@ -809,8 +809,7 @@ function App() {
             {/* Footer */}
             <footer className="mt-16 pt-8 border-t text-center text-gray-600">
               <p className="mb-4">
-                Created with ❤️ by <strong>Manus AI</strong> • Based on official Anthropic documentation and community insights
-              </p>
+                Created with ❤️ by <a href="https://www.linkedin.com/in/mdustinmoore/">Dustin Moore</a> from <a href="https://firstprinciplescg.com">First Principles Consulting Group</a> using <a href="https://claude.ai">Claude</a> and <a href="https://www.anthropic.com/claude-code">Claude Code</a></p>
               <div className="flex justify-center space-x-6 text-sm">
                 <a href="#" className="hover:text-blue-600 transition-colors">Documentation</a>
                 <a href="#" className="hover:text-blue-600 transition-colors">GitHub</a>
