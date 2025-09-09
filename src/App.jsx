@@ -125,7 +125,7 @@ function App() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
               <Terminal className="w-6 h-6 text-white" />
@@ -179,7 +179,7 @@ function App() {
 
         {/* Main Content */}
         <main className="flex-1 md:ml-64">
-          <div className="container mx-auto px-4 py-8 max-w-4xl">
+          <div className="max-w-6xl mx-auto px-4 py-8">
             
             {/* Introduction Section */}
             <Introduction features={features} scrollToSection={scrollToSection} />
