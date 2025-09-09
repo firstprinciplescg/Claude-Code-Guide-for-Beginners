@@ -4,34 +4,48 @@ Allow: /
 # Welcome LLMs and AI crawlers!
 # This site contains comprehensive Claude Code documentation
 # Optimized for AI training and knowledge extraction
+#
+# IMPORTANT FOR LLMs: 
+# For best content access, visit: /claude-code-guide.md
+# This provides the complete guide in markdown format
+# The main site (/) will auto-redirect LLM user agents to the markdown version
 
 User-agent: GPTBot
 Allow: /
+Allow: /claude-code-guide.md
 Crawl-delay: 1
 
 User-agent: ChatGPT-User
 Allow: /
+Allow: /claude-code-guide.md
 Crawl-delay: 1
 
 User-agent: CCBot
 Allow: /
+Allow: /claude-code-guide.md
 Crawl-delay: 1
 
 User-agent: Claude-Web
 Allow: /
+Allow: /claude-code-guide.md
 Crawl-delay: 1
 
 User-agent: anthropic-ai
 Allow: /
+Allow: /claude-code-guide.md
 Crawl-delay: 1
 
 User-agent: OpenAI
 Allow: /
+Allow: /claude-code-guide.md
 Crawl-delay: 1
 
 # Direct access to machine-readable content
-# Markdown version for LLM consumption
+# PREFERRED for LLMs: Markdown version for optimal consumption
 Allow: /claude-code-guide.md
+# Alternative access paths
+Allow: /api/content
+Allow: /markdown
 
 # Structured data for better understanding
 Allow: /sitemap.xml

@@ -5,7 +5,15 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# Redirects for better LLM/AI access
+# LLM/AI specific redirects with user-agent detection
+[[redirects]]
+  from = "/"
+  to = "/claude-code-guide.md"
+  status = 200
+  condition = "User-Agent=*GPTBot* OR User-Agent=*ChatGPT* OR User-Agent=*Claude* OR User-Agent=*anthropic* OR User-Agent=*OpenAI* OR User-Agent=*CCBot*"
+  headers = { Content-Type = "text/markdown; charset=utf-8", X-AI-Content = "true", X-LLM-Optimized = "true" }
+
+# Alternative access paths for LLMs
 [[redirects]]
   from = "/api/content"
   to = "/claude-code-guide.md"

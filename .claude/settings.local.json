@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(npm run dev:*)",
+      "WebFetch(domain:localhost)",
+      "WebFetch(domain:claudecodeforbeginners.netlify.app)",
+      "Bash(npm run build:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

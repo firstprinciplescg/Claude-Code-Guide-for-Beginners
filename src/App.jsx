@@ -147,11 +147,19 @@ function App() {
         </div>
       </header>
 
+      {/* Mobile Menu Backdrop */}
+      {isMobileMenuOpen && (
+        <div 
+          className="fixed inset-0 z-30 bg-black/50 md:hidden"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
       <div className="flex">
         {/* Sidebar Navigation */}
-        <aside className={`fixed inset-y-0 left-0 z-40 w-64 bg-white border-r transform transition-transform duration-300 ease-in-out ${
+        <aside className={`fixed inset-y-0 left-0 z-40 w-64 bg-white border-r shadow-lg transform transition-transform duration-300 ease-in-out ${
           isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
-        } md:translate-x-0`}>
+        } md:translate-x-0 md:relative md:shadow-none`}>
           <div className="pt-20 md:pt-4">
             <ScrollArea className="h-[calc(100vh-5rem)]">
               <nav className="p-4 space-y-2">
@@ -167,8 +175,8 @@ function App() {
                           : 'text-gray-700 hover:bg-gray-100'
                       }`}
                     >
-                      <Icon className="w-4 h-4" />
-                      <span className="text-sm font-medium">{section.title}</span>
+                      <Icon className="w-5 h-5" />
+                      <span className="text-sm font-medium leading-tight">{section.title}</span>
                     </button>
                   )
                 })}
@@ -178,8 +186,8 @@ function App() {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 md:ml-64">
-          <div className="max-w-6xl mx-auto px-4 py-8">
+        <main className="flex-1 min-w-0 md:ml-0">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             
             {/* Introduction Section */}
             <Introduction features={features} scrollToSection={scrollToSection} />
