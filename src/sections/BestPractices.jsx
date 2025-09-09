@@ -6,7 +6,7 @@ import { SectionTOC } from '@/components/ui/section-toc.jsx'
 const BestPractices = () => {
   return (
     <section data-section="best-practices" className="mb-16">
-      <h2 className="text-3xl font-bold text-gray-900 mb-8">Best Practices & Pro Tips</h2>
+      <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8">Best Practices & Pro Tips</h2>
       
       <SectionTOC 
         sections={[
@@ -21,10 +21,10 @@ const BestPractices = () => {
       <div className="space-y-8">
         {/* Be Specific Section */}
         <div data-subsection="specific-requests">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6">Be Specific: Detailed Requests Get Better Results</h3>
+          <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6">Be Specific: Detailed Requests Get Better Results</h3>
           
           <div className="space-y-6">
-            <p className="text-gray-700 text-lg">
+            <p className="text-gray-700 dark:text-gray-300 text-lg">
               The quality of Claude's responses directly correlates with the specificity of your requests. 
               Instead of vague instructions, provide detailed context, specific requirements, and clear expectations.
             </p>
@@ -52,9 +52,9 @@ const BestPractices = () => {
                       />
                     </div>
 
-                    <div className="bg-blue-50 p-4 rounded-lg">
-                      <h6 className="font-semibold text-blue-900 mb-2">Why the improved request is better:</h6>
-                      <ul className="text-blue-800 text-sm space-y-1">
+                    <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                      <h6 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Why the improved request is better:</h6>
+                      <ul className="text-blue-800 dark:text-blue-200 text-sm space-y-1">
                         <li>• Specifies the exact API endpoint and HTTP method</li>
                         <li>• Identifies authentication method and storage location</li>
                         <li>• Lists specific error scenarios to handle</li>
@@ -83,9 +83,9 @@ const BestPractices = () => {
                       />
                     </div>
 
-                    <div className="bg-blue-50 p-4 rounded-lg">
-                      <h6 className="font-semibold text-blue-900 mb-2">Why the improved request is better:</h6>
-                      <ul className="text-blue-800 text-sm space-y-1">
+                    <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                      <h6 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Why the improved request is better:</h6>
+                      <ul className="text-blue-800 dark:text-blue-200 text-sm space-y-1">
                         <li>• Identifies the specific database technology (PostgreSQL)</li>
                         <li>• Describes the exact problem (query timeouts)</li>
                         <li>• Provides scale context (10,000 records)</li>
@@ -115,9 +115,9 @@ const BestPractices = () => {
                       />
                     </div>
 
-                    <div className="bg-blue-50 p-4 rounded-lg">
-                      <h6 className="font-semibold text-blue-900 mb-2">Why the improved request is better:</h6>
-                      <ul className="text-blue-800 text-sm space-y-1">
+                    <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                      <h6 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Why the improved request is better:</h6>
+                      <ul className="text-blue-800 dark:text-blue-200 text-sm space-y-1">
                         <li>• Specifies technology stack (React/TypeScript)</li>
                         <li>• Lists exact form fields needed</li>
                         <li>• References existing design system with @tags</li>
@@ -136,10 +136,10 @@ const BestPractices = () => {
 
         {/* Step-by-Step Section */}
         <div data-subsection="step-by-step">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6">Step-by-Step: Break Complex Tasks into Smaller Steps</h3>
+          <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6">Step-by-Step: Break Complex Tasks into Smaller Steps</h3>
           
           <div className="space-y-6">
-            <p className="text-gray-700 text-lg">
+            <p className="text-gray-700 dark:text-gray-300 text-lg">
               Large development tasks can be overwhelming for both you and Claude. Breaking complex features into smaller, 
               manageable steps ensures better results, easier debugging, and clearer progress tracking.
             </p>
@@ -173,17 +173,17 @@ const BestPractices = () => {
                           "Add inventory checking and reservation during checkout",
                           "Implement order tracking and status updates"
                         ].map((step, index) => (
-                          <div key={index} className="flex items-start space-x-3 p-2 bg-green-50 rounded">
+                          <div key={index} className="flex items-start space-x-3 p-2 bg-green-50 dark:bg-green-900/20 rounded">
                             <span className="text-green-600 font-bold text-sm mt-0.5">{index + 1}.</span>
-                            <span className="text-green-800 text-sm">{step}</span>
+                            <span className="text-green-800 dark:text-green-200 text-sm">{step}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    <div className="bg-blue-50 p-4 rounded-lg">
-                      <h6 className="font-semibold text-blue-900 mb-2">Why stepwise is better:</h6>
-                      <ul className="text-blue-800 text-sm space-y-1">
+                    <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                      <h6 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Why stepwise is better:</h6>
+                      <ul className="text-blue-800 dark:text-blue-200 text-sm space-y-1">
                         <li>• Each step can be developed, tested, and refined individually</li>
                         <li>• Allows validation of functionality at each stage</li>
                         <li>• Makes debugging easier by isolating issues</li>
@@ -221,17 +221,17 @@ const BestPractices = () => {
                           "Add user profile management (view/edit profile)",
                           "Create logout functionality and token cleanup"
                         ].map((step, index) => (
-                          <div key={index} className="flex items-start space-x-3 p-2 bg-green-50 rounded">
+                          <div key={index} className="flex items-start space-x-3 p-2 bg-green-50 dark:bg-green-900/20 rounded">
                             <span className="text-green-600 font-bold text-sm mt-0.5">{index + 1}.</span>
-                            <span className="text-green-800 text-sm">{step}</span>
+                            <span className="text-green-800 dark:text-green-200 text-sm">{step}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    <div className="bg-blue-50 p-4 rounded-lg">
-                      <h6 className="font-semibold text-blue-900 mb-2">Why stepwise is better:</h6>
-                      <ul className="text-blue-800 text-sm space-y-1">
+                    <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                      <h6 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Why stepwise is better:</h6>
+                      <ul className="text-blue-800 dark:text-blue-200 text-sm space-y-1">
                         <li>• Authentication touches many parts of an application</li>
                         <li>• Building incrementally ensures each piece works correctly</li>
                         <li>• Allows thorough testing of security features at each step</li>
@@ -248,10 +248,10 @@ const BestPractices = () => {
 
         {/* Let Claude Explore Section */}
         <div data-subsection="let-claude-explore">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6">Let Claude Explore: Allow Codebase Exploration First</h3>
+          <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6">Let Claude Explore: Allow Codebase Exploration First</h3>
           
           <div className="space-y-6">
-            <p className="text-gray-700 text-lg">
+            <p className="text-gray-700 dark:text-gray-300 text-lg">
               Before diving into implementation, let Claude explore your codebase to understand your patterns, 
               conventions, and existing architecture. This leads to more consistent, maintainable solutions.
             </p>
@@ -259,8 +259,8 @@ const BestPractices = () => {
             <Card>
               <CardContent className="p-6 pt-6">
                 <div className="space-y-6">
-                  <div className="bg-amber-50 p-4 rounded-lg">
-                    <h5 className="font-semibold text-amber-900 mb-3">Exploration Request Examples</h5>
+                  <div className="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+                    <h5 className="font-semibold text-amber-900 dark:text-amber-100 mb-3">Exploration Request Examples</h5>
                     <div className="space-y-3">
                       <CodeBlock 
                         code={`Before we implement the new feature, can you explore @src/components/ and @src/hooks/ to understand our React patterns and conventions?`}
@@ -277,9 +277,9 @@ const BestPractices = () => {
                     </div>
                   </div>
 
-                  <div className="bg-green-50 p-4 rounded-lg">
-                    <h5 className="font-semibold text-green-900 mb-2">Benefits of Exploration</h5>
-                    <ul className="text-green-800 text-sm space-y-1">
+                  <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                    <h5 className="font-semibold text-green-900 dark:text-green-100 mb-2">Benefits of Exploration</h5>
+                    <ul className="text-green-800 dark:text-green-200 text-sm space-y-1">
                       <li>• Claude learns your naming conventions and code style</li>
                       <li>• Ensures new code follows existing patterns</li>
                       <li>• Identifies reusable components and utilities</li>
@@ -289,9 +289,9 @@ const BestPractices = () => {
                     </ul>
                   </div>
 
-                  <div className="bg-blue-50 p-4 rounded-lg">
-                    <h5 className="font-semibold text-blue-900 mb-2">What Claude Discovers During Exploration</h5>
-                    <ul className="text-blue-800 text-sm space-y-1">
+                  <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                    <h5 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">What Claude Discovers During Exploration</h5>
+                    <ul className="text-blue-800 dark:text-blue-200 text-sm space-y-1">
                       <li>• File organization and directory structure</li>
                       <li>• Naming conventions for files, functions, and variables</li>
                       <li>• Error handling patterns and logging approaches</li>
@@ -308,10 +308,10 @@ const BestPractices = () => {
 
         {/* Terminal UI Tips Section */}
         <div data-subsection="terminal-ui-tips">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6">Terminal UI Tips</h3>
+          <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6">Terminal UI Tips</h3>
           
           <div className="space-y-6">
-            <p className="text-gray-700 text-lg">
+            <p className="text-gray-700 dark:text-gray-300 text-lg">
               Master these terminal interface features to become more efficient with Claude Code sessions.
             </p>
 
@@ -333,17 +333,17 @@ const BestPractices = () => {
                     { command: "/commit [message]", description: "Create git commits with AI-generated or custom commit messages" }
                   ].map((tip, index) => (
                     <div key={index} className="p-4 border border-gray-200 rounded-lg">
-                      <code className="text-indigo-600 font-semibold text-sm bg-indigo-50 px-2 py-1 rounded">
+                      <code className="text-indigo-600 dark:text-indigo-300 font-semibold text-sm bg-indigo-50 dark:bg-indigo-900 px-2 py-1 rounded">
                         {tip.command}
                       </code>
-                      <p className="text-gray-600 text-sm mt-2">{tip.description}</p>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">{tip.description}</p>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-                  <h6 className="font-semibold text-yellow-900 mb-2">💡 Pro Tips:</h6>
-                  <ul className="text-yellow-800 text-sm space-y-1">
+                <div className="mt-6 p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 rounded-lg">
+                  <h6 className="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">💡 Pro Tips:</h6>
+                  <ul className="text-yellow-800 dark:text-yellow-200 text-sm space-y-1">
                     <li>• Use `/clear` frequently when switching between different development tasks</li>
                     <li>• Combine multiple @ tags in one message to provide comprehensive context</li>
                     <li>• Save important debugging sessions with `/save` for team knowledge sharing</li>

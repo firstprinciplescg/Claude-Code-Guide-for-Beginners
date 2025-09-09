@@ -15,11 +15,11 @@ const Introduction = ({ features, scrollToSection }) => {
         <Badge variant="secondary" className="mb-4">
           AI-Powered Development
         </Badge>
-        <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+        <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 dark:text-gray-100 mb-6">
           Claude Code
-          <span className="block text-blue-600">Complete Guide</span>
+          <span className="block text-blue-600 dark:text-blue-400">Complete Guide</span>
         </h1>
-        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+        <p className="text-xl text-gray-600 dark:text-gray-400 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
           Imagine having an experienced developer sitting next to you who understands your entire codebase, can write and modify code directly, and communicates in plain English rather than cryptic commands. This comprehensive guide covers everything from installation to advanced workflows.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -40,14 +40,14 @@ const Introduction = ({ features, scrollToSection }) => {
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <Icon className="w-5 h-5 text-blue-600" />
+                  <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/50 rounded-lg flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                   </div>
                   <CardTitle className="text-lg">{feature.title}</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">{feature.description}</p>
+                <p className="text-gray-600 dark:text-gray-400 dark:text-gray-400">{feature.description}</p>
               </CardContent>
             </Card>
           )

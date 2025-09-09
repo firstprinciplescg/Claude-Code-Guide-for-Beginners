@@ -7,7 +7,7 @@ import { Github, Code } from 'lucide-react'
 const AdvancedTopics = () => {
   return (
     <section data-section="advanced" className="mb-16">
-      <h2 className="text-3xl font-bold text-gray-900 mb-8">Advanced Topics</h2>
+      <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8">Advanced Topics</h2>
       
       <SectionTOC 
         sections={[
@@ -22,13 +22,13 @@ const AdvancedTopics = () => {
       <div className="space-y-12">
         {/* GitHub Integration Section */}
         <div data-subsection="github-integration">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center space-x-3">
-            <Github className="w-6 h-6 text-gray-700" />
+          <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6 flex items-center space-x-3">
+            <Github className="w-6 h-6 text-gray-700 dark:text-gray-300" />
             <span>GitHub Integration</span>
           </h3>
           
           <div className="space-y-6">
-            <p className="text-gray-700 text-lg">
+            <p className="text-gray-700 dark:text-gray-300 text-lg">
               Claude Code's GitHub integration enables seamless collaboration workflows, automated pull request management, 
               and intelligent code analysis directly within your development process.
             </p>
@@ -40,7 +40,7 @@ const AdvancedTopics = () => {
               <CardContent className="space-y-6">
                 <ExpandableSection title="Step 1: Initial Setup" defaultExpanded={true}>
                   <div className="space-y-4">
-                    <p className="text-gray-700">
+                    <p className="text-gray-700 dark:text-gray-300">
                       First, ensure you have GitHub CLI installed and properly authenticated.
                     </p>
                     <CodeBlock 
@@ -63,8 +63,8 @@ gh auth login`}
                       language="bash"
                     />
                     
-                    <div className="bg-blue-50 p-4 rounded-lg">
-                      <h6 className="font-semibold text-blue-900 mb-2">Configuration Setup</h6>
+                    <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                      <h6 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Configuration Setup</h6>
                       <CodeBlock 
                         code={`# Enable GitHub integration in Claude Code
 claude-code --config github enable
@@ -80,12 +80,12 @@ gh auth status`}
 
                 <ExpandableSection title="Step 2: Repository Connection" defaultExpanded={false}>
                   <div className="space-y-4">
-                    <p className="text-gray-700">
+                    <p className="text-gray-700 dark:text-gray-300">
                       Connect your project directory to GitHub and configure Claude Code to understand your repository setup.
                     </p>
                     
                     <div>
-                      <h6 className="font-semibold text-gray-900 mb-2">Repository Setup Commands</h6>
+                      <h6 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Repository Setup Commands</h6>
                       <CodeBlock 
                         code={`# Navigate to your project directory
 cd /path/to/your/project
@@ -104,9 +104,9 @@ git remote add origin https://github.com/username/repository-name.git
                       />
                     </div>
 
-                    <div className="bg-green-50 p-4 rounded-lg">
-                      <h6 className="font-semibold text-green-900 mb-2">What Claude Can Now Access:</h6>
-                      <ul className="text-green-800 text-sm space-y-1">
+                    <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                      <h6 className="font-semibold text-green-900 dark:text-green-100 mb-2">What Claude Can Now Access:</h6>
+                      <ul className="text-green-800 dark:text-green-200 text-sm space-y-1">
                         <li>• Repository metadata and branch information</li>
                         <li>• Existing pull request and issue context</li>
                         <li>• Team collaboration patterns and workflows</li>
@@ -118,7 +118,7 @@ git remote add origin https://github.com/username/repository-name.git
 
                 <ExpandableSection title="Step 3: Pull Request Automation" defaultExpanded={false}>
                   <div className="space-y-4">
-                    <p className="text-gray-700">
+                    <p className="text-gray-700 dark:text-gray-300">
                       Configure Claude Code to automatically create and manage pull requests with intelligent descriptions and metadata.
                     </p>
                     
@@ -147,10 +147,10 @@ git remote add origin https://github.com/username/repository-name.git
 
         {/* Hooks Section */}
         <div data-subsection="hooks" className="mt-12">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6">Hooks</h3>
+          <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6">Hooks</h3>
           
           <div className="space-y-6">
-            <p className="text-gray-700 text-lg">
+            <p className="text-gray-700 dark:text-gray-300 text-lg">
               Claude Code hooks allow you to automate workflows and customize behavior at key points in your development process. 
               These hooks can trigger actions, run scripts, or integrate with external services.
             </p>
@@ -161,9 +161,9 @@ git remote add origin https://github.com/username/repository-name.git
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
-                  <div className="p-4 border border-blue-200 rounded-lg bg-blue-50">
-                    <h5 className="font-semibold text-blue-900 mb-2">Pre-Commit Hooks</h5>
-                    <ul className="text-blue-800 text-sm space-y-1">
+                  <div className="p-4 border border-blue-200 rounded-lg bg-blue-50 dark:bg-blue-900/20">
+                    <h5 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Pre-Commit Hooks</h5>
+                    <ul className="text-blue-800 dark:text-blue-200 text-sm space-y-1">
                       <li>• Code formatting and linting</li>
                       <li>• Test execution</li>
                       <li>• Security scanning</li>
@@ -171,9 +171,9 @@ git remote add origin https://github.com/username/repository-name.git
                     </ul>
                   </div>
                   
-                  <div className="p-4 border border-green-200 rounded-lg bg-green-50">
-                    <h5 className="font-semibold text-green-900 mb-2">Post-Merge Hooks</h5>
-                    <ul className="text-green-800 text-sm space-y-1">
+                  <div className="p-4 border border-green-200 rounded-lg bg-green-50 dark:bg-green-900/20">
+                    <h5 className="font-semibold text-green-900 dark:text-green-100 mb-2">Post-Merge Hooks</h5>
+                    <ul className="text-green-800 dark:text-green-200 text-sm space-y-1">
                       <li>• Environment synchronization</li>
                       <li>• Team notifications</li>
                       <li>• Deployment triggers</li>
@@ -205,7 +205,7 @@ git remote add origin https://github.com/username/repository-name.git
                 <ExpandableSection title="Hook Configuration Examples" defaultExpanded={false}>
                   <div className="space-y-4">
                     <div>
-                      <h6 className="font-semibold text-gray-900 mb-2">Pre-Commit Formatting Hook</h6>
+                      <h6 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Pre-Commit Formatting Hook</h6>
                       <CodeBlock 
                         code={`#!/bin/bash
 # .claude-code/hooks/pre-commit-format.sh
@@ -229,7 +229,7 @@ exit 0`}
                     </div>
 
                     <div>
-                      <h6 className="font-semibold text-gray-900 mb-2">Post-Merge Environment Sync</h6>
+                      <h6 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Post-Merge Environment Sync</h6>
                       <CodeBlock 
                         code={`#!/bin/bash
 # .claude-code/hooks/post-merge-sync.sh
@@ -263,13 +263,13 @@ exit 0`}
 
         {/* Subagents Section */}
         <div data-subsection="subagents" className="mt-12">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center space-x-3">
-            <Code className="w-6 h-6 text-gray-700" />
+          <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6 flex items-center space-x-3">
+            <Code className="w-6 h-6 text-gray-700 dark:text-gray-300" />
             <span>Subagents</span>
           </h3>
           
           <div className="space-y-6">
-            <p className="text-gray-700 text-lg">
+            <p className="text-gray-700 dark:text-gray-300 text-lg">
               Subagents are specialized AI assistants designed for specific aspects of the development lifecycle. 
               They provide focused expertise and can work autonomously on designated tasks.
             </p>
@@ -310,9 +310,9 @@ exit 0`}
                     />
                   </div>
 
-                  <div className="p-4 border border-amber-200 rounded-lg bg-amber-50">
-                    <h5 className="font-semibold text-amber-900 mb-2">Performance Subagent</h5>
-                    <p className="text-amber-800 text-sm mb-3">Optimizes code performance and identifies bottlenecks</p>
+                  <div className="p-4 border border-amber-200 rounded-lg bg-amber-50 dark:bg-amber-900/20">
+                    <h5 className="font-semibold text-amber-900 dark:text-amber-100 mb-2">Performance Subagent</h5>
+                    <p className="text-amber-800 dark:text-amber-200 text-sm mb-3">Optimizes code performance and identifies bottlenecks</p>
                     <CodeBlock 
                       code={`# Activate performance subagent
 "@perf-agent: Analyze the database queries in @models/ and optimize slow operations"`}
@@ -327,23 +327,23 @@ exit 0`}
 
         {/* Headless Mode Section */}
         <div data-subsection="headless-mode" className="mt-12">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6">Headless Mode</h3>
+          <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6">Headless Mode</h3>
           
           <div className="space-y-6">
-            <p className="text-gray-700 text-lg">
+            <p className="text-gray-700 dark:text-gray-300 text-lg">
               Headless mode allows Claude Code to run non-interactively, perfect for CI/CD pipelines, automated workflows, 
               and batch processing tasks.
             </p>
 
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg text-gray-700">⚙️ Headless Mode Usage</CardTitle>
+                <CardTitle className="text-lg text-gray-700 dark:text-gray-300">⚙️ Headless Mode Usage</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 <ExpandableSection title="Basic Headless Commands" defaultExpanded={true}>
                   <div className="space-y-4">
                     <div>
-                      <h6 className="font-semibold text-gray-900 mb-2">Code Generation</h6>
+                      <h6 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Code Generation</h6>
                       <CodeBlock 
                         code={`# Generate code from specifications
 claude-code --headless --task "generate-api" --spec api-specification.yaml --output src/api/`}
@@ -353,7 +353,7 @@ claude-code --headless --task "generate-api" --spec api-specification.yaml --out
                     </div>
 
                     <div>
-                      <h6 className="font-semibold text-gray-900 mb-2">Test Generation</h6>
+                      <h6 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Test Generation</h6>
                       <CodeBlock 
                         code={`# Generate tests for all components
 claude-code --headless --task "generate-tests" --input src/components/ --output tests/`}
@@ -363,7 +363,7 @@ claude-code --headless --task "generate-tests" --input src/components/ --output 
                     </div>
 
                     <div>
-                      <h6 className="font-semibold text-gray-900 mb-2">Documentation Updates</h6>
+                      <h6 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Documentation Updates</h6>
                       <CodeBlock 
                         code={`# Update documentation automatically
 claude-code --headless --task "update-docs" --source src/ --docs docs/`}
@@ -377,7 +377,7 @@ claude-code --headless --task "update-docs" --source src/ --docs docs/`}
                 <ExpandableSection title="CI/CD Integration" defaultExpanded={false}>
                   <div className="space-y-4">
                     <div>
-                      <h6 className="font-semibold text-gray-900 mb-2">GitHub Actions Example</h6>
+                      <h6 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">GitHub Actions Example</h6>
                       <CodeBlock 
                         code={`name: Claude Code Automation
 on:
@@ -403,7 +403,7 @@ jobs:
                     </div>
 
                     <div>
-                      <h6 className="font-semibold text-gray-900 mb-2">Jenkins Pipeline</h6>
+                      <h6 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Jenkins Pipeline</h6>
                       <CodeBlock 
                         code={`pipeline {
     agent any
@@ -432,9 +432,9 @@ jobs:
                   </div>
                 </ExpandableSection>
 
-                <div className="bg-yellow-50 p-4 rounded-lg">
-                  <h6 className="font-semibold text-yellow-900 mb-2">💡 Headless Mode Best Practices</h6>
-                  <ul className="text-yellow-800 text-sm space-y-1">
+                <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg">
+                  <h6 className="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">💡 Headless Mode Best Practices</h6>
+                  <ul className="text-yellow-800 dark:text-yellow-200 text-sm space-y-1">
                     <li>• Always specify clear task parameters and expected outputs</li>
                     <li>• Use configuration files for complex workflows</li>
                     <li>• Implement proper error handling and logging</li>

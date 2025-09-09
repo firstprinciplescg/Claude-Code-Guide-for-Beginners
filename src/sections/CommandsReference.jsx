@@ -21,10 +21,10 @@ export default function CommandsReference() {
 
   return (
     <section data-section="reference" className="mb-16">
-      <h2 className="text-3xl font-bold text-gray-900 mb-8">Essential Commands Reference</h2>
+      <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8">Essential Commands Reference</h2>
       
-      <div className="mb-6 p-4 bg-amber-50 rounded-lg border border-amber-200">
-        <p className="text-amber-800 text-sm">
+      <div className="mb-6 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-200">
+        <p className="text-amber-800 dark:text-amber-200 text-sm">
           <strong>Note:</strong> Claude Code uses slash commands for system operations, distinct from your conversational requests. These commands help you manage your sessions effectively.
         </p>
       </div>
@@ -40,13 +40,13 @@ export default function CommandsReference() {
             {coreCommands.map((cmd, index) => (
               <div key={index} className="border rounded-lg p-4">
                 <div className="flex flex-col md:flex-row md:items-center gap-2 mb-2">
-                  <code className="bg-gray-100 px-3 py-1 rounded font-mono text-sm font-semibold">
+                  <code className="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-3 py-1 rounded font-mono text-sm font-semibold">
                     {cmd.command}
                   </code>
                 </div>
-                <p className="text-gray-600 mb-2">{cmd.description}</p>
-                <div className="bg-gray-50 p-2 rounded">
-                  <code className="text-sm font-mono text-gray-700">{cmd.example}</code>
+                <p className="text-gray-600 dark:text-gray-400 mb-2">{cmd.description}</p>
+                <div className="bg-gray-50 dark:bg-gray-800 p-2 rounded">
+                  <code className="text-sm font-mono text-gray-700 dark:text-gray-300">{cmd.example}</code>
                 </div>
               </div>
             ))}
@@ -65,13 +65,13 @@ export default function CommandsReference() {
             {slashCommands.map((cmd, index) => (
               <div key={index} className="border rounded-lg p-4">
                 <div className="flex flex-col md:flex-row md:items-center gap-2 mb-2">
-                  <code className="bg-blue-100 px-3 py-1 rounded font-mono text-sm font-semibold text-blue-800">
+                  <code className="bg-blue-100 dark:bg-blue-900 px-3 py-1 rounded font-mono text-sm font-semibold text-blue-800 dark:text-blue-200">
                     {cmd.command}
                   </code>
                 </div>
-                <p className="text-gray-600 mb-2">{cmd.description}</p>
-                <div className="bg-gray-50 p-2 rounded">
-                  <code className="text-sm font-mono text-gray-700">{cmd.example}</code>
+                <p className="text-gray-600 dark:text-gray-400 mb-2">{cmd.description}</p>
+                <div className="bg-gray-50 dark:bg-gray-800 p-2 rounded">
+                  <code className="text-sm font-mono text-gray-700 dark:text-gray-300">{cmd.example}</code>
                 </div>
               </div>
             ))}
@@ -89,19 +89,19 @@ export default function CommandsReference() {
           {/* Mobile Layout - Card Grid */}
           <div className="md:hidden space-y-3">
             {allCommands.map((cmd, index) => (
-              <div key={index} className="border rounded-lg p-3 bg-gray-50">
+              <div key={index} className="border rounded-lg p-3 bg-gray-50 dark:bg-gray-800">
                 <div className="mb-2">
                   <code className={`px-2 py-1 rounded text-xs font-mono font-semibold border ${
                     cmd.command.startsWith('/') 
-                      ? 'bg-blue-50 text-blue-800 border-blue-200' 
+                      ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-800 dark:text-blue-200 border-blue-200' 
                       : 'bg-white text-gray-800 border-gray-200'
                   }`}>
                     {cmd.command}
                   </code>
                 </div>
-                <p className="text-gray-600 text-sm mb-2">{cmd.description}</p>
+                <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">{cmd.description}</p>
                 <div className="bg-white p-2 rounded border">
-                  <code className="text-xs font-mono text-gray-700 break-all">
+                  <code className="text-xs font-mono text-gray-700 dark:text-gray-300 break-all">
                     {cmd.example}
                   </code>
                 </div>
@@ -124,13 +124,13 @@ export default function CommandsReference() {
                     <td className="py-3">
                       <code className={`px-2 py-1 rounded text-xs font-mono ${
                         cmd.command.startsWith('/') 
-                          ? 'bg-blue-100 text-blue-800' 
-                          : 'bg-gray-100 text-gray-800'
+                          ? 'bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200' 
+                          : 'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200'
                       }`}>
                         {cmd.command}
                       </code>
                     </td>
-                    <td className="py-3 text-gray-600 text-sm">{cmd.description}</td>
+                    <td className="py-3 text-gray-600 dark:text-gray-400 text-sm">{cmd.description}</td>
                   </tr>
                 ))}
               </tbody>

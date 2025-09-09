@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button.jsx'
 import { Separator } from '@/components/ui/separator.jsx'
 import { ScrollArea } from '@/components/ui/scroll-area.jsx'
 import { BuyMeCoffeeButton } from '@/components/ui/buy-me-coffee-button.jsx'
+import { ThemeToggle } from '@/components/ui/theme-toggle.jsx'
 import { 
   BookOpen, 
   Code, 
@@ -119,17 +120,17 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b">
+      <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
               <Terminal className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gray-900">Claude Code Guide</h1>
-              <p className="text-sm text-gray-600">Complete guide for novice users</p>
+              <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100 transition-colors duration-300">Claude Code Guide</h1>
+              <p className="text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">Complete guide for novice users</p>
             </div>
           </div>
           
@@ -137,6 +138,7 @@ function App() {
             <div className="hidden sm:block">
               <BuyMeCoffeeButton />
             </div>
+            <ThemeToggle />
             <Button
               variant="ghost"
               size="sm"
@@ -159,7 +161,7 @@ function App() {
 
       <div className="flex">
         {/* Sidebar Navigation */}
-        <aside className={`fixed left-0 z-40 w-64 bg-white border-r shadow-lg transform transition-transform duration-300 ease-in-out ${
+        <aside className={`fixed left-0 z-40 w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 shadow-lg transform transition-all duration-300 ease-in-out ${
           isMobileMenuOpen ? 'translate-x-0 top-0 bottom-0' : '-translate-x-full top-0 bottom-0'
         } md:translate-x-0 md:shadow-none md:top-20 md:bottom-0 overflow-hidden`}>
           <div className="pt-4 md:pt-0">
@@ -173,8 +175,8 @@ function App() {
                       onClick={() => scrollToSection(section.id)}
                       className={`w-full flex items-center space-x-2 px-3 py-2 min-h-[40px] rounded-lg text-left transition-colors ${
                         activeSection === section.id
-                          ? 'bg-blue-100 text-blue-700 border border-blue-200'
-                          : 'text-gray-700 hover:bg-gray-100'
+                          ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-700'
+                          : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                       }`}
                     >
                       <Icon className="w-4 h-4 flex-shrink-0" />
@@ -245,13 +247,13 @@ function App() {
             <CommandsReference />
 
             {/* Footer */}
-            <footer className="mt-16 pt-8 border-t text-center text-gray-600">
+            <footer className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700 text-center text-gray-600 dark:text-gray-400 transition-colors duration-300">
               <p className="mb-6 text-sm sm:text-base leading-relaxed px-4">
-                Created with ❤️ by <a href="https://www.linkedin.com/in/mdustinmoore/" className="text-blue-600 hover:text-blue-800 transition-colors">Dustin Moore</a> from <a href="https://firstprinciplescg.com" className="text-blue-600 hover:text-blue-800 transition-colors">First Principles Consulting Group</a> using <a href="https://claude.ai" className="text-blue-600 hover:text-blue-800 transition-colors">Claude</a> and <a href="https://www.anthropic.com/claude-code" className="text-blue-600 hover:text-blue-800 transition-colors">Claude Code</a>
+                Created with ❤️ by <a href="https://www.linkedin.com/in/mdustinmoore/" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors">Dustin Moore</a> from <a href="https://firstprinciplescg.com" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors">First Principles Consulting Group</a> using <a href="https://claude.ai" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors">Claude</a> and <a href="https://www.anthropic.com/claude-code" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors">Claude Code</a>
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 text-sm">
-                <a href="https://docs.anthropic.com/en/docs/claude-code/overview" className="hover:text-blue-600 transition-colors py-2 min-h-[44px] flex items-center justify-center" target="_blank" rel="noopener noreferrer">Documentation</a>
-                <a href="https://github.com/anthropics" className="hover:text-blue-600 transition-colors py-2 min-h-[44px] flex items-center justify-center" target="_blank" rel="noopener noreferrer">Anthropic's GitHub</a>
+                <a href="https://docs.anthropic.com/en/docs/claude-code/overview" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 min-h-[44px] flex items-center justify-center" target="_blank" rel="noopener noreferrer">Documentation</a>
+                <a href="https://github.com/anthropics" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 min-h-[44px] flex items-center justify-center" target="_blank" rel="noopener noreferrer">Anthropic's GitHub</a>
               </div>
             </footer>
           </div>

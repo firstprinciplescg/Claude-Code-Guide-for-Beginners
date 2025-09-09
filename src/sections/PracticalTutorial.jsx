@@ -4,7 +4,7 @@ import { ExpandableSection } from '@/components/ui/expandable-section.jsx'
 export default function PracticalTutorial() {
   return (
     <section data-section="tutorial" className="mb-16">
-      <h2 className="text-3xl font-bold text-gray-900 mb-8">Practical Tutorial: Creating Your Own Claude Code Guide</h2>
+      <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8">Practical Tutorial: Creating Your Own Claude Code Guide</h2>
       
       <div className="mb-8">
         <Card>
@@ -15,8 +15,8 @@ export default function PracticalTutorial() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
-              <p className="text-blue-800">
+            <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-400 p-4 mb-6">
+              <p className="text-blue-800 dark:text-blue-200">
                 <strong>🎯 Project Goal:</strong> Clone, customize, and deploy your own personalized Claude Code guide with automatic GitHub deployment via Netlify.
               </p>
             </div>
@@ -33,16 +33,16 @@ export default function PracticalTutorial() {
           <CardContent className="pt-6">
             <div className="space-y-4">
               <div>
-                <p className="mb-4 text-gray-700">Start Claude Code and tell it to help you clone and set up the project:</p>
-                <div className="bg-gray-50 border rounded-lg p-4 mb-4">
+                <p className="mb-4 text-gray-700 dark:text-gray-300">Start Claude Code and tell it to help you clone and set up the project:</p>
+                <div className="bg-gray-50 dark:bg-gray-800 border rounded-lg p-4 mb-4">
                   <p className="font-semibold text-gray-800 mb-2">What to tell Claude:</p>
                   <div className="bg-white border rounded p-3">
-                    <code className="text-sm text-gray-700">
+                    <code className="text-sm text-gray-700 dark:text-gray-300">
                       "I want to clone the repository at https://github.com/firstprinciplescg/Claude-Code-Guide-for-Beginners and set it up for development. Please walk me through the process and help me understand the project structure."
                     </code>
                   </div>
                 </div>
-                <p className="text-gray-600">Claude will guide you through running the git clone command and navigating into the project directory.</p>
+                <p className="text-gray-600 dark:text-gray-400">Claude will guide you through running the git clone command and navigating into the project directory.</p>
               </div>
             </div>
           </CardContent>
@@ -55,22 +55,22 @@ export default function PracticalTutorial() {
           <CardContent className="pt-6">
             <div className="space-y-4">
               <div>
-                <p className="mb-4 text-gray-700">Let Claude perform a comprehensive analysis of your new project:</p>
-                <div className="bg-gray-50 border rounded-lg p-4 mb-4">
+                <p className="mb-4 text-gray-700 dark:text-gray-300">Let Claude perform a comprehensive analysis of your new project:</p>
+                <div className="bg-gray-50 dark:bg-gray-800 border rounded-lg p-4 mb-4">
                   <p className="font-semibold text-gray-800 mb-2">Analysis Request:</p>
                   <div className="bg-white border rounded p-3 mb-3">
-                    <code className="text-sm text-gray-700">
+                    <code className="text-sm text-gray-700 dark:text-gray-300">
                       "Please explore this entire codebase and explain the project structure, technologies used, and how the different components work together. Look at @src/, @public/, and any configuration files."
                     </code>
                   </div>
                   <p className="font-semibold text-gray-800 mb-2">Follow-up Questions:</p>
                   <div className="bg-white border rounded p-3">
-                    <code className="text-sm text-gray-700">
+                    <code className="text-sm text-gray-700 dark:text-gray-300">
                       "What's the main application architecture? How are styles organized? What build tools are being used? Which files are most important for customization?"
                     </code>
                   </div>
                 </div>
-                <p className="text-gray-600">This exploration phase helps you understand the project's technical foundation and customization possibilities.</p>
+                <p className="text-gray-600 dark:text-gray-400">This exploration phase helps you understand the project's technical foundation and customization possibilities.</p>
               </div>
             </div>
           </CardContent>
@@ -83,31 +83,31 @@ export default function PracticalTutorial() {
           <CardContent className="pt-6">
             <div className="space-y-4">
               <div>
-                <p className="mb-4 text-gray-700">Set up continuous deployment from GitHub to Netlify:</p>
-                <div className="bg-gray-50 border rounded-lg p-4 mb-4">
+                <p className="mb-4 text-gray-700 dark:text-gray-300">Set up continuous deployment from GitHub to Netlify:</p>
+                <div className="bg-gray-50 dark:bg-gray-800 border rounded-lg p-4 mb-4">
                   <p className="font-semibold text-gray-800 mb-2">Deployment Setup:</p>
                   <div className="space-y-3">
                     <div className="bg-white border rounded p-3">
-                      <p className="text-sm font-medium text-gray-700 mb-1">Step 1 - GitHub Setup:</p>
-                      <code className="text-sm text-gray-600">
+                      <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Step 1 - GitHub Setup:</p>
+                      <code className="text-sm text-gray-600 dark:text-gray-400">
                         "I want to deploy this project to Netlify with automatic deployment from GitHub. Please guide me through setting up the repository on GitHub first, then connecting it to Netlify."
                       </code>
                     </div>
                     <div className="bg-white border rounded p-3">
-                      <p className="text-sm font-medium text-gray-700 mb-1">Step 2 - Netlify Connection:</p>
-                      <code className="text-sm text-gray-600">
+                      <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Step 2 - Netlify Connection:</p>
+                      <code className="text-sm text-gray-600 dark:text-gray-400">
                         "Now help me connect this GitHub repository to Netlify for automatic deployment."
                       </code>
                     </div>
                     <div className="bg-white border rounded p-3">
-                      <p className="text-sm font-medium text-gray-700 mb-1">Step 3 - Build Configuration:</p>
-                      <code className="text-sm text-gray-600">
+                      <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Step 3 - Build Configuration:</p>
+                      <code className="text-sm text-gray-600 dark:text-gray-400">
                         "What build command and publish directory should I use for Netlify?"
                       </code>
                     </div>
                   </div>
                 </div>
-                <p className="text-gray-600">Claude will analyze your project structure and provide the correct Netlify build settings.</p>
+                <p className="text-gray-600 dark:text-gray-400">Claude will analyze your project structure and provide the correct Netlify build settings.</p>
               </div>
             </div>
           </CardContent>
@@ -120,32 +120,32 @@ export default function PracticalTutorial() {
           <CardContent className="pt-6">
             <div className="space-y-4">
               <div>
-                <p className="mb-4 text-gray-700">Personalize the visual appearance with your preferred colors:</p>
-                <div className="bg-gray-50 border rounded-lg p-4 mb-4">
+                <p className="mb-4 text-gray-700 dark:text-gray-300">Personalize the visual appearance with your preferred colors:</p>
+                <div className="bg-gray-50 dark:bg-gray-800 border rounded-lg p-4 mb-4">
                   <p className="font-semibold text-gray-800 mb-2">Styling Analysis:</p>
                   <div className="space-y-3">
                     <div className="bg-white border rounded p-3">
-                      <p className="text-sm font-medium text-gray-700 mb-1">Find Current Styling:</p>
-                      <code className="text-sm text-gray-600">
+                      <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Find Current Styling:</p>
+                      <code className="text-sm text-gray-600 dark:text-gray-400">
                         "Where are the colors defined in this project? Show me how the color scheme is organized and what files I need to modify to change it."
                       </code>
                     </div>
                     <div className="bg-white border rounded p-3">
-                      <p className="text-sm font-medium text-gray-700 mb-1">Color Analysis:</p>
-                      <code className="text-sm text-gray-600">
+                      <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Color Analysis:</p>
+                      <code className="text-sm text-gray-600 dark:text-gray-400">
                         "What colors are currently being used? Can you show me the CSS variables or styling constants that define the theme?"
                       </code>
                     </div>
                     <div className="bg-white border rounded p-3">
-                      <p className="text-sm font-medium text-gray-700 mb-1">Apply New Scheme:</p>
-                      <code className="text-sm text-gray-600">
+                      <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Apply New Scheme:</p>
+                      <code className="text-sm text-gray-600 dark:text-gray-400">
                         "I want to change the color scheme to use a [your choice] palette instead of the current colors. Can you help me update the appropriate files?"
                       </code>
                     </div>
                   </div>
                 </div>
-                <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
-                  <p className="text-yellow-800 text-sm">
+                <div className="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 p-4">
+                  <p className="text-yellow-800 dark:text-yellow-200 text-sm">
                     <strong>💡 Pro Tip:</strong> Ask Claude to check contrast ratios for accessibility compliance when changing colors.
                   </p>
                 </div>
@@ -161,25 +161,25 @@ export default function PracticalTutorial() {
           <CardContent className="pt-6">
             <div className="space-y-4">
               <div>
-                <p className="mb-4 text-gray-700">Make the guide uniquely yours with personalized headings:</p>
-                <div className="bg-gray-50 border rounded-lg p-4 mb-4">
+                <p className="mb-4 text-gray-700 dark:text-gray-300">Make the guide uniquely yours with personalized headings:</p>
+                <div className="bg-gray-50 dark:bg-gray-800 border rounded-lg p-4 mb-4">
                   <p className="font-semibold text-gray-800 mb-2">Content Personalization:</p>
                   <div className="space-y-3">
                     <div className="bg-white border rounded p-3">
-                      <p className="text-sm font-medium text-gray-700 mb-1">Locate Main Heading:</p>
-                      <code className="text-sm text-gray-600">
+                      <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Locate Main Heading:</p>
+                      <code className="text-sm text-gray-600 dark:text-gray-400">
                         "Where is the main H1 heading defined in this project? I want to personalize it to include my name."
                       </code>
                     </div>
                     <div className="bg-white border rounded p-3">
-                      <p className="text-sm font-medium text-gray-700 mb-1">Make the Change:</p>
-                      <code className="text-sm text-gray-600">
+                      <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Make the Change:</p>
+                      <code className="text-sm text-gray-600 dark:text-gray-400">
                         "Please update the H1 heading to read 'Claude Code Complete Guide for [Your Name]' and show me exactly what changes need to be made."
                       </code>
                     </div>
                   </div>
                 </div>
-                <p className="text-gray-600">Claude will locate the heading and make the personalization changes for you.</p>
+                <p className="text-gray-600 dark:text-gray-400">Claude will locate the heading and make the personalization changes for you.</p>
               </div>
             </div>
           </CardContent>
@@ -192,32 +192,32 @@ export default function PracticalTutorial() {
           <CardContent className="pt-6">
             <div className="space-y-4">
               <div>
-                <p className="mb-4 text-gray-700">Save your changes and deploy them automatically:</p>
-                <div className="bg-gray-50 border rounded-lg p-4 mb-4">
+                <p className="mb-4 text-gray-700 dark:text-gray-300">Save your changes and deploy them automatically:</p>
+                <div className="bg-gray-50 dark:bg-gray-800 border rounded-lg p-4 mb-4">
                   <p className="font-semibold text-gray-800 mb-2">Git Workflow:</p>
                   <div className="space-y-3">
                     <div className="bg-white border rounded p-3">
-                      <p className="text-sm font-medium text-gray-700 mb-1">Review Changes:</p>
-                      <code className="text-sm text-gray-600">
+                      <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Review Changes:</p>
+                      <code className="text-sm text-gray-600 dark:text-gray-400">
                         "Can you show me all the modifications we've made to this project? I want to review everything before committing."
                       </code>
                     </div>
                     <div className="bg-white border rounded p-3">
-                      <p className="text-sm font-medium text-gray-700 mb-1">Commit Strategy:</p>
-                      <code className="text-sm text-gray-600">
+                      <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Commit Strategy:</p>
+                      <code className="text-sm text-gray-600 dark:text-gray-400">
                         "Help me create appropriate git commits for these changes. Should these be separate commits or can they be combined?"
                       </code>
                     </div>
                     <div className="bg-white border rounded p-3">
-                      <p className="text-sm font-medium text-gray-700 mb-1">Deploy Verification:</p>
-                      <code className="text-sm text-gray-600">
+                      <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Deploy Verification:</p>
+                      <code className="text-sm text-gray-600 dark:text-gray-400">
                         "Can you help me confirm that the changes are live on Netlify? What should I check to ensure everything deployed correctly?"
                       </code>
                     </div>
                   </div>
                 </div>
-                <div className="bg-green-50 border-l-4 border-green-400 p-4">
-                  <p className="text-green-800 text-sm">
+                <div className="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-400 p-4">
+                  <p className="text-green-800 dark:text-green-200 text-sm">
                     <strong>🎉 Success!</strong> Once deployed, you'll have your own personalized Claude Code guide that automatically updates whenever you push changes to GitHub.
                   </p>
                 </div>
@@ -237,7 +237,7 @@ export default function PracticalTutorial() {
           <div className="grid md:grid-cols-2 gap-4">
             <div className="space-y-3">
               <h4 className="font-semibold text-gray-800">Claude Code Skills:</h4>
-              <ul className="space-y-1 text-sm text-gray-600">
+              <ul className="space-y-1 text-sm text-gray-600 dark:text-gray-400">
                 <li>• Project exploration and analysis</li>
                 <li>• Code modification and customization</li>
                 <li>• Git workflow automation</li>
@@ -247,7 +247,7 @@ export default function PracticalTutorial() {
             </div>
             <div className="space-y-3">
               <h4 className="font-semibold text-gray-800">Development Concepts:</h4>
-              <ul className="space-y-1 text-sm text-gray-600">
+              <ul className="space-y-1 text-sm text-gray-600 dark:text-gray-400">
                 <li>• React application structure</li>
                 <li>• CSS customization and theming</li>
                 <li>• GitHub repository management</li>

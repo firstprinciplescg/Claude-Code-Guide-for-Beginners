@@ -17,13 +17,13 @@ export const CopyButton = ({ text, className = '' }) => {
   return (
     <button
       onClick={handleCopy}
-      className={`inline-flex items-center gap-1 px-2 py-1 text-xs bg-gray-100 hover:bg-gray-200 rounded transition-colors ${className}`}
+      className={`inline-flex items-center gap-1 px-2 py-1 text-xs bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 rounded transition-colors ${className}`}
       title={copied ? 'Copied!' : 'Copy to clipboard'}
     >
       {copied ? (
         <>
-          <Check className="w-3 h-3 text-green-600" />
-          <span className="text-green-600">Copied!</span>
+          <Check className="w-3 h-3 text-green-600 dark:text-green-400" />
+          <span className="text-green-600 dark:text-green-400">Copied!</span>
         </>
       ) : (
         <>

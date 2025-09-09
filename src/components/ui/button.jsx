@@ -3,8 +3,8 @@ export const Button = ({ children, onClick, variant = 'default', size = 'default
   
   const variants = {
     default: 'bg-blue-600 text-white hover:bg-blue-700',
-    outline: 'border border-gray-300 bg-transparent hover:bg-gray-100',
-    ghost: 'hover:bg-gray-100'
+    outline: 'border border-gray-300 dark:border-gray-600 bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300',
+    ghost: 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300'
   }
   
   const sizes = {

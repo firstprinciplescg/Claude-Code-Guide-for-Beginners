@@ -16,7 +16,8 @@
       "Bash(claude --version)",
       "Bash(find:*)",
       "Bash(npm install:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(sed:*)"
     ],
     "deny": [],
     "ask": []

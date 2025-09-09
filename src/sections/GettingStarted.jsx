@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 const GettingStarted = () => {
   return (
     <section data-section="getting-started" className="mb-16">
-      <h2 className="text-3xl font-bold text-gray-900 mb-8">Installation and Setup</h2>
+      <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8">Installation and Setup</h2>
       
       <div className="space-y-8">
         <Card>
@@ -18,7 +18,7 @@ const GettingStarted = () => {
               </div>
               <div>
                 <h4 className="font-semibold">Node.js 18 or higher</h4>
-                <p className="text-gray-600">Verify with <code className="bg-gray-100 px-1 rounded text-sm">node --version</code></p>
+                <p className="text-gray-600 dark:text-gray-400">Verify with <code className="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-1 rounded text-sm">node --version</code></p>
               </div>
             </div>
             <div className="flex items-start space-x-3">
@@ -27,7 +27,7 @@ const GettingStarted = () => {
               </div>
               <div>
                 <h4 className="font-semibold">Operating System</h4>
-                <p className="text-gray-600">macOS 10.15+, Ubuntu 20.04+, Windows 10+ with WSL or Git for Windows</p>
+                <p className="text-gray-600 dark:text-gray-400">macOS 10.15+, Ubuntu 20.04+, Windows 10+ with WSL or Git for Windows</p>
               </div>
             </div>
             <div className="flex items-start space-x-3">
@@ -36,7 +36,7 @@ const GettingStarted = () => {
               </div>
               <div>
                 <h4 className="font-semibold">Dependencies</h4>
-                <p className="text-gray-600">ripgrep for fast file searching (usually included automatically)</p>
+                <p className="text-gray-600 dark:text-gray-400">ripgrep for fast file searching (usually included automatically)</p>
               </div>
             </div>
           </CardContent>
@@ -54,26 +54,26 @@ const GettingStarted = () => {
                 <div className="bg-gray-900 text-gray-100 p-4 rounded-lg font-mono text-sm mb-2">
                   npm install -g @anthropic-ai/claude-code
                 </div>
-                <p className="text-sm text-gray-600">⚠️ If you encounter permission errors, avoid using <code className="bg-gray-100 px-1 rounded">sudo</code>. Configure npm to use a different directory for global packages instead.</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">⚠️ If you encounter permission errors, avoid using <code className="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-1 rounded">sudo</code>. Configure npm to use a different directory for global packages instead.</p>
               </div>
               
               <div>
                 <h4 className="font-semibold mb-2">Native Installers</h4>
                 <div className="space-y-3">
                   <div>
-                    <p className="text-sm text-gray-600 mb-1">macOS and Linux:</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">macOS and Linux:</p>
                     <div className="bg-gray-900 text-gray-100 p-3 rounded-lg font-mono text-sm">
                       curl -fsSL https://claude.ai/install.sh | bash
                     </div>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-600 mb-1">Windows PowerShell:</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Windows PowerShell:</p>
                     <div className="bg-gray-900 text-gray-100 p-3 rounded-lg font-mono text-sm">
                       irm https://claude.ai/install.ps1 | iex
                     </div>
                   </div>
                 </div>
-                <p className="text-sm text-gray-600 mt-2">Native installers manage updates independently and work well in restricted environments.</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">Native installers manage updates independently and work well in restricted environments.</p>
               </div>
             </div>
           </CardContent>
@@ -91,7 +91,7 @@ const GettingStarted = () => {
                 <div className="bg-gray-900 text-gray-100 p-4 rounded-lg font-mono text-sm mb-2">
                   claude
                 </div>
-                <p className="text-gray-600">Navigate to your project directory and run this command to start the authentication process.</p>
+                <p className="text-gray-600 dark:text-gray-400">Navigate to your project directory and run this command to start the authentication process.</p>
               </div>
               
               <div>
@@ -99,15 +99,15 @@ const GettingStarted = () => {
                 <div className="space-y-3">
                   <div className="border-l-4 border-blue-500 pl-4">
                     <h5 className="font-medium">API Key (Pay-as-you-go)</h5>
-                    <p className="text-sm text-gray-600">Requires active billing at console.anthropic.com. Creates a dedicated "Claude Code" workspace for usage tracking.</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Requires active billing at console.anthropic.com. Creates a dedicated "Claude Code" workspace for usage tracking.</p>
                   </div>
                   <div className="border-l-4 border-green-500 pl-4">
                     <h5 className="font-medium">Claude Pro/Max Subscription</h5>
-                    <p className="text-sm text-gray-600">Use existing Claude.ai account credentials. Usage counts against subscription limits.</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Use existing Claude.ai account credentials. Usage counts against subscription limits.</p>
                   </div>
                   <div className="border-l-4 border-purple-500 pl-4">
                     <h5 className="font-medium">Enterprise Options</h5>
-                    <p className="text-sm text-gray-600">Amazon Bedrock or Google Vertex AI integration for enterprise compliance.</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Amazon Bedrock or Google Vertex AI integration for enterprise compliance.</p>
                   </div>
                 </div>
               </div>
@@ -134,7 +134,7 @@ const GettingStarted = () => {
                 <div className="bg-gray-900 text-gray-100 p-4 rounded-lg font-mono text-sm mb-2">
                   claude doctor
                 </div>
-                <p className="text-gray-600">This command checks Node.js compatibility, verifies Claude Code components, tests API connectivity, and identifies potential configuration issues.</p>
+                <p className="text-gray-600 dark:text-gray-400">This command checks Node.js compatibility, verifies Claude Code components, tests API connectivity, and identifies potential configuration issues.</p>
               </div>
             </div>
           </CardContent>
