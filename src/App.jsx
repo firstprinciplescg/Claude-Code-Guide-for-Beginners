@@ -139,10 +139,10 @@ function App() {
           <Button
             variant="ghost"
             size="sm"
-            className="md:hidden"
+            className="md:hidden min-h-[48px] min-w-[48px] p-3"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </Button>
         </div>
       </header>
@@ -161,7 +161,7 @@ function App() {
                     <button
                       key={section.id}
                       onClick={() => scrollToSection(section.id)}
-                      className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-left transition-colors ${
+                      className={`w-full flex items-center space-x-3 px-3 py-3 min-h-[48px] rounded-lg text-left transition-colors ${
                         activeSection === section.id
                           ? 'bg-blue-100 text-blue-700 border border-blue-200'
                           : 'text-gray-700 hover:bg-gray-100'
@@ -221,13 +221,13 @@ function App() {
 
             {/* Footer */}
             <footer className="mt-16 pt-8 border-t text-center text-gray-600">
-              <p className="mb-4">
+              <p className="mb-6 text-sm sm:text-base leading-relaxed px-4">
                 Created with ❤️ by <a href="https://www.linkedin.com/in/mdustinmoore/" className="text-blue-600 hover:text-blue-800 transition-colors">Dustin Moore</a> from <a href="https://firstprinciplescg.com" className="text-blue-600 hover:text-blue-800 transition-colors">First Principles Consulting Group</a> using <a href="https://claude.ai" className="text-blue-600 hover:text-blue-800 transition-colors">Claude</a> and <a href="https://www.anthropic.com/claude-code" className="text-blue-600 hover:text-blue-800 transition-colors">Claude Code</a>
               </p>
-              <div className="flex justify-center space-x-6 text-sm">
-                <a href="#" className="hover:text-blue-600 transition-colors">Documentation</a>
-                <a href="#" className="hover:text-blue-600 transition-colors">GitHub</a>
-                <a href="#" className="hover:text-blue-600 transition-colors">Community</a>
+              <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 text-sm">
+                <a href="#" className="hover:text-blue-600 transition-colors py-2 min-h-[44px] flex items-center justify-center">Documentation</a>
+                <a href="#" className="hover:text-blue-600 transition-colors py-2 min-h-[44px] flex items-center justify-center">GitHub</a>
+                <a href="#" className="hover:text-blue-600 transition-colors py-2 min-h-[44px] flex items-center justify-center">Community</a>
               </div>
             </footer>
           </div>

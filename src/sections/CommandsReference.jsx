@@ -103,14 +103,34 @@ export default function CommandsReference() {
         </CardContent>
       </Card>
 
-      {/* Quick Reference Table */}
+      {/* Quick Reference - Mobile-friendly Layout */}
       <Card>
         <CardHeader>
-          <CardTitle>Quick Reference Table</CardTitle>
+          <CardTitle>Quick Reference</CardTitle>
           <CardDescription>All commands at a glance for quick lookup</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="overflow-x-auto">
+          {/* Mobile Layout - Card Grid */}
+          <div className="md:hidden space-y-3">
+            {commands.map((cmd, index) => (
+              <div key={index} className="border rounded-lg p-3 bg-gray-50">
+                <div className="mb-2">
+                  <code className="bg-white px-2 py-1 rounded text-xs font-mono font-semibold border">
+                    {cmd.command}
+                  </code>
+                </div>
+                <p className="text-gray-600 text-sm mb-2">{cmd.description}</p>
+                <div className="bg-white p-2 rounded border">
+                  <code className="text-xs font-mono text-gray-700 break-all">
+                    {cmd.example}
+                  </code>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          {/* Desktop Layout - Table */}
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="border-b">
