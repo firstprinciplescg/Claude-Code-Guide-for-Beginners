@@ -1,42 +1,43 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card.jsx'
 
 export default function CommandsReference() {
-  const commands = [
-    { command: 'claude-code', description: 'Launch Claude Code in interactive mode', example: 'claude-code' },
-    { command: 'claude-code --help', description: 'Display comprehensive help information', example: 'claude-code --help' },
-    { command: 'claude-code --version', description: 'Display current version of Claude Code', example: 'claude-code --version' },
-    { command: 'claude-code init', description: 'Initialize Claude Code configuration in project', example: 'claude-code init' },
-    { command: 'claude-code --config', description: 'Access and modify configuration settings', example: 'claude-code --config api-key set [key]' },
-    { command: 'claude-code --headless --task [name]', description: 'Run in headless mode for automation', example: 'claude-code --headless --task format-code' },
-    { command: '/clear', description: 'Clear conversation history while maintaining context', example: '/clear' },
-    { command: '/save [filename]', description: 'Save current conversation to file', example: '/save debugging-session.md' },
-    { command: '/load [filename]', description: 'Load previously saved conversation', example: '/load debugging-session.md' },
-    { command: '/diff [filename]', description: 'Display detailed diff view for file changes', example: '/diff src/components/UserAuth.tsx' },
-    { command: '/undo', description: 'Revert last set of changes applied by Claude', example: '/undo' },
-    { command: '/commit [message]', description: 'Create git commit with message', example: '/commit "Add user authentication"' },
-    { command: '/status', description: 'Display current session information', example: '/status' },
-    { command: '/files', description: 'List all files in conversation context', example: '/files' },
-    { command: '/search [query]', description: 'Search across codebase for terms or patterns', example: '/search "getUserProfile"' },
-    { command: '/export [format]', description: 'Export conversation or code changes', example: '/export markdown' },
-    { command: '/test [component]', description: 'Generate and run tests for component', example: '/test UserAuth' },
-    { command: '/deploy [environment]', description: 'Deploy project to specified environment', example: '/deploy staging' },
-    { command: '/refactor [pattern]', description: 'Apply refactoring patterns across codebase', example: '/refactor extract-components' },
-    { command: '/docs [component]', description: 'Generate documentation for components', example: '/docs api' }
+  const coreCommands = [
+    { command: 'claude', description: 'Start Claude Code in interactive mode', example: 'claude' },
+    { command: 'claude --version', description: 'Check current version', example: 'claude --version' },
+    { command: 'claude doctor', description: 'Run comprehensive diagnostic check', example: 'claude doctor' }
   ]
+
+  const slashCommands = [
+    { command: '/clear', description: 'Reset conversation context while maintaining project awareness', example: '/clear' },
+    { command: '/model', description: 'Switch between available AI models (Opus 4.1, Sonnet 4, Haiku 3.5)', example: '/model' },
+    { command: '/config', description: 'Open configuration options for Claude Code settings', example: '/config' },
+    { command: '/logout', description: 'Sign out of Claude Code', example: '/logout' },
+    { command: '/status', description: 'Display session information, model in use, and usage statistics', example: '/status' },
+    { command: '/bug', description: 'Submit feedback and report issues to Claude Code development team', example: '/bug' },
+    { command: '/ide', description: 'Connect Claude Code to your IDE (when used in external terminal)', example: '/ide' }
+  ]
+
+  const allCommands = [...coreCommands, ...slashCommands]
 
   return (
     <section data-section="reference" className="mb-16">
       <h2 className="text-3xl font-bold text-gray-900 mb-8">Essential Commands Reference</h2>
       
+      <div className="mb-6 p-4 bg-amber-50 rounded-lg border border-amber-200">
+        <p className="text-amber-800 text-sm">
+          <strong>Note:</strong> Claude Code uses slash commands for system operations, distinct from your conversational requests. These commands help you manage your sessions effectively.
+        </p>
+      </div>
+
       {/* Core Commands */}
       <Card className="mb-8">
         <CardHeader>
-          <CardTitle>Core Commands</CardTitle>
-          <CardDescription>Essential commands for launching and configuring Claude Code</CardDescription>
+          <CardTitle>Core Launch Commands</CardTitle>
+          <CardDescription>Essential commands for starting Claude Code and checking system status</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid gap-4">
-            {commands.slice(0, 6).map((cmd, index) => (
+            {coreCommands.map((cmd, index) => (
               <div key={index} className="border rounded-lg p-4">
                 <div className="flex flex-col md:flex-row md:items-center gap-2 mb-2">
                   <code className="bg-gray-100 px-3 py-1 rounded font-mono text-sm font-semibold">
@@ -53,43 +54,18 @@ export default function CommandsReference() {
         </CardContent>
       </Card>
 
-      {/* Session Management Commands */}
+      {/* Slash Commands */}
       <Card className="mb-8">
         <CardHeader>
-          <CardTitle>Session Management</CardTitle>
-          <CardDescription>Commands for managing your development sessions and conversation history</CardDescription>
+          <CardTitle>Slash Commands</CardTitle>
+          <CardDescription>System commands used within Claude Code sessions (all start with /)</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid gap-4">
-            {commands.slice(6, 12).map((cmd, index) => (
+            {slashCommands.map((cmd, index) => (
               <div key={index} className="border rounded-lg p-4">
                 <div className="flex flex-col md:flex-row md:items-center gap-2 mb-2">
-                  <code className="bg-gray-100 px-3 py-1 rounded font-mono text-sm font-semibold">
-                    {cmd.command}
-                  </code>
-                </div>
-                <p className="text-gray-600 mb-2">{cmd.description}</p>
-                <div className="bg-gray-50 p-2 rounded">
-                  <code className="text-sm font-mono text-gray-700">{cmd.example}</code>
-                </div>
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Development Commands */}
-      <Card className="mb-8">
-        <CardHeader>
-          <CardTitle>Development & Project Commands</CardTitle>
-          <CardDescription>Commands for development workflow, testing, and project management</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid gap-4">
-            {commands.slice(12).map((cmd, index) => (
-              <div key={index} className="border rounded-lg p-4">
-                <div className="flex flex-col md:flex-row md:items-center gap-2 mb-2">
-                  <code className="bg-gray-100 px-3 py-1 rounded font-mono text-sm font-semibold">
+                  <code className="bg-blue-100 px-3 py-1 rounded font-mono text-sm font-semibold text-blue-800">
                     {cmd.command}
                   </code>
                 </div>
@@ -112,10 +88,14 @@ export default function CommandsReference() {
         <CardContent>
           {/* Mobile Layout - Card Grid */}
           <div className="md:hidden space-y-3">
-            {commands.map((cmd, index) => (
+            {allCommands.map((cmd, index) => (
               <div key={index} className="border rounded-lg p-3 bg-gray-50">
                 <div className="mb-2">
-                  <code className="bg-white px-2 py-1 rounded text-xs font-mono font-semibold border">
+                  <code className={`px-2 py-1 rounded text-xs font-mono font-semibold border ${
+                    cmd.command.startsWith('/') 
+                      ? 'bg-blue-50 text-blue-800 border-blue-200' 
+                      : 'bg-white text-gray-800 border-gray-200'
+                  }`}>
                     {cmd.command}
                   </code>
                 </div>
@@ -140,10 +120,14 @@ export default function CommandsReference() {
                 </tr>
               </thead>
               <tbody>
-                {commands.map((cmd, index) => (
+                {allCommands.map((cmd, index) => (
                   <tr key={index} className="border-b">
                     <td className="py-3">
-                      <code className="bg-gray-100 px-2 py-1 rounded text-xs font-mono">
+                      <code className={`px-2 py-1 rounded text-xs font-mono ${
+                        cmd.command.startsWith('/') 
+                          ? 'bg-blue-100 text-blue-800' 
+                          : 'bg-gray-100 text-gray-800'
+                      }`}>
                         {cmd.command}
                       </code>
                     </td>

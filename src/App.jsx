@@ -19,7 +19,10 @@ import {
 // Import section components
 import Introduction from './sections/Introduction.jsx'
 import GettingStarted from './sections/GettingStarted.jsx'
+import YourFirstSession from './sections/YourFirstSession.jsx'
 import CoreConcepts from './sections/CoreConcepts.jsx'
+import EssentialCommands from './sections/EssentialCommands.jsx'
+import IDEIntegration from './sections/IDEIntegration.jsx'
 import CommonWorkflows from './sections/CommonWorkflows.jsx'
 import BestPractices from './sections/BestPractices.jsx'
 import AdvancedTopics from './sections/AdvancedTopics.jsx'
@@ -33,60 +36,53 @@ function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const sections = [
-    { id: 'introduction', title: 'Introduction', icon: BookOpen },
-    { id: 'getting-started', title: 'Getting Started', icon: Zap },
+    { id: 'introduction', title: 'Understanding Claude Code', icon: BookOpen },
+    { id: 'getting-started', title: 'Installation and Setup', icon: Zap },
+    { id: 'your-first-session', title: 'Your First Session', icon: Terminal },
     { id: 'core-concepts', title: 'Core Concepts', icon: Code },
-    { id: 'workflows', title: 'Common Workflows', icon: Terminal },
+    { id: 'essential-commands', title: 'Essential Commands', icon: Terminal },
+    { id: 'ide-integration', title: 'IDE Integration', icon: Code },
+    { id: 'workflows', title: 'Working with Your Codebase', icon: FolderTree },
     { id: 'best-practices', title: 'Best Practices', icon: Settings },
-    { id: 'advanced', title: 'Advanced Topics', icon: Github },
-    { id: 'tutorial', title: 'Practice Tutorial: Creating Your Own Claude Code Guide', icon: FolderTree },
+    { id: 'advanced', title: 'Advanced Features', icon: Github },
+    { id: 'tutorial', title: 'Practical Tutorial', icon: FolderTree },
     { id: 'reference', title: 'Commands Reference', icon: Bug }
   ]
 
   const features = [
     {
       title: "Build Features from Descriptions",
-      description: "Simply describe what you want to build in plain English, and Claude Code will create a plan, write the code, and ensure it works.",
+      description: "Describe what you want in plain English, including business requirements and technical constraints. Claude creates implementation plans that respect your existing architecture and follows your project's patterns.",
       icon: Code
     },
     {
       title: "Debug and Fix Issues",
-      description: "Paste an error message or describe a bug, and Claude Code will analyze your codebase and implement a fix.",
+      description: "Claude transforms frustrating investigation sessions into collaborative problem-solving. It analyzes not just error messages but your entire codebase context to identify root causes.",
       icon: Bug
     },
     {
       title: "Navigate Any Codebase",
-      description: "Ask anything about your team's codebase and get thoughtful answers. Claude maintains awareness of your entire project.",
+      description: "Whether exploring unfamiliar codebases or maintaining legacy systems, Claude acts as a knowledgeable guide that maps architectural patterns and explains complex business logic.",
       icon: FolderTree
     },
     {
       title: "Automate Tedious Tasks",
-      description: "Fix linting issues, resolve merge conflicts, and write release notes with a single command.",
+      description: "Handle routine work that interrupts flow states: fix linting issues, resolve merge conflicts, update imports, write comprehensive tests, and generate meaningful documentation.",
       icon: Settings
     }
   ]
 
   const commands = [
-    { command: 'claude-code', description: 'Launch Claude Code in interactive mode', example: 'claude-code' },
-    { command: 'claude-code --help', description: 'Display comprehensive help information', example: 'claude-code --help' },
-    { command: 'claude-code --version', description: 'Display current version of Claude Code', example: 'claude-code --version' },
-    { command: 'claude-code init', description: 'Initialize Claude Code configuration in project', example: 'claude-code init' },
-    { command: 'claude-code --config', description: 'Access and modify configuration settings', example: 'claude-code --config api-key set [key]' },
-    { command: 'claude-code --headless --task [name]', description: 'Run in headless mode for automation', example: 'claude-code --headless --task format-code' },
-    { command: '/clear', description: 'Clear conversation history while maintaining context', example: '/clear' },
-    { command: '/save [filename]', description: 'Save current conversation to file', example: '/save debugging-session.md' },
-    { command: '/load [filename]', description: 'Load previously saved conversation', example: '/load debugging-session.md' },
-    { command: '/diff [filename]', description: 'Display detailed diff view for file changes', example: '/diff src/components/UserAuth.tsx' },
-    { command: '/undo', description: 'Revert last set of changes applied by Claude', example: '/undo' },
-    { command: '/commit [message]', description: 'Create git commit with message', example: '/commit "Add user authentication"' },
-    { command: '/status', description: 'Display current session information', example: '/status' },
-    { command: '/files', description: 'List all files in conversation context', example: '/files' },
-    { command: '/search [query]', description: 'Search across codebase for terms or patterns', example: '/search "getUserProfile"' },
-    { command: '/export [format]', description: 'Export conversation or code changes', example: '/export markdown' },
-    { command: '/test [component]', description: 'Generate and run tests for component', example: '/test UserAuth' },
-    { command: '/deploy [environment]', description: 'Deploy project to specified environment', example: '/deploy staging' },
-    { command: '/refactor [pattern]', description: 'Apply refactoring patterns across codebase', example: '/refactor extract-components' },
-    { command: '/docs [component]', description: 'Generate documentation for components', example: '/docs api' }
+    { command: 'claude', description: 'Launch Claude Code in interactive mode', example: 'claude' },
+    { command: 'claude --version', description: 'Display current version of Claude Code', example: 'claude --version' },
+    { command: 'claude doctor', description: 'Run diagnostic to check installation and configuration', example: 'claude doctor' },
+    { command: '/clear', description: 'Reset conversation context while maintaining project awareness', example: '/clear' },
+    { command: '/model', description: 'Switch between available AI models', example: '/model' },
+    { command: '/config', description: 'Access configuration settings', example: '/config' },
+    { command: '/logout', description: 'Sign out of Claude Code', example: '/logout' },
+    { command: '/status', description: 'Display session information and usage statistics', example: '/status' },
+    { command: '/bug', description: 'Report issues to the Claude Code development team', example: '/bug' },
+    { command: '/ide', description: 'Connect Claude Code to your IDE', example: '/ide' }
   ]
 
   useEffect(() => {
@@ -163,26 +159,26 @@ function App() {
 
       <div className="flex">
         {/* Sidebar Navigation */}
-        <aside className={`fixed inset-y-0 left-0 z-40 w-64 bg-white border-r shadow-lg transform transition-transform duration-300 ease-in-out ${
-          isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
-        } md:translate-x-0 md:relative md:shadow-none`}>
-          <div className="pt-20 md:pt-4">
-            <ScrollArea className="h-[calc(100vh-5rem)]">
-              <nav className="p-4 space-y-2">
+        <aside className={`fixed left-0 z-40 w-64 bg-white border-r shadow-lg transform transition-transform duration-300 ease-in-out ${
+          isMobileMenuOpen ? 'translate-x-0 top-0 bottom-0' : '-translate-x-full top-0 bottom-0'
+        } md:translate-x-0 md:shadow-none md:top-20 md:bottom-0 overflow-hidden`}>
+          <div className="pt-4 md:pt-0">
+            <ScrollArea className="h-[calc(100vh-6rem)] md:h-full">
+              <nav className="p-3 space-y-1">
                 {sections.map((section) => {
                   const Icon = section.icon
                   return (
                     <button
                       key={section.id}
                       onClick={() => scrollToSection(section.id)}
-                      className={`w-full flex items-center space-x-3 px-3 py-3 min-h-[48px] rounded-lg text-left transition-colors ${
+                      className={`w-full flex items-center space-x-2 px-3 py-2 min-h-[40px] rounded-lg text-left transition-colors ${
                         activeSection === section.id
                           ? 'bg-blue-100 text-blue-700 border border-blue-200'
                           : 'text-gray-700 hover:bg-gray-100'
                       }`}
                     >
-                      <Icon className="w-5 h-5" />
-                      <span className="text-sm font-medium leading-tight">{section.title}</span>
+                      <Icon className="w-4 h-4 flex-shrink-0" />
+                      <span className="text-xs font-medium leading-tight">{section.title}</span>
                     </button>
                   )
                 })}
@@ -192,7 +188,7 @@ function App() {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 min-w-0 md:ml-0">
+        <main className="flex-1 min-w-0 md:ml-64">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             
             {/* Introduction Section */}
@@ -200,8 +196,13 @@ function App() {
             
             <Separator className="my-16" />
 
-            {/* Getting Started Section */}
+            {/* Installation and Setup Section */}
             <GettingStarted />
+
+            <Separator className="my-16" />
+
+            {/* Your First Session Section */}
+            <YourFirstSession />
 
             <Separator className="my-16" />
 
@@ -210,7 +211,17 @@ function App() {
 
             <Separator className="my-16" />
 
-            {/* Common Workflows Section */}
+            {/* Essential Commands Section */}
+            <EssentialCommands />
+
+            <Separator className="my-16" />
+
+            {/* IDE Integration Section */}
+            <IDEIntegration />
+
+            <Separator className="my-16" />
+
+            {/* Working with Your Codebase Section */}
             <CommonWorkflows />
 
             <Separator className="my-16" />
@@ -220,18 +231,18 @@ function App() {
 
             <Separator className="my-16" />
 
-            {/* Advanced Topics Section */}
+            {/* Advanced Features Section */}
             <AdvancedTopics />
 
             <Separator className="my-16" />
 
-            {/* Tutorial Section */}
+            {/* Practical Tutorial Section */}
             <PracticalTutorial />
 
             <Separator className="my-16" />
 
             {/* Commands Reference Section */}
-            <CommandsReference commands={commands} />
+            <CommandsReference />
 
             {/* Footer */}
             <footer className="mt-16 pt-8 border-t text-center text-gray-600">

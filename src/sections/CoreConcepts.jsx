@@ -11,257 +11,198 @@ const CoreConcepts = () => {
       {/* Section TOC */}
       <SectionTOC 
         sections={[
-          { id: 'terminal-interface', title: 'Terminal Interface' },
-          { id: 'vscode-extension', title: 'VS Code Extension' },
-          { id: 'understanding-context', title: 'Understanding Context' },
-          { id: 'additional-context-items', title: 'Additional Context Management' }
+          { id: 'context-window-memory', title: 'Context Window and Memory' },
+          { id: 'file-access', title: 'File Access and Project Awareness' },
+          { id: 'model-selection', title: 'Model Selection and Capabilities' },
+          { id: 'claude-md', title: 'The CLAUDE.md File' }
         ]}
         className="mb-8"
       />
       
       <div className="space-y-8">
-        {/* Terminal Interface */}
-        <div data-subsection="terminal-interface">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6">Terminal Interface</h3>
+        {/* Context Window and Memory */}
+        <div data-subsection="context-window-memory">
+          <h3 className="text-2xl font-semibold text-gray-900 mb-6">Context Window and Memory</h3>
           <Card>
             <CardContent className="p-6">
               <p className="text-gray-600 mb-6">
-                The Claude Code terminal interface is your primary gateway to AI-powered development assistance. 
-                Unlike traditional development tools, Claude Code operates through conversational commands that 
-                feel natural while providing powerful automation capabilities.
+                The context window is Claude Code's working memory during your conversation. Think of it as Claude's ability to remember and reference information from your current session.
               </p>
               
               <div className="bg-blue-50 p-4 rounded-lg mb-6">
-                <h4 className="font-semibold text-blue-900 mb-2">Getting Started</h4>
-                <CodeBlock 
-                  code={`claude-code`}
-                  title="Launch Claude Code"
-                  language="bash"
-                />
+                <h4 className="font-semibold text-blue-900 mb-2">What's Included in Context</h4>
+                <ul className="text-blue-800 text-sm space-y-1">
+                  <li>• Your recent conversation history</li>
+                  <li>• Files that have been read during the session</li>
+                  <li>• Commands that have been executed and their outputs</li>
+                  <li>• Changes that have been made to your codebase</li>
+                </ul>
               </div>
               
-              <ExpandableSection title="Key Terminal Features" className="mb-4 mt-6">
-                <ul className="space-y-3 text-gray-600">
-                  <li className="flex items-start space-x-2">
-                    <span className="font-medium text-blue-600">•</span>
-                    <span><strong>Real-time code generation:</strong> Watch Claude write code as you describe what you need</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <span className="font-medium text-blue-600">•</span>
-                    <span><strong>Intelligent file suggestions:</strong> Automatic recommendations based on project structure</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <span className="font-medium text-blue-600">•</span>
-                    <span><strong>Rich text formatting:</strong> Syntax highlighting and file previews in terminal</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <span className="font-medium text-blue-600">•</span>
-                    <span><strong>Context preservation:</strong> Maintains conversation history and project awareness</span>
-                  </li>
-                </ul>
+              <ExpandableSection title="Understanding Context Limits" className="mb-4 mt-6">
+                <div className="space-y-4">
+                  <p className="text-gray-600">
+                    The context window has limits. During long sessions, especially when working with large files or extensive command outputs, older information gets pushed out to make room for new information.
+                  </p>
+                  <div className="bg-amber-50 p-4 rounded-lg">
+                    <h5 className="font-semibold text-amber-900 mb-2">When to Use /clear</h5>
+                    <p className="text-amber-800 text-sm">
+                      Using <code className="bg-amber-100 px-1 rounded">/clear</code> is like starting a fresh conversation with someone who already knows your codebase but isn't carrying baggage from previous discussions. Essential for productive long sessions.
+                    </p>
+                  </div>
+                </div>
               </ExpandableSection>
               
               <p className="text-gray-600">
-                When you launch Claude Code, you enter an interactive session where you can describe what you want to 
-                accomplish in plain English. The interface maintains context throughout your session, remembering 
-                previous conversations, file changes, and project details.
+                When you reference "the function we just discussed" or "the error from earlier," Claude understands these references because they're within the context window. This allows for coherent, contextual responses throughout your session.
               </p>
             </CardContent>
           </Card>
         </div>
 
-        {/* VS Code Extension */}
-        <div data-subsection="vscode-extension">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6">VS Code Extension</h3>
+        {/* File Access and Project Awareness */}
+        <div data-subsection="file-access">
+          <h3 className="text-2xl font-semibold text-gray-900 mb-6">File Access and Project Awareness</h3>
           <Card>
             <CardContent className="p-6">
               <p className="text-gray-600 mb-6">
-                The VS Code extension brings Claude Code's capabilities directly into your familiar development 
-                environment. This integration allows you to leverage Claude's assistance without leaving your 
-                preferred editor, creating a seamless development experience.
+                Claude Code takes a security-first approach to file access while maintaining comprehensive project awareness. It understands your project structure and conventions without compromising security.
               </p>
               
               <div className="grid md:grid-cols-2 gap-6 mb-6">
-                <div className="p-4 bg-purple-50 rounded-lg">
-                  <h4 className="font-semibold text-purple-900 mb-3">Extension Features</h4>
-                  <ul className="text-sm text-purple-800 space-y-2">
-                    <li>• Dedicated Claude Code panel</li>
-                    <li>• Visual diff views</li>
-                    <li>• Inline code suggestions</li>
-                    <li>• Integrated file management</li>
-                    <li>• Clickable file references</li>
+                <div className="p-4 bg-green-50 rounded-lg">
+                  <h4 className="font-semibold text-green-900 mb-3">What Claude Can Access</h4>
+                  <ul className="text-sm text-green-800 space-y-2">
+                    <li>• Any file in your current directory and subdirectories</li>
+                    <li>• Project structure and organization</li>
+                    <li>• Code patterns and conventions</li>
+                    <li>• Technology stack and dependencies</li>
+                    <li>• File relationships and imports</li>
                   </ul>
                 </div>
-                <div className="p-4 bg-green-50 rounded-lg">
-                  <h4 className="font-semibold text-green-900 mb-3">Integration Benefits</h4>
-                  <ul className="text-sm text-green-800 space-y-2">
-                    <li>• Works with existing Git workflow</li>
-                    <li>• Integrates with debugging tools</li>
-                    <li>• Compatible with extension ecosystem</li>
-                    <li>• Maintains your keybindings</li>
-                    <li>• Preserves editor preferences</li>
+                <div className="p-4 bg-blue-50 rounded-lg">
+                  <h4 className="font-semibold text-blue-900 mb-3">Security Features</h4>
+                  <ul className="text-sm text-blue-800 space-y-2">
+                    <li>• Always asks permission before modifying files</li>
+                    <li>• Shows clear diff views before changes</li>
+                    <li>• Never automatically runs destructive commands</li>
+                    <li>• Respects .gitignore and similar files</li>
+                    <li>• You maintain full control over all changes</li>
                   </ul>
                 </div>
               </div>
               
+              <ExpandableSection title="Project Understanding Capabilities" className="mb-4">
+                <div className="space-y-3 text-gray-600">
+                  <p><strong>Pattern Recognition:</strong> Claude identifies and follows your project's coding patterns, naming conventions, and architectural decisions.</p>
+                  <p><strong>Cross-file Awareness:</strong> Understands how changes in one file might affect others throughout your codebase.</p>
+                  <p><strong>Technology Integration:</strong> Recognizes your frameworks, libraries, and tools to provide contextually appropriate suggestions.</p>
+                </div>
+              </ExpandableSection>
+              
               <p className="text-gray-600">
-                The VS Code extension is particularly valuable for developers who prefer visual interfaces and 
-                want to maintain their existing development workflow while adding AI assistance. It provides the 
-                same conversational interface as the terminal but with enhanced visual feedback and editor integration.
+                This holistic understanding means Claude can make suggestions that feel native to your project rather than generic solutions copied from documentation. Changes are real and immediate, working perfectly with version control systems.
               </p>
             </CardContent>
           </Card>
         </div>
 
-        {/* Understanding Context */}
-        <div data-subsection="understanding-context">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6">Understanding Context</h3>
+        {/* Model Selection and Capabilities */}
+        <div data-subsection="model-selection">
+          <h3 className="text-2xl font-semibold text-gray-900 mb-6">Model Selection and Capabilities</h3>
           
           <div className="space-y-6">
-            {/* @ Symbol Tagging */}
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
-                  <span className="text-blue-600 font-mono text-lg">@</span>
-                  <span>Tagging with @ Symbol</span>
-                </CardTitle>
+                <CardTitle>Available Models</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 mb-4">
-                  The @ symbol in Claude Code serves as your primary tool for providing specific context to your AI assistant. 
-                  Think of it as a way to "tag" or reference specific files, directories, or code elements.
+                  Claude Code can utilize different AI models, each optimized for different types of tasks. Understanding these options helps you choose the right tool for each job.
                 </p>
                 
                 <div className="space-y-4">
-                  <ExpandableSection title="@ Tagging Examples" defaultExpanded={true}>
-                    <div className="space-y-4">
-                      <div>
-                        <h5 className="font-semibold text-gray-900 mb-2">Basic File Tagging</h5>
-                        <CodeBlock 
-                          code={`Can you review @src/components/UserAuth.tsx and suggest improvements?`}
-                          title="Tag specific files"
-                        />
-                      </div>
-                      
-                      <div>
-                        <h5 className="font-semibold text-gray-900 mb-2">Directory Tagging</h5>
-                        <CodeBlock 
-                          code={`Please analyze the structure of @src/components/ and identify patterns`}
-                          title="Tag entire directories"
-                        />
-                      </div>
-                      
-                      <div>
-                        <h5 className="font-semibold text-gray-900 mb-2">Multiple Tags</h5>
-                        <CodeBlock 
-                          code={`Compare @package.json with @yarn.lock and @src/api/client.js to understand dependencies`}
-                          title="Combine multiple file references"
-                        />
-                      </div>
-                      
-                      <div>
-                        <h5 className="font-semibold text-gray-900 mb-2">Function-Specific Tagging</h5>
-                        <CodeBlock 
-                          code={`Help me optimize @utils.py:helperFunction for better performance`}
-                          title="Reference specific functions within files"
-                        />
-                      </div>
-                    </div>
-                  </ExpandableSection>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* /clear Command */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
-                  <span className="text-red-600 font-mono text-lg">/</span>
-                  <span>The /clear Command</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">
-                  The <InlineCode>/clear</InlineCode> command is essential for managing conversation context in Claude Code. 
-                  As your development session progresses, the conversation history can become lengthy and potentially 
-                  confusing for the AI.
-                </p>
-                
-                <div className="bg-amber-50 p-4 rounded-lg mb-4">
-                  <h5 className="font-semibold text-amber-900 mb-2">When to Use /clear</h5>
-                  <ul className="text-amber-800 text-sm space-y-1">
-                    <li>• Switching between different features or components</li>
-                    <li>• Starting work on unrelated debugging issues</li>
-                    <li>• When conversation becomes too long and unfocused</li>
-                    <li>• Moving from planning phase to implementation</li>
-                  </ul>
+                  <div className="border-l-4 border-purple-500 pl-4">
+                    <h5 className="font-semibold text-purple-900 mb-2">Claude Opus 4.1</h5>
+                    <p className="text-sm text-gray-600 mb-2">The most capable model, excelling at complex reasoning and architectural decisions.</p>
+                    <p className="text-xs text-purple-700"><strong>Best for:</strong> System design, complex refactoring, nuanced problem analysis</p>
+                  </div>
+                  
+                  <div className="border-l-4 border-blue-500 pl-4">
+                    <h5 className="font-semibold text-blue-900 mb-2">Claude Sonnet 4</h5>
+                    <p className="text-sm text-gray-600 mb-2">Excellent balance of capability and speed for most development tasks.</p>
+                    <p className="text-xs text-blue-700"><strong>Best for:</strong> Day-to-day coding, debugging, feature implementation</p>
+                  </div>
+                  
+                  <div className="border-l-4 border-green-500 pl-4">
+                    <h5 className="font-semibold text-green-900 mb-2">Claude Haiku 3.5</h5>
+                    <p className="text-sm text-gray-600 mb-2">Optimized for speed and efficiency with quick responses.</p>
+                    <p className="text-xs text-green-700"><strong>Best for:</strong> Quick answers, simple code generation, straightforward tasks</p>
+                  </div>
                 </div>
                 
-                <CodeBlock 
-                  code={`/clear`}
-                  title="Reset conversation context"
-                  language="bash"
-                />
-                
-                <p className="text-gray-600 mt-4">
-                  <strong>Important:</strong> The command doesn't affect your file system or any changes you've made—it 
-                  only clears the conversational context. Claude will still have access to your current codebase through @ tags.
-                </p>
+                <div className="bg-blue-50 p-4 rounded-lg mt-6">
+                  <h5 className="font-semibold text-blue-900 mb-2">Switching Models</h5>
+                  <CodeBlock 
+                    code={`/model`}
+                    title="Switch between available models"
+                    language="bash"
+                  />
+                  <p className="text-blue-800 text-sm mt-2">
+                    You can switch models during your session to match the model to your current needs.
+                  </p>
+                </div>
               </CardContent>
             </Card>
           </div>
         </div>
 
-        {/* Additional Context Items */}
-        <div data-subsection="additional-context-items">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6">Additional Context Management</h3>
+        {/* The CLAUDE.md File */}
+        <div data-subsection="claude-md">
+          <h3 className="text-2xl font-semibold text-gray-900 mb-6">The CLAUDE.md File</h3>
           <Card>
             <CardContent className="p-6">
               <p className="text-gray-600 mb-6">
-                Beyond @ tags and /clear, Claude Code offers several other context management features that 
-                enhance your development experience.
+                A powerful but often overlooked feature is the CLAUDE.md file. This special file, placed in your project root, is automatically read by Claude at the start of each conversation.
               </p>
               
-              <div className="grid gap-4">
-                <ExpandableSection title="Help and Documentation">
-                  <div className="space-y-3">
-                    <CodeBlock 
-                      code={`claude-code --help`}
-                      title="Get comprehensive help information"
-                    />
-                    <p className="text-gray-600">
-                      Provides detailed information about available commands, flags, and usage patterns.
-                    </p>
-                  </div>
-                </ExpandableSection>
-                
-                <ExpandableSection title="File Watching">
-                  <p className="text-gray-600 mb-3">
-                    File watching capabilities automatically detect changes in your codebase, allowing Claude 
-                    to stay current with your modifications even between conversation turns.
-                  </p>
-                  <div className="bg-blue-50 p-3 rounded text-sm text-blue-800">
-                    <strong>Benefit:</strong> You don't need to constantly re-tag files you're actively editing
-                  </div>
-                </ExpandableSection>
-                
-                <ExpandableSection title="Environment Integration">
-                  <p className="text-gray-600 mb-3">
-                    Claude Code can access and understand your development environment configuration, including 
-                    database connections, API configurations, and deployment settings.
-                  </p>
-                  <div className="bg-green-50 p-3 rounded text-sm text-green-800">
-                    <strong>Security:</strong> API keys and sensitive data are handled securely and never logged
-                  </div>
-                </ExpandableSection>
-                
-                <ExpandableSection title="Session Persistence">
-                  <p className="text-gray-600">
-                    Even if you close and reopen Claude Code, it can restore context from your previous session, 
-                    making it easier to continue complex development tasks across multiple work sessions.
-                  </p>
-                </ExpandableSection>
+              <div className="bg-green-50 p-4 rounded-lg mb-6">
+                <h4 className="font-semibold text-green-900 mb-2">What to Include in CLAUDE.md</h4>
+                <ul className="text-green-800 text-sm space-y-1">
+                  <li>• Coding standards specific to your team</li>
+                  <li>• Build commands and their purposes</li>
+                  <li>• Architectural decisions and their rationales</li>
+                  <li>• Known issues or workarounds</li>
+                  <li>• Preferred libraries or patterns</li>
+                </ul>
               </div>
+              
+              <ExpandableSection title="Example CLAUDE.md Structure" defaultExpanded={true}>
+                <CodeBlock 
+                  code={`# Project Conventions
+
+## Code Style
+- Use ES modules (import/export) not CommonJS
+- Prefer functional components in React
+- Use descriptive variable names over comments
+
+## Testing
+- Run tests with: npm test
+- Focus on integration tests over unit tests
+- Mock external APIs using MSW
+
+## Architecture Notes
+- Authentication uses JWT tokens stored in httpOnly cookies
+- All API responses follow the JSend specification
+- Database migrations must be reversible`}
+                  title="CLAUDE.md"
+                  language="markdown"
+                />
+              </ExpandableSection>
+              
+              <p className="text-gray-600 mt-4">
+                This file ensures consistency across sessions and team members, as everyone working with Claude Code on your project gets the same contextual understanding. Think of it as a primer that helps Claude understand your project's specific conventions and requirements.
+              </p>
             </CardContent>
           </Card>
         </div>

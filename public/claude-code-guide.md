@@ -1,491 +1,305 @@
-# Claude Code Complete Guide for Beginners
+# Claude Code: The Complete Beginner's Guide
 
-*The comprehensive beginner's guide to mastering Claude Code - from basic concepts to advanced workflows*
+*A comprehensive guide to understanding and using Claude Code, Anthropic's command-line coding assistant*
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
-2. [Getting Started](#getting-started)
-3. [Core Concepts](#core-concepts)
-4. [Common Workflows](#common-workflows)
-5. [Best Practices & Pro Tips](#best-practices--pro-tips)
-6. [Advanced Topics](#advanced-topics)
-7. [Essential Commands Reference](#essential-commands-reference)
-8. [Practical Tutorial](#practical-tutorial)
+1. [Understanding Claude Code](#understanding-claude-code)
+2. [Installation and Setup](#installation-and-setup)
+3. [Your First Session](#your-first-session)
+4. [Core Concepts](#core-concepts)
+5. [Essential Commands](#essential-commands)
+6. [IDE Integration](#ide-integration)
+7. [Working with Your Codebase](#working-with-your-codebase)
+8. [Common Development Tasks](#common-development-tasks)
+9. [Best Practices](#best-practices)
+10. [Advanced Features](#advanced-features)
+11. [Troubleshooting](#troubleshooting)
 
 ---
 
-## Introduction
+## Understanding Claude Code
 
-Claude Code is Anthropic's official CLI tool that brings AI-powered development assistance directly to your terminal and VS Code. Unlike traditional development tools, Claude Code provides conversational programming help that understands your entire codebase context.
+Imagine having an experienced developer sitting next to you who understands your entire codebase, can write and modify code directly, and communicates in plain English rather than cryptic commands. That's Claude Code. Unlike traditional development tools that require you to memorize specific syntax and commands, Claude Code works through natural conversation while maintaining deep awareness of your project context.
 
-### Key Features
+### What Makes Claude Code Different
 
-**Build Features from Descriptions**
-Simply describe what you want to build in plain English, and Claude Code will create a plan, write the code, and ensure it works.
+Traditional development tools operate on a rigid command-response basis where you need to know exact syntax, remember specific flags, and manually manage context. Claude Code fundamentally changes this paradigm. Instead of typing `git diff HEAD~1 --stat` followed by `git commit -m "message"` and then `git push origin feature-branch`, you can simply tell Claude, "Review my recent changes and commit them with an appropriate message." Claude understands your intent, examines the changes, writes a meaningful commit message based on what actually changed, and handles the git workflow.
 
-**Debug and Fix Issues**
-Paste an error message or describe a bug, and Claude Code will analyze your codebase and implement a fix.
+### What You Can Do with Claude Code
 
-**Navigate Any Codebase**
-Ask anything about your team's codebase and get thoughtful answers. Claude maintains awareness of your entire project.
+Claude Code excels at several key areas of development work, each designed to amplify your capabilities rather than replace your expertise.
 
-**Automate Tedious Tasks**
-Fix linting issues, resolve merge conflicts, and write release notes with a single command.
+When building new features, you describe what you want in plain English, including business requirements, technical constraints, and preferred approaches. Claude creates an implementation plan that respects your existing architecture, writes code that follows your project's patterns and conventions, and ensures everything integrates properly with your existing codebase.
+
+For debugging, Claude Code transforms frustrating investigation sessions into collaborative problem-solving. When you encounter unexpected behavior, Claude analyzes not just the error message but your entire codebase context to identify root causes.
+
+When exploring unfamiliar codebases, Claude acts as a knowledgeable guide. It can map out architectural patterns, explain complex business logic, identify key entry points and data flows, and help you understand not just what the code does, but why it was designed that way.
+
+For routine tasks that interrupt flow states, Claude Code handles the tedious work. Fixing linting issues across multiple files, resolving merge conflicts while preserving intended changes, updating import statements after restructuring, writing comprehensive test suites with edge cases, and generating documentation that actually explains the why behind the code all become simple requests rather than time-consuming chores.
 
 ---
 
-## Getting Started
+## Installation and Setup
 
-### Installation
+Setting up Claude Code is straightforward, but understanding your options helps you choose the best approach for your environment.
 
-#### Prerequisites
-- Node.js 18+ or Python 3.8+
-- Git installed and configured
-- Terminal or command prompt access
+### System Requirements
 
-#### Install Claude Code
+Before installing Claude Code, ensure your system meets these requirements. You'll need Node.js version 18 or higher, which you can verify by running `node --version` in your terminal. Claude Code works on macOS 10.15 or later, Ubuntu 20.04 or later (including other Debian-based distributions), and Windows 10 or later with either WSL or Git for Windows. The tool also requires ripgrep for fast file searching, though this is usually included with Claude Code automatically.
 
-**via npm (Recommended):**
+### Installation Methods
+
+The npm installation method is the most straightforward for developers already using Node.js:
+
 ```bash
 npm install -g @anthropic-ai/claude-code
 ```
 
-**via pip:**
+This installs Claude Code globally on your system, making it available from any directory. If you encounter permission errors, resist the temptation to use `sudo` as this can create security vulnerabilities.
+
+For users who prefer not to use npm or want a more isolated installation, the native installer provides an alternative approach. On macOS and Linux, you can use:
+
 ```bash
-pip install claude-code
+curl -fsSL https://claude.ai/install.sh | bash
 ```
 
-**via Homebrew (macOS):**
-```bash
-brew install anthropic-ai/tap/claude-code
+Windows users can install using PowerShell:
+
+```powershell
+irm https://claude.ai/install.ps1 | iex
 ```
 
-### First Setup
+### Setting Up Your Account
 
-1. **Verify Installation:**
-   ```bash
-   claude-code --version
-   ```
+After installation, you'll need to connect Claude Code to your Anthropic account. Navigate to any project directory and run:
 
-2. **Initialize in your project:**
-   ```bash
-   cd your-project
-   claude-code init
-   ```
+```bash
+claude
+```
 
-3. **Start your first session:**
-   ```bash
-   claude-code
-   ```
+On your first run, Claude Code will guide you through authentication. You have several authentication options, each suited to different use cases.
 
-### VS Code Extension
+If you have an Anthropic Console account with an API key, you can authenticate directly through the console. This requires active billing at console.anthropic.com and provides pay-as-you-go usage.
 
-Install the Claude Code extension from the VS Code marketplace for integrated development experience with visual diff views and inline suggestions.
+Alternatively, if you have a Claude Pro or Max subscription, you can authenticate using your Claude.ai account credentials. This provides a unified experience across Claude Code and the web interface, with usage counting against your subscription limits.
+
+### Verifying Your Installation
+
+After setup completes, run the following command to check your version:
+
+```bash
+claude --version
+```
+
+For a comprehensive system check, use the doctor command:
+
+```bash
+claude doctor
+```
+
+This diagnostic tool examines your installation, checking Node.js compatibility, verifying Claude Code components, testing API connectivity, identifying potential configuration issues, and confirming that required dependencies like ripgrep are available.
+
+---
+
+## Your First Session
+
+Starting your journey with Claude Code is like beginning a conversation with a knowledgeable colleague. Navigate to your project directory in the terminal and simply type:
+
+```bash
+claude
+```
+
+You'll see a welcome message, and Claude will be ready to assist. The interface shows when Claude is thinking, reading files, or waiting for your input.
+
+### Your First Conversation
+
+Let's start with something that demonstrates Claude's contextual awareness. Try asking:
+
+```
+Can you give me an overview of this project? What does it do and how is it structured?
+```
+
+Watch as Claude explores your project, examining README files for project description and purpose, package.json or requirements.txt for dependencies and configuration, main source files to understand entry points, directory structure to map out organization, and configuration files to identify frameworks and tools. Claude then synthesizes this information into a comprehensive overview, explaining not just what files exist, but how they work together to create your application.
+
+### Making Your First Code Change
+
+Let's try making an actual modification to see how Claude handles file changes. If you have a function or class in your project, try this:
+
+```
+Can you add comprehensive documentation to the main function, explaining its purpose, parameters, and return value?
+```
+
+Claude will locate your main function, analyze its implementation to understand its purpose, examine how it's called throughout your codebase, and create appropriate documentation following your project's style. You'll then see the proposed changes with a clear diff showing exactly what will be added.
 
 ---
 
 ## Core Concepts
 
-### The Claude Code Interface
+Understanding how Claude Code thinks and operates will help you use it more effectively. These core concepts form the foundation of productive interaction with Claude.
 
-#### Terminal Interface
-The terminal interface is your primary gateway to AI-powered development. When you launch `claude-code`, you enter an interactive session that maintains context throughout your development work. The interface supports rich text formatting, code syntax highlighting, and file previews directly in your terminal.
+### Context Window and Memory
 
-#### VS Code Extension
-The VS Code extension brings Claude Code capabilities into your familiar development environment, providing visual diff views, clickable file references, and integrated file management without leaving your editor.
+The context window is perhaps the most important concept to understand when working with Claude Code. Think of it as Claude's working memory during your conversation. Unlike a human colleague who remembers every discussion you've had, Claude works with a limited amount of recent context that includes your recent conversation history, files that have been read during the session, commands that have been executed and their outputs, and changes that have been made to your codebase.
 
-### Understanding Context
+However, this context window has limits. During long sessions, especially when working with large files or extensive command outputs, older information gets pushed out to make room for new information. This is why the `/clear` command becomes essential for productive long sessions.
 
-#### Tagging using @ symbol
-The @ symbol serves as your primary tool for providing specific context to Claude Code:
+### File Access and Project Awareness
 
-- `@filename.py` - Include a specific file's content
-- `@src/components/` - Reference an entire directory
-- `@package.json` - Include dependency information
-- `@utils.py:helperFunction` - Reference specific functions
+Claude Code takes a security-first approach to file access while maintaining comprehensive project awareness. It can read any file in your current directory and subdirectories, allowing it to understand your entire project structure. However, it always asks for permission before modifying files or running commands that could affect your system.
 
-#### /clear Command
-Use `/clear` to reset conversation context while maintaining project awareness. This is essential when switching between different features or when conversations become too long and unfocused.
+### Model Selection and Capabilities
 
-#### File Watching and Environment Access
-Claude Code automatically detects changes in your codebase and can access environment variables and configuration settings that affect code suggestions.
+Claude Code can utilize different AI models, each optimized for different types of tasks. Claude Opus 4.1 is the most capable model, excelling at complex reasoning, architectural decisions, and nuanced understanding of large codebases. Claude Sonnet 4 offers an excellent balance of capability and speed. Claude Haiku 3.5 is optimized for speed and efficiency.
+
+You can switch between models during your session using the `/model` command.
+
+### The CLAUDE.md File
+
+A powerful but often overlooked feature is the CLAUDE.md file. This special file, placed in your project root, is automatically read by Claude at the start of each conversation. Think of it as a primer that helps Claude understand your project's specific conventions and requirements.
 
 ---
 
-## Common Workflows
+## Essential Commands
 
-### Understanding New Codebases
+Claude Code uses slash commands for system operations, distinct from your conversational requests. Understanding these commands helps you manage your sessions effectively.
 
-#### Get Codebase Overview
-Start by asking Claude Code to analyze your project:
-```
-"Can you give me an overview of this codebase?"
-```
-Tag key files like `@README.md`, `@package.json`, and `@requirements.txt` for comprehensive analysis.
+### Core Slash Commands
 
-#### Dive into Specific Components
-Use targeted @ tags to examine particular files:
-```
-"What does this UserAuth component do? @src/components/UserAuth/"
-```
+The `/clear` command is perhaps the most frequently used. It resets your conversation context while maintaining project awareness. Think of it as starting a fresh discussion about a new topic while Claude still remembers everything about your project.
 
-#### Find Relevant Code
-Ask questions like:
-```
-"Where is the user registration logic implemented?"
-"Show me all files related to payment processing"
-```
+The `/model` command allows you to switch between available AI models mid-session. Simply typing `/model` shows available options, and you can select based on your current needs.
 
-### Building Features
+The `/config` command opens configuration options for Claude Code. Here you can adjust settings like how diffs are displayed, which tools require permission, and default behaviors for various operations.
 
-#### 1. Describe the Feature
-Provide detailed requirements instead of generic requests:
+Other important commands include:
+- `/logout` - Signs you out of Claude Code
+- `/status` - Provides information about your current session
+- `/bug` - Reports issues to the Claude Code team
+- `/ide` - Connects Claude Code to your IDE
 
-**❌ Poor:** "I need a login feature"
+### Custom Commands
 
-**✅ Good:** "I need a user authentication system that supports email/password login, includes password reset functionality, integrates with our existing user database, and provides JWT tokens for session management."
-
-#### 2. Review the Plan
-Claude will provide a detailed implementation plan. Ask clarifying questions:
-```
-"Why did you choose JWT over sessions?"
-"How does this integrate with our existing error handling?"
-```
-
-#### 3. Approve Changes
-Review each proposed change carefully. Claude presents changes in logical groups with diff views.
-
-#### 4. Test the Feature
-Ask Claude to create comprehensive tests:
-```
-"Create comprehensive tests for this authentication feature"
-"Help me test all the edge cases we discussed"
-```
-
-### Fixing Bugs
-
-#### Share Error with Claude
-Provide comprehensive information:
-- Complete error message and stack trace
-- Relevant code snippets using @ tags
-- Steps to reproduce the issue
-- What you expected vs. what happened
-
-#### Get Fix Recommendations
-Claude analyzes the issue considering your entire codebase context and provides multiple solution approaches with explanations.
-
-#### Apply the Fix
-Choose your preferred approach and approve the implementation with the same review process used for new features.
+Beyond built-in commands, Claude Code supports custom commands that you can create for your project or team. These are stored as markdown files in the `.claude/commands/` directory in your project.
 
 ---
 
-## Best Practices & Pro Tips
+## IDE Integration
 
-### Be Specific: Detailed Requests Get Better Results
+One of Claude Code's most powerful features is its ability to integrate directly with your development environment. Rather than being another separate tool to switch between, Claude Code can work seamlessly within your IDE.
 
-#### Base Request vs Improved Request Examples
+### VS Code and Compatible Editors
 
-**Example 1: API Integration**
+Claude Code works with VS Code and its popular forks including Cursor, Windsurf, and VSCodium. To set up the integration, simply open your project in VS Code, open the integrated terminal, and run `claude`. The extension auto-installs on first run.
 
-❌ **Base Request:** "Help me add an API"
+### JetBrains IDEs
 
-✅ **Improved Request:** "I need to integrate a REST API for user management that fetches user profiles from `/api/users/:id`, handles authentication with bearer tokens stored in localStorage, includes proper error handling for 401/403/500 responses, and updates the existing UserProfile component to display the fetched data with loading states."
-
-**Example 2: Database Operations**
-
-❌ **Base Request:** "Fix my database"
-
-✅ **Improved Request:** "My PostgreSQL database queries are timing out when fetching user orders. The query joins three tables (users, orders, order_items) and needs to handle up to 10,000 records. I'm using Prisma ORM with Next.js. The specific query is in `@lib/database/orders.js` and the error occurs in the `getUserOrderHistory` function. I need optimization that maintains the same data structure for the frontend."
-
-### Step-by-Step: Break Complex Tasks into Smaller Steps
-
-#### Example: E-commerce Checkout System
-
-**❌ Large Task:** "Build a complete checkout system for our e-commerce site"
-
-**✅ Broken into Smaller Steps:**
-1. Create shopping cart state management with add/remove/update quantity functions
-2. Build cart display component with item details and price calculations
-3. Implement shipping address form with validation and address lookup
-4. Add payment method selection (credit card, PayPal, etc.)
-5. Create order summary component with tax and shipping calculations
-6. Integrate payment processing with Stripe API
-7. Build order confirmation page and email notifications
-
-### Let Claude Explore: Allow Codebase Exploration First
-
-Before starting work on complex features, prompt Claude to explore:
-
-```
-"Before we start working on the user notification system, can you explore the codebase to understand how we currently handle user communications, what technologies we're using for messaging, and what patterns we follow for user-facing features? Please examine @src/, @package.json, and any files related to email, notifications, or user communication."
-```
-
-### Terminal UI Tips
-
-#### Essential Commands:
-1. `claude-code --help` - Display comprehensive help
-2. `claude-code --version` - Check current version
-3. `claude-code init` - Initialize project
-4. `claude-code --config` - Access configuration
-5. `claude-code --verbose` - Enable detailed logging
-6. `ctrl + c` - Gracefully interrupt operations
-7. `/save [filename]` - Save conversation
-8. `/load [filename]` - Load previous conversation
-9. `/export` - Export changes and history
-10. `/status` - Display session information
+Claude Code also integrates with JetBrains IDEs including IntelliJ IDEA, PyCharm, WebStorm, PhpStorm, GoLand, and Android Studio. The setup process is similar to VS Code.
 
 ---
 
-## Advanced Topics
+## Working with Your Codebase
 
-### GitHub Integration
+One of Claude Code's greatest strengths is its ability to understand and navigate complex codebases. Whether you're exploring an unfamiliar project, maintaining legacy code, or building new features, Claude Code acts as a knowledgeable guide through your code.
 
-#### Setup Process
-1. Install GitHub CLI: `gh auth login`
-2. Enable in Claude Code: `claude-code --config github enable`
-3. Connect repository: Ensure `.git/config` is properly configured
+### Exploring Project Structure
 
-#### Features
-- Automatic branch creation for features
-- Pull request generation with comprehensive descriptions
-- Issue linking and status updates
-- Branch protection and CI/CD integration
+When approaching a new or unfamiliar codebase, Claude Code can quickly help you build a mental model of how everything fits together. Start with broad, architectural questions like "What's the overall architecture of this application?"
 
-### Hooks
+### Understanding Code Relationships
 
-#### Pre-commit Hook Examples
-```bash
-#!/bin/bash
-# .claude-code/hooks/pre-commit-format.sh
-
-echo "Running code formatting..."
-npx prettier --write src/
-git add .
-echo "Code formatting complete!"
-```
-
-#### Post-commit Hook Examples
-```bash
-#!/bin/bash
-# .claude-code/hooks/post-commit-docs.sh
-
-echo "Updating documentation..."
-npx typedoc src/ --out docs/api
-echo "Documentation update complete!"
-```
-
-### Subagents
-
-#### Development Lifecycle Subagents
-
-**Planning Phase:**
-- Requirements Analyzer: Breaks down complex requirements
-- Architecture Planner: Suggests system architecture patterns
-- Technology Advisor: Recommends appropriate technologies
-- Timeline Estimator: Provides realistic time estimates
-
-**Implementation Phase:**
-- Code Generator: Creates boilerplate and components
-- Database Designer: Designs schemas and relationships
-- API Architect: Designs RESTful or GraphQL APIs
-- Frontend Specialist: Creates responsive UIs
-
-### Headless Mode
-
-#### When to Use
-- Automated code generation in CI/CD pipelines
-- Batch processing of similar tasks
-- Integration with external automation systems
-- Scheduled maintenance tasks
-- Large-scale refactoring operations
-
-#### Setup Example
-Create `claude-config.yaml`:
-```yaml
-tasks:
-  format-code:
-    description: "Format entire codebase"
-    files: "src/**/*.js"
-    actions: ["format", "lint"]
-  
-  update-deps:
-    description: "Update dependencies"
-    actions: ["audit", "update", "test"]
-```
-
-Run headless:
-```bash
-claude-code --headless --config claude-config.yaml --task format-code
-```
+Modern applications involve complex relationships between different parts of the codebase. Claude Code excels at mapping these relationships and explaining their implications.
 
 ---
 
-## Essential Commands Reference
+## Common Development Tasks
 
-### Core Commands
+Claude Code transforms routine development tasks from time-consuming chores into collaborative conversations.
 
-| Command | Description | Example |
-|---------|-------------|---------|
-| `claude-code` | Launch interactive mode | `claude-code` |
-| `claude-code --help` | Display comprehensive help | `claude-code --help` |
-| `claude-code --version` | Display current version | `claude-code --version` |
-| `claude-code init` | Initialize project configuration | `claude-code init` |
-| `claude-code --config` | Access configuration settings | `claude-code --config api-key set [key]` |
-| `claude-code --headless --task [name]` | Run in headless mode | `claude-code --headless --task format-code` |
+### Building New Features
 
-### Session Management Commands
+When building new features, success depends on clear communication about requirements and constraints. Instead of vague requests, provide comprehensive context that helps Claude understand not just what to build, but why and how it should fit into your existing system.
 
-| Command | Description | Example |
-|---------|-------------|---------|
-| `/clear` | Clear conversation history | `/clear` |
-| `/save [filename]` | Save conversation to file | `/save debugging-session.md` |
-| `/load [filename]` | Load previous conversation | `/load debugging-session.md` |
-| `/diff [filename]` | Show file changes | `/diff src/components/UserAuth.tsx` |
-| `/undo` | Revert last changes | `/undo` |
-| `/commit [message]` | Create git commit | `/commit "Add user authentication"` |
+### Debugging and Fixing Issues
 
-### Development & Project Commands
-
-| Command | Description | Example |
-|---------|-------------|---------|
-| `/status` | Display session information | `/status` |
-| `/files` | List files in context | `/files` |
-| `/search [query]` | Search codebase | `/search "getUserProfile"` |
-| `/export [format]` | Export conversation/changes | `/export markdown` |
-| `/test [component]` | Generate and run tests | `/test UserAuth` |
-| `/deploy [environment]` | Deploy to environment | `/deploy staging` |
-| `/refactor [pattern]` | Apply refactoring patterns | `/refactor extract-components` |
-| `/docs [component]` | Generate documentation | `/docs api` |
+Debugging with Claude Code transforms frustrating investigation into collaborative problem-solving. When encountering issues, provide comprehensive context including the complete error message, relevant code snippets, steps to reproduce the issue, and what you expected versus what happened.
 
 ---
 
-## Practical Tutorial: Creating Your Own Claude Code Guide
+## Best Practices
 
-### Project Goal
-Clone, customize, and deploy your own personalized Claude Code guide with automatic GitHub deployment via Netlify.
+Working effectively with Claude Code involves more than just knowing commands and features. These practices will help you get the most value from your AI pair programmer.
 
-### Repository
-```bash
-git clone https://github.com/firstprinciplescg/Claude-Code-Guide-for-Beginners.git
-```
+### Effective Communication
 
-### Step 1: Clone the Repository
+The quality of Claude's assistance directly correlates with the clarity and completeness of your communication. Think of Claude as a skilled colleague who needs context to provide the best help.
 
-Start Claude Code and tell it:
-```
-"I want to clone the repository at https://github.com/firstprinciplescg/Claude-Code-Guide-for-Beginners and set it up for development. Please walk me through the process and help me understand the project structure."
-```
+When making requests, provide background about what you're trying to achieve, not just the immediate task. Be specific about requirements and constraints, and reference relevant files or areas of the codebase in your conversation.
 
-### Step 2: Explore the Codebase
+### Session Management
 
-Ask Claude to perform comprehensive analysis:
-```
-"Please explore this entire codebase and explain the project structure, technologies used, and how the different components work together. Look at @src/, @public/, and any configuration files."
-```
-
-Follow up with:
-```
-"What's the main application architecture? How are styles organized? What build tools are being used? Which files are most important for customization?"
-```
-
-### Step 3: Publish on Netlify with Automatic Deployment
-
-Set up continuous deployment:
-
-**Step 1 - GitHub Setup:**
-```
-"I want to deploy this project to Netlify with automatic deployment from GitHub. Please guide me through setting up the repository on GitHub first, then connecting it to Netlify."
-```
-
-**Step 2 - Netlify Connection:**
-```
-"Now help me connect this GitHub repository to Netlify for automatic deployment."
-```
-
-**Step 3 - Build Configuration:**
-```
-"What build command and publish directory should I use for Netlify?"
-```
-
-### Step 4: Customize the Color Scheme
-
-Personalize the visual appearance:
-
-**Find Current Styling:**
-```
-"Where are the colors defined in this project? Show me how the color scheme is organized and what files I need to modify to change it."
-```
-
-**Apply New Scheme:**
-```
-"I want to change the color scheme to use a [your choice] palette instead of the current colors. Can you help me update the appropriate files?"
-```
-
-💡 **Pro Tip:** Ask Claude to check contrast ratios for accessibility compliance when changing colors.
-
-### Step 5: Personalize the H1 Copy
-
-Make the guide uniquely yours:
-
-**Locate Main Heading:**
-```
-"Where is the main H1 heading defined in this project? I want to personalize it to include my name."
-```
-
-**Make the Change:**
-```
-"Please update the H1 heading to read 'Claude Code Complete Guide for [Your Name]' and show me exactly what changes need to be made."
-```
-
-### Step 6: Commit and Push Updates
-
-Save and deploy your changes:
-
-**Review Changes:**
-```
-"Can you show me all the modifications we've made to this project? I want to review everything before committing."
-```
-
-**Commit Strategy:**
-```
-"Help me create appropriate git commits for these changes. Should these be separate commits or can they be combined?"
-```
-
-**Deploy Verification:**
-```
-"Can you help me confirm that the changes are live on Netlify? What should I check to ensure everything deployed correctly?"
-```
-
-### What You'll Learn
-
-**Claude Code Skills:**
-- Project exploration and analysis
-- Code modification and customization
-- Git workflow automation
-- File system navigation with @tags
-- Deployment configuration
-
-**Development Concepts:**
-- React application structure
-- CSS customization and theming
-- GitHub repository management
-- Continuous deployment setup
-- Build configuration optimization
+Managing your Claude Code sessions effectively ensures optimal performance and clarity. Use `/clear` strategically between distinct tasks. For long development sessions, consider breaking work into logical chunks.
 
 ---
 
-## Additional Resources
+## Advanced Features
 
-- **Official Documentation:** https://docs.anthropic.com/claude-code
-- **Training Repository:** https://github.com/firstprinciplescg/Claude-Code-Guide-for-Beginners
-- **Community Discord:** [Join the discussion](https://discord.gg/anthropic)
-- **VS Code Extension:** Search "Claude Code" in VS Code marketplace
+As you become comfortable with Claude Code's core capabilities, exploring its advanced features opens new possibilities for automation, integration, and sophisticated development workflows.
+
+### Model Context Protocol (MCP) Servers
+
+MCP represents one of Claude Code's most powerful extensibility features. MCP servers are bridges that connect Claude to external tools and services, extending its capabilities far beyond code analysis and generation.
+
+### Print Mode and Automation
+
+Print mode, activated with the `-p` flag, transforms Claude Code into a powerful automation tool. Instead of interactive conversation, print mode executes a single request and returns the result, making it perfect for scripting and integration into automated workflows.
 
 ---
 
-*Created with ❤️ using Claude and Claude Code*
+## Troubleshooting
 
-**Last Updated:** $(date '+%Y-%m-%d')  
-**Version:** 2.0.0  
-**Author:** First Principles Consulting Group
+Even well-designed tools occasionally encounter issues. Understanding common problems and their solutions helps you maintain productivity when challenges arise.
+
+### Installation and Setup Issues
+
+If Claude Code isn't installing correctly, first verify your Node.js version meets requirements. Permission errors during npm installation often tempt users to use `sudo`, but this creates more problems than it solves.
+
+### Authentication Problems
+
+If authentication fails repeatedly, check your network connection and firewall settings. Corporate networks sometimes block OAuth flows.
+
+### Performance Issues
+
+If Claude Code seems slow or unresponsive, several factors might be involved. Large codebases require more time to analyze. Consider using `.claudeignore` files to exclude irrelevant directories.
+
+---
+
+## Quick Reference
+
+### Essential Commands
+- `claude` - Start Claude Code
+- `/clear` - Reset conversation context
+- `/model` - Switch between AI models
+- `/config` - Adjust settings
+- `/logout` - Sign out
+- `/status` - View session information
+- `/bug` - Report issues
+- `/ide` - Connect to IDE
+
+### Key Concepts to Remember
+- **Context Window**: Claude's working memory during your session
+- **CLAUDE.md**: Project-specific configuration file
+- **MCP Servers**: Extend Claude's capabilities with external tools
+- **Print Mode**: Use `-p` flag for automation and scripting
+- **IDE Integration**: Auto-installs when running from IDE terminal
+
+### Resources
+- **Official Documentation**: https://docs.anthropic.com/en/docs/claude-code
+- **GitHub Repository**: https://github.com/anthropics/claude-code
+- **API Documentation**: https://docs.anthropic.com
+- **Support**: https://support.anthropic.com for account and billing help
+
+---
+
+*Last Updated: September 2025*  
+*Based on Claude Code with Claude Opus 4.1, Sonnet 4, and Haiku 3.5 models*

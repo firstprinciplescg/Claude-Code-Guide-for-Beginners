@@ -17,8 +17,7 @@ const Introduction = ({ features, scrollToSection }) => {
           <span className="block text-blue-600">Complete Guide</span>
         </h1>
         <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Master Anthropic's revolutionary agentic coding tool. From installation to advanced workflows, 
-          this comprehensive guide will transform how you write, debug, and think about code.
+          Imagine having an experienced developer sitting next to you who understands your entire codebase, can write and modify code directly, and communicates in plain English rather than cryptic commands. This comprehensive guide covers everything from installation to advanced workflows.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" onClick={() => scrollToSection('getting-started')}>
