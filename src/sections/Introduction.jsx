@@ -1,9 +1,12 @@
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { Badge } from '@/components/ui/badge.jsx'
+import { OptimizedImage } from '@/components/ui/optimized-image.jsx'
 import { ChevronRight, ExternalLink } from 'lucide-react'
 import workflowDiagram from '../assets/claude_code_workflow_diagram.png'
 import featuresOverview from '../assets/claude_code_features_overview.png'
+import workflowDiagramWebp from '../assets/claude_code_workflow_diagram.webp'
+import featuresOverviewWebp from '../assets/claude_code_features_overview.webp'
 
 const Introduction = ({ features, scrollToSection }) => {
   return (
@@ -61,8 +64,9 @@ const Introduction = ({ features, scrollToSection }) => {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <img 
-              src={workflowDiagram} 
+            <OptimizedImage 
+              webpSrc={workflowDiagramWebp}
+              pngSrc={workflowDiagram} 
               alt="Claude Code Development Process" 
               className="w-full rounded-lg border"
             />
@@ -77,8 +81,9 @@ const Introduction = ({ features, scrollToSection }) => {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <img 
-              src={featuresOverview} 
+            <OptimizedImage 
+              webpSrc={featuresOverviewWebp}
+              pngSrc={featuresOverview} 
               alt="Claude Code Key Features" 
               className="w-full rounded-lg border"
             />

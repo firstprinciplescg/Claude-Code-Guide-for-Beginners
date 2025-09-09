@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const Separator = ({ orientation = 'horizontal', className = '', ...props }) => {
   const classes = orientation === 'horizontal' 
     ? `border-b border-gray-200 w-full ${className}`

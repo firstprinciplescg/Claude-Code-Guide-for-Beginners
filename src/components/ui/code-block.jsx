@@ -1,4 +1,3 @@
-import React from 'react'
 import { CopyButton } from './copy-button.jsx'
 
 export const CodeBlock = ({ 

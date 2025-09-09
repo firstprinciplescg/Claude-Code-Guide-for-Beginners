@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const Badge = ({ children, variant = 'default', className = '', ...props }) => {
   const baseClasses = 'inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2'
   

@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const BuyMeCoffeeButton = ({ className = '' }) => {
   return (
     <div className={`flex items-center ${className}`}>

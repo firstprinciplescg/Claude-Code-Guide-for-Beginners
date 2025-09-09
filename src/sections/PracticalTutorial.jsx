@@ -1,5 +1,5 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card.jsx'
-import { ExpandableSection } from '../components/ui/expandable-section.jsx'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
+import { ExpandableSection } from '@/components/ui/expandable-section.jsx'
 
 export default function PracticalTutorial() {
   return (

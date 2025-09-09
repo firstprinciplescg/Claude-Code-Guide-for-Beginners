@@ -1,4 +1,3 @@
-import React from 'react'
 import { Hash } from 'lucide-react'
 
 export const SectionTOC = ({ sections, className = '' }) => {
