@@ -2,6 +2,28 @@
   command = "npm run build"
   publish = "dist"
 
+[build.environment]
+  NODE_VERSION = "18"
+
+# Redirects for better LLM/AI access
+[[redirects]]
+  from = "/api/content"
+  to = "/claude-code-guide.md"
+  status = 200
+  headers = { Content-Type = "text/markdown; charset=utf-8", X-AI-Content = "true" }
+
+[[redirects]]
+  from = "/markdown"
+  to = "/claude-code-guide.md"
+  status = 200
+  headers = { Content-Type = "text/markdown; charset=utf-8" }
+
+[[redirects]]
+  from = "/guide.md"
+  to = "/claude-code-guide.md"
+  status = 200
+
+# SPA fallback for React Router (must be last)
 [[redirects]]
   from = "/*"
   to = "/index.html"

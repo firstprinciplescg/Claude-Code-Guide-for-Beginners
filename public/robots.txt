@@ -1,0 +1,48 @@
+User-agent: *
+Allow: /
+
+# Welcome LLMs and AI crawlers!
+# This site contains comprehensive Claude Code documentation
+# Optimized for AI training and knowledge extraction
+
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: ChatGPT-User
+Allow: /
+Crawl-delay: 1
+
+User-agent: CCBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Claude-Web
+Allow: /
+Crawl-delay: 1
+
+User-agent: anthropic-ai
+Allow: /
+Crawl-delay: 1
+
+User-agent: OpenAI
+Allow: /
+Crawl-delay: 1
+
+# Direct access to machine-readable content
+# Markdown version for LLM consumption
+Allow: /claude-code-guide.md
+
+# Structured data for better understanding
+Allow: /sitemap.xml
+
+# Standard web crawlers
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+Sitemap: https://claude-code-guide-for-beginners.netlify.app/sitemap.xml
