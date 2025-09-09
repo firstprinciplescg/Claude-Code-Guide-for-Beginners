@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button.jsx'
 import { Separator } from '@/components/ui/separator.jsx'
 import { ScrollArea } from '@/components/ui/scroll-area.jsx'
+import { BuyMeCoffeeButton } from '@/components/ui/buy-me-coffee-button.jsx'
 import { 
   BookOpen, 
   Code, 
@@ -136,14 +137,19 @@ function App() {
             </div>
           </div>
           
-          <Button
-            variant="ghost"
-            size="sm"
-            className="md:hidden min-h-[48px] min-w-[48px] p-3"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </Button>
+          <div className="flex items-center space-x-3">
+            <div className="hidden sm:block">
+              <BuyMeCoffeeButton />
+            </div>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="md:hidden min-h-[48px] min-w-[48px] p-3"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </Button>
+          </div>
         </div>
       </header>
 
