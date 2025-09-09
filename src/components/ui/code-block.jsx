@@ -16,8 +16,7 @@ export const CodeBlock = ({
           )}
           {showCopy && (
             <CopyButton 
-              text={code} 
-              className="bg-gray-700 hover:bg-gray-600 text-gray-200" 
+              text={code}
             />
           )}
         </div>
