@@ -26,7 +26,7 @@ const IDEIntegration = () => {
         <div data-subsection="understanding-integration">
           <h3 className="text-2xl font-semibold text-gray-900 mb-6">Understanding IDE Integration</h3>
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-6 pt-6">
               <p className="text-gray-600 mb-6">
                 One of Claude Code's most powerful features is its ability to integrate directly with your development environment. 
                 Rather than being another separate tool to switch between, Claude Code works seamlessly within your IDE, providing 
@@ -234,7 +234,7 @@ const IDEIntegration = () => {
         <div data-subsection="cross-environment">
           <h3 className="text-2xl font-semibold text-gray-900 mb-6">Working Across Environments</h3>
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-6 pt-6">
               <p className="text-gray-600 mb-6">
                 One of the thoughtful aspects of Claude Code's IDE integration is its flexibility. You're never locked 
                 into one way of working.
@@ -289,7 +289,7 @@ const IDEIntegration = () => {
         <div data-subsection="maximizing-benefits">
           <h3 className="text-2xl font-semibold text-gray-900 mb-6">Maximizing Integration Benefits</h3>
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-6 pt-6">
               <p className="text-gray-600 mb-6">
                 To get the most from IDE integration, consider your workflow patterns and optimize accordingly.
               </p>

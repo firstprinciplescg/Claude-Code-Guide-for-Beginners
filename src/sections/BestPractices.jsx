@@ -257,7 +257,7 @@ const BestPractices = () => {
             </p>
 
             <Card>
-              <CardContent className="p-6">
+              <CardContent className="p-6 pt-6">
                 <div className="space-y-6">
                   <div className="bg-amber-50 p-4 rounded-lg">
                     <h5 className="font-semibold text-amber-900 mb-3">Exploration Request Examples</h5>
@@ -308,7 +308,7 @@ const BestPractices = () => {
 
         {/* Terminal UI Tips Section */}
         <div data-subsection="terminal-ui-tips">
-          <h3 className="text-2xl font-semibond text-gray-900 mb-6">Terminal UI Tips</h3>
+          <h3 className="text-2xl font-semibold text-gray-900 mb-6">Terminal UI Tips</h3>
           
           <div className="space-y-6">
             <p className="text-gray-700 text-lg">

@@ -24,7 +24,7 @@ const CoreConcepts = () => {
         <div data-subsection="context-window-memory">
           <h3 className="text-2xl font-semibold text-gray-900 mb-6">Context Window and Memory</h3>
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-6 pt-6">
               <p className="text-gray-600 mb-6">
                 The context window is Claude Code's working memory during your conversation. Think of it as Claude's ability to remember and reference information from your current session.
               </p>
@@ -64,7 +64,7 @@ const CoreConcepts = () => {
         <div data-subsection="file-access">
           <h3 className="text-2xl font-semibold text-gray-900 mb-6">File Access and Project Awareness</h3>
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-6 pt-6">
               <p className="text-gray-600 mb-6">
                 Claude Code takes a security-first approach to file access while maintaining comprehensive project awareness. It understands your project structure and conventions without compromising security.
               </p>
@@ -161,7 +161,7 @@ const CoreConcepts = () => {
         <div data-subsection="claude-md">
           <h3 className="text-2xl font-semibold text-gray-900 mb-6">The CLAUDE.md File</h3>
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-6 pt-6">
               <p className="text-gray-600 mb-6">
                 A powerful but often overlooked feature is the CLAUDE.md file. This special file, placed in your project root, is automatically read by Claude at the start of each conversation.
               </p>

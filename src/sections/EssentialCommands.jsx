@@ -199,7 +199,7 @@ const EssentialCommands = () => {
         <div data-subsection="custom-commands">
           <h3 className="text-2xl font-semibold text-gray-900 mb-6">Custom Commands</h3>
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-6 pt-6">
               <p className="text-gray-600 mb-6">
                 Beyond built-in commands, Claude Code supports custom commands that you can create for your project or team. 
                 These are stored as markdown files in the <code className="bg-gray-100 px-1 rounded">.claude/commands/</code> directory.
@@ -236,7 +236,7 @@ When asked to deploy, follow these steps:
         <div data-subsection="using-commands-effectively">
           <h3 className="text-2xl font-semibold text-gray-900 mb-6">Using Commands Effectively</h3>
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-6 pt-6">
               <div className="space-y-6">
                 <div className="border-l-4 border-blue-500 pl-4">
                   <h4 className="font-semibold text-blue-900 mb-2">Unobtrusive Design</h4>
