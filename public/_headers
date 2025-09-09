@@ -1,43 +1,33 @@
-# Headers for better LLM/AI crawler support
-
+# Security headers for all routes
 /*
-  # Security headers
+  # Prevent clickjacking attacks
   X-Frame-Options: DENY
+  
+  # Prevent MIME type sniffing
   X-Content-Type-Options: nosniff
+  
+  # Enable XSS protection
   X-XSS-Protection: 1; mode=block
+  
+  # Control referrer information
   Referrer-Policy: strict-origin-when-cross-origin
   
-  # AI/LLM friendly headers
-  X-Content-Type: text/html
-  X-AI-Crawlable: true
-  X-LLM-Friendly: true
-  X-Content-Purpose: educational-documentation
+  # Enforce HTTPS and prevent downgrade attacks
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   
-  # Cache control
-  Cache-Control: public, max-age=3600
+  # Control browser features and APIs
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=(), midi=(), magnetometer=(), gyroscope=(), accelerometer=()
+  
+  # Content Security Policy - starts conservative, can be tightened later
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://cdnjs.buymeacoffee.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
 
+# Specific headers for the markdown file served to LLMs
 /claude-code-guide.md
   Content-Type: text/markdown; charset=utf-8
-  X-Content-Type: text/markdown
   X-AI-Content: true
   X-LLM-Optimized: true
-  X-Content-Structure: comprehensive-guide
-  X-Target-Audience: developers, ai-systems, search-engines
-  Cache-Control: public, max-age=7200
+  Cache-Control: public, max-age=3600
 
-/sitemap.xml
-  Content-Type: application/xml; charset=utf-8
-  Cache-Control: public, max-age=86400
-
-/robots.txt
-  Content-Type: text/plain; charset=utf-8
-  Cache-Control: public, max-age=86400
-
-# Static assets
-/claude_code_*.png
-  Content-Type: image/png
-  Cache-Control: public, max-age=31536000
-
-/favicon.ico
-  Content-Type: image/x-icon
-  Cache-Control: public, max-age=31536000
+# Headers for static assets
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
