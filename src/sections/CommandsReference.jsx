@@ -116,7 +116,6 @@ export default function CommandsReference() {
                 <tr className="border-b">
                   <th className="text-left py-2 font-semibold">Command</th>
                   <th className="text-left py-2 font-semibold">Description</th>
-                  <th className="text-left py-2 font-semibold">Example</th>
                 </tr>
               </thead>
               <tbody>
@@ -132,11 +131,6 @@ export default function CommandsReference() {
                       </code>
                     </td>
                     <td className="py-3 text-gray-600 text-sm">{cmd.description}</td>
-                    <td className="py-3">
-                      <code className="bg-gray-100 px-2 py-1 rounded text-xs font-mono">
-                        {cmd.example}
-                      </code>
-                    </td>
                   </tr>
                 ))}
               </tbody>
