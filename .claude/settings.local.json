@@ -17,7 +17,10 @@
       "Bash(find:*)",
       "Bash(npm install:*)",
       "Bash(node:*)",
-      "Bash(sed:*)"
+      "Bash(sed:*)",
+      "Read(//c/Users/Owner/Documents/GitHub/claude code interactive guide/**)",
+      "Bash(git log:*)",
+      "Read(//c/Users/Owner/**)"
     ],
     "deny": [],
     "ask": []
