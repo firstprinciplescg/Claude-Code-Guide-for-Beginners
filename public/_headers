@@ -1,7 +1,7 @@
 # Security headers for all routes
 /*
-  # Prevent clickjacking attacks
-  X-Frame-Options: DENY
+  # Prevent clickjacking attacks - allow Buy Me a Coffee frames
+  X-Frame-Options: SAMEORIGIN
   
   # Prevent MIME type sniffing
   X-Content-Type-Options: nosniff
@@ -18,8 +18,8 @@
   # Control browser features and APIs
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=(), midi=(), magnetometer=(), gyroscope=(), accelerometer=()
   
-  # Content Security Policy - starts conservative, can be tightened later
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://cdnjs.buymeacoffee.com https://www.googletagmanager.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+  # Content Security Policy - allow Buy Me a Coffee widget
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://cdnjs.buymeacoffee.com https://www.googletagmanager.com 'unsafe-inline'; style-src 'self' https://cdnjs.buymeacoffee.com 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.buymeacoffee.com https://api.buymeacoffee.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://www.buymeacoffee.com; frame-src https://www.buymeacoffee.com; frame-ancestors 'none'
 
 # Specific headers for the markdown file served to LLMs
 /claude-code-guide.md
