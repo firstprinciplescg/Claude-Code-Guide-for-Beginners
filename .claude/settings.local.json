@@ -7,7 +7,8 @@
       "WebFetch(domain:localhost)",
       "WebFetch(domain:claudecodeforbeginners.netlify.app)",
       "Bash(npm run build:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Read(//c/Users/Owner/Pictures/Screenshots/**)"
     ],
     "deny": [],
     "ask": []
