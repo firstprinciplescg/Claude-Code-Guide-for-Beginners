@@ -250,9 +250,8 @@ function App() {
                 Created with ❤️ by <a href="https://www.linkedin.com/in/mdustinmoore/" className="text-blue-600 hover:text-blue-800 transition-colors">Dustin Moore</a> from <a href="https://firstprinciplescg.com" className="text-blue-600 hover:text-blue-800 transition-colors">First Principles Consulting Group</a> using <a href="https://claude.ai" className="text-blue-600 hover:text-blue-800 transition-colors">Claude</a> and <a href="https://www.anthropic.com/claude-code" className="text-blue-600 hover:text-blue-800 transition-colors">Claude Code</a>
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 text-sm">
-                <a href="#" className="hover:text-blue-600 transition-colors py-2 min-h-[44px] flex items-center justify-center">Documentation</a>
-                <a href="https://github.com/firstprinciplescg/Claude-Code-Guide-for-Beginners" className="hover:text-blue-600 transition-colors py-2 min-h-[44px] flex items-center justify-center" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="#" className="hover:text-blue-600 transition-colors py-2 min-h-[44px] flex items-center justify-center">Community</a>
+                <a href="https://docs.anthropic.com/en/docs/claude-code/overview" className="hover:text-blue-600 transition-colors py-2 min-h-[44px] flex items-center justify-center" target="_blank" rel="noopener noreferrer">Documentation</a>
+                <a href="https://github.com/anthropics" className="hover:text-blue-600 transition-colors py-2 min-h-[44px] flex items-center justify-center" target="_blank" rel="noopener noreferrer">Anthropic's GitHub</a>
               </div>
             </footer>
           </div>
