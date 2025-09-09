@@ -218,6 +218,18 @@ function App() {
 
             {/* Commands Reference Section */}
             <CommandsReference commands={commands} />
+
+            {/* Footer */}
+            <footer className="mt-16 pt-8 border-t text-center text-gray-600">
+              <p className="mb-4">
+                Created with ❤️ by <a href="https://www.linkedin.com/in/mdustinmoore/" className="text-blue-600 hover:text-blue-800 transition-colors">Dustin Moore</a> from <a href="https://firstprinciplescg.com" className="text-blue-600 hover:text-blue-800 transition-colors">First Principles Consulting Group</a> using <a href="https://claude.ai" className="text-blue-600 hover:text-blue-800 transition-colors">Claude</a> and <a href="https://www.anthropic.com/claude-code" className="text-blue-600 hover:text-blue-800 transition-colors">Claude Code</a>
+              </p>
+              <div className="flex justify-center space-x-6 text-sm">
+                <a href="#" className="hover:text-blue-600 transition-colors">Documentation</a>
+                <a href="#" className="hover:text-blue-600 transition-colors">GitHub</a>
+                <a href="#" className="hover:text-blue-600 transition-colors">Community</a>
+              </div>
+            </footer>
           </div>
         </main>
       </div>
