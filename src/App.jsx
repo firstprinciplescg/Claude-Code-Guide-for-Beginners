@@ -47,7 +47,7 @@ function App() {
     { id: 'best-practices', title: 'Best Practices', icon: Settings },
     { id: 'advanced', title: 'Advanced Features', icon: Github },
     { id: 'tutorial', title: 'Practical Tutorial', icon: FolderTree },
-    { id: 'reference', title: 'Commands Reference', icon: Bug }
+    { id: 'troubleshooting', title: 'Troubleshooting & Quick Reference', icon: Bug }
   ]
 
   const features = [
