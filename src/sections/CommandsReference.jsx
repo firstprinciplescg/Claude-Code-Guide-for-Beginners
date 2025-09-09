@@ -292,31 +292,6 @@ export default function CommandsReference() {
         </CardContent>
       </Card>
 
-      {/* Slash Commands */}
-      <Card className="mb-8">
-        <CardHeader>
-          <CardTitle>Slash Commands</CardTitle>
-          <CardDescription>System commands used within Claude Code sessions (all start with /)</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid gap-4">
-            {slashCommands.map((cmd, index) => (
-              <div key={index} className="border rounded-lg p-4">
-                <div className="flex flex-col md:flex-row md:items-center gap-2 mb-2">
-                  <code className="bg-blue-100 dark:bg-blue-900 px-3 py-1 rounded font-mono text-sm font-semibold text-blue-800 dark:text-blue-200">
-                    {cmd.command}
-                  </code>
-                </div>
-                <p className="text-gray-600 dark:text-gray-400 mb-2">{cmd.description}</p>
-                <div className="bg-gray-50 dark:bg-gray-800 p-2 rounded">
-                  <code className="text-sm font-mono text-gray-700 dark:text-gray-300">{cmd.example}</code>
-                </div>
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
-
       {/* Quick Reference - Mobile-friendly Layout */}
       <Card>
         <CardHeader>
