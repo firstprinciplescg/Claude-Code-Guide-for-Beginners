@@ -21,7 +21,7 @@ export default function PracticalTutorial() {
               </p>
             </div>
             <div className="bg-gray-900 text-gray-100 p-4 rounded-lg font-mono text-sm mb-6">
-              git clone https://github.com/firstprinciplescg/Claude-Code-Guide-For-Beginners-Project-Files.git
+              git clone https://github.com/firstprinciplescg/Claude-Code-Guide-for-Beginners.git
             </div>
           </CardContent>
         </Card>
@@ -38,7 +38,7 @@ export default function PracticalTutorial() {
                   <p className="font-semibold text-gray-800 mb-2">What to tell Claude:</p>
                   <div className="bg-white border rounded p-3">
                     <code className="text-sm text-gray-700">
-                      "I want to clone the repository at https://github.com/firstprinciplescg/Claude-Code-Guide-For-Beginners-Project-Files and set it up for development. Please walk me through the process and help me understand the project structure."
+                      "I want to clone the repository at https://github.com/firstprinciplescg/Claude-Code-Guide-for-Beginners and set it up for development. Please walk me through the process and help me understand the project structure."
                     </code>
                   </div>
                 </div>

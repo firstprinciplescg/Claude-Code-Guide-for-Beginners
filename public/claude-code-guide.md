@@ -367,14 +367,14 @@ Clone, customize, and deploy your own personalized Claude Code guide with automa
 
 ### Repository
 ```bash
-git clone https://github.com/firstprinciplescg/Claude-Code-Guide-For-Beginners-Project-Files.git
+git clone https://github.com/firstprinciplescg/Claude-Code-Guide-for-Beginners.git
 ```
 
 ### Step 1: Clone the Repository
 
 Start Claude Code and tell it:
 ```
-"I want to clone the repository at https://github.com/firstprinciplescg/Claude-Code-Guide-For-Beginners-Project-Files and set it up for development. Please walk me through the process and help me understand the project structure."
+"I want to clone the repository at https://github.com/firstprinciplescg/Claude-Code-Guide-for-Beginners and set it up for development. Please walk me through the process and help me understand the project structure."
 ```
 
 ### Step 2: Explore the Codebase
@@ -478,7 +478,7 @@ Save and deploy your changes:
 ## Additional Resources
 
 - **Official Documentation:** https://docs.anthropic.com/claude-code
-- **GitHub Repository:** https://github.com/anthropics/claude-code
+- **Training Repository:** https://github.com/firstprinciplescg/Claude-Code-Guide-for-Beginners
 - **Community Discord:** [Join the discussion](https://discord.gg/anthropic)
 - **VS Code Extension:** Search "Claude Code" in VS Code marketplace
 

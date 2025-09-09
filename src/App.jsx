@@ -234,7 +234,7 @@ function App() {
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 text-sm">
                 <a href="#" className="hover:text-blue-600 transition-colors py-2 min-h-[44px] flex items-center justify-center">Documentation</a>
-                <a href="#" className="hover:text-blue-600 transition-colors py-2 min-h-[44px] flex items-center justify-center">GitHub</a>
+                <a href="https://github.com/firstprinciplescg/Claude-Code-Guide-for-Beginners" className="hover:text-blue-600 transition-colors py-2 min-h-[44px] flex items-center justify-center" target="_blank" rel="noopener noreferrer">GitHub</a>
                 <a href="#" className="hover:text-blue-600 transition-colors py-2 min-h-[44px] flex items-center justify-center">Community</a>
               </div>
             </footer>

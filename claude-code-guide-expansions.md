@@ -414,15 +414,15 @@ Configure output destinations for generated code, logs, and reports. Headless mo
 
 ### Step-by-Step Project
 
-For this tutorial, we'll work with the project files available at: https://github.com/firstprinciplescg/Claude-Code-Guide-For-Beginners-Project-Files
+For this tutorial, we'll work with the project files available at: https://github.com/firstprinciplescg/Claude-Code-Guide-for-Beginners
 
 #### Clone the Repository
 
 **Step 1:** Start Claude Code in your desired project directory by running `claude-code` in your terminal.
 
-**Step 2:** Tell Claude: "I want to clone the repository at https://github.com/firstprinciplescg/Claude-Code-Guide-For-Beginners-Project-Files and set it up for development. Please walk me through the process and help me understand the project structure."
+**Step 2:** Tell Claude: "I want to clone the repository at https://github.com/firstprinciplescg/Claude-Code-Guide-for-Beginners and set it up for development. Please walk me through the process and help me understand the project structure."
 
-**Step 3:** Claude will guide you through running `git clone https://github.com/firstprinciplescg/Claude-Code-Guide-For-Beginners-Project-Files.git` and navigating into the project directory.
+**Step 3:** Claude will guide you through running `git clone https://github.com/firstprinciplescg/Claude-Code-Guide-for-Beginners.git` and navigating into the project directory.
 
 **Step 4:** Once cloned, ask Claude to analyze the project structure: "Can you examine this codebase and give me an overview of what we're working with?" Use `@README.md` and `@package.json` to provide context.
 

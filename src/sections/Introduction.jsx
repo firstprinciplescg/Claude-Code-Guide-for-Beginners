@@ -24,7 +24,7 @@ const Introduction = ({ features, scrollToSection }) => {
           <Button size="lg" onClick={() => scrollToSection('getting-started')}>
             Get Started <ChevronRight className="w-4 h-4 ml-2" />
           </Button>
-          <Button variant="outline" size="lg">
+          <Button variant="outline" size="lg" onClick={() => window.open('https://github.com/firstprinciplescg/Claude-Code-Guide-for-Beginners', '_blank')}>
             View on GitHub <ExternalLink className="w-4 h-4 ml-2" />
           </Button>
         </div>
