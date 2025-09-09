@@ -54,39 +54,29 @@ const Introduction = ({ features, scrollToSection }) => {
             </CardContent>
           </Card>
 
-          <Card>
-            <CardHeader>
-              <CardTitle>What You Can Do with Claude Code</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Building New Features</h4>
-                  <p className="text-gray-700 dark:text-gray-300 text-sm">
-                    Describe what you want in plain English, including business requirements and technical constraints. Claude creates implementation plans that respect your existing architecture and writes code that follows your project's patterns.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Debugging & Analysis</h4>
-                  <p className="text-gray-700 dark:text-gray-300 text-sm">
-                    Claude transforms frustrating investigation sessions into collaborative problem-solving. It analyzes not just error messages but your entire codebase context to identify root causes and trace through complex call stacks.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Exploring Codebases</h4>
-                  <p className="text-gray-700 dark:text-gray-300 text-sm">
-                    When working with unfamiliar codebases, Claude acts as a knowledgeable guide. It maps out architectural patterns, explains complex business logic, and helps you understand not just what the code does, but why it was designed that way.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Routine Tasks</h4>
-                  <p className="text-gray-700 dark:text-gray-300 text-sm">
-                    Claude handles tedious work that interrupts flow states: fixing linting issues, resolving merge conflicts, updating imports after restructuring, writing comprehensive tests, and generating documentation that explains the why behind the code.
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">What You Can Do with Claude Code</h3>
+          
+          {/* Features Grid */}
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            {features.map((feature, index) => {
+              const Icon = feature.icon
+              return (
+                <Card key={index} className="hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/50 rounded-lg flex items-center justify-center">
+                        <Icon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                      </div>
+                      <CardTitle className="text-lg">{feature.title}</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 dark:text-gray-400 dark:text-gray-400">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              )
+            })}
+          </div>
 
           <Card>
             <CardHeader>
@@ -105,28 +95,6 @@ const Introduction = ({ features, scrollToSection }) => {
             </CardContent>
           </Card>
         </div>
-      </div>
-
-      {/* Features Grid */}
-      <div className="grid md:grid-cols-2 gap-6 mb-12">
-        {features.map((feature, index) => {
-          const Icon = feature.icon
-          return (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/50 rounded-lg flex items-center justify-center">
-                    <Icon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                  </div>
-                  <CardTitle className="text-lg">{feature.title}</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 dark:text-gray-400 dark:text-gray-400">{feature.description}</p>
-              </CardContent>
-            </Card>
-          )
-        })}
       </div>
 
       {/* Visual Diagrams */}
@@ -148,22 +116,6 @@ const Introduction = ({ features, scrollToSection }) => {
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>Key Features Overview</CardTitle>
-            <CardDescription>
-              Four main categories of functionality that make Claude Code invaluable
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <OptimizedImage 
-              webpSrc={featuresOverviewWebp}
-              pngSrc={featuresOverview} 
-              alt="Claude Code Key Features" 
-              className="w-full rounded-lg border"
-            />
-          </CardContent>
-        </Card>
       </div>
     </section>
   )

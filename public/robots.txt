@@ -59,4 +59,4 @@ User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
-Sitemap: https://claude-code-guide-for-beginners.netlify.app/sitemap.xml
+Sitemap: https://claudecodeforbeginners.com/sitemap.xml
