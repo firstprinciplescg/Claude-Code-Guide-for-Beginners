@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect, Suspense } from 'react'
 import { Button } from '@/components/ui/button.jsx'
 import { Separator } from '@/components/ui/separator.jsx'
 import { ScrollArea } from '@/components/ui/scroll-area.jsx'
 import { BuyMeCoffeeButton } from '@/components/ui/buy-me-coffee-button.jsx'
 import { ThemeToggle } from '@/components/ui/theme-toggle.jsx'
+import { SectionSkeleton } from '@/components/ui/section-skeleton.jsx'
 import { 
   BookOpen, 
   Code, 
@@ -17,18 +18,18 @@ import {
   X
 } from 'lucide-react'
 
-// Import section components
-import Introduction from './sections/Introduction.jsx'
-import GettingStarted from './sections/GettingStarted.jsx'
-import YourFirstSession from './sections/YourFirstSession.jsx'
-import CoreConcepts from './sections/CoreConcepts.jsx'
-import EssentialCommands from './sections/EssentialCommands.jsx'
-import IDEIntegration from './sections/IDEIntegration.jsx'
-import CommonWorkflows from './sections/CommonWorkflows.jsx'
-import BestPractices from './sections/BestPractices.jsx'
-import AdvancedTopics from './sections/AdvancedTopics.jsx'
-import PracticalTutorial from './sections/PracticalTutorial.jsx'
-import CommandsReference from './sections/CommandsReference.jsx'
+// Lazy load section components for better performance
+const Introduction = React.lazy(() => import('./sections/Introduction.jsx'))
+const GettingStarted = React.lazy(() => import('./sections/GettingStarted.jsx'))
+const YourFirstSession = React.lazy(() => import('./sections/YourFirstSession.jsx'))
+const CoreConcepts = React.lazy(() => import('./sections/CoreConcepts.jsx'))
+const EssentialCommands = React.lazy(() => import('./sections/EssentialCommands.jsx'))
+const IDEIntegration = React.lazy(() => import('./sections/IDEIntegration.jsx'))
+const CommonWorkflows = React.lazy(() => import('./sections/CommonWorkflows.jsx'))
+const BestPractices = React.lazy(() => import('./sections/BestPractices.jsx'))
+const AdvancedTopics = React.lazy(() => import('./sections/AdvancedTopics.jsx'))
+const PracticalTutorial = React.lazy(() => import('./sections/PracticalTutorial.jsx'))
+const CommandsReference = React.lazy(() => import('./sections/CommandsReference.jsx'))
 
 import './App.css'
 
@@ -196,57 +197,79 @@ function App() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             
             {/* Introduction Section */}
-            <Introduction features={features} scrollToSection={scrollToSection} />
+            <Suspense fallback={<SectionSkeleton />}>
+              <Introduction features={features} scrollToSection={scrollToSection} />
+            </Suspense>
             
             <Separator className="my-16" />
 
             {/* Installation and Setup Section */}
-            <GettingStarted />
+            <Suspense fallback={<SectionSkeleton />}>
+              <GettingStarted />
+            </Suspense>
 
             <Separator className="my-16" />
 
             {/* Your First Session Section */}
-            <YourFirstSession />
+            <Suspense fallback={<SectionSkeleton />}>
+              <YourFirstSession />
+            </Suspense>
 
             <Separator className="my-16" />
 
             {/* Core Concepts Section */}
-            <CoreConcepts />
+            <Suspense fallback={<SectionSkeleton />}>
+              <CoreConcepts />
+            </Suspense>
 
             <Separator className="my-16" />
 
             {/* Essential Commands Section */}
-            <EssentialCommands />
+            <Suspense fallback={<SectionSkeleton />}>
+              <EssentialCommands />
+            </Suspense>
 
             <Separator className="my-16" />
 
             {/* IDE Integration Section */}
-            <IDEIntegration />
+            <Suspense fallback={<SectionSkeleton />}>
+              <IDEIntegration />
+            </Suspense>
 
             <Separator className="my-16" />
 
             {/* Working with Your Codebase Section */}
-            <CommonWorkflows />
+            <Suspense fallback={<SectionSkeleton />}>
+              <CommonWorkflows />
+            </Suspense>
 
             <Separator className="my-16" />
 
             {/* Best Practices Section */}
-            <BestPractices />
+            <Suspense fallback={<SectionSkeleton />}>
+              <BestPractices />
+            </Suspense>
 
             <Separator className="my-16" />
 
             {/* Advanced Features Section */}
-            <AdvancedTopics />
+            <Suspense fallback={<SectionSkeleton />}>
+              <AdvancedTopics />
+            </Suspense>
 
             <Separator className="my-16" />
 
             {/* Practical Tutorial Section */}
-            <PracticalTutorial />
+            <Suspense fallback={<SectionSkeleton />}>
+              <PracticalTutorial />
+            </Suspense>
 
             <Separator className="my-16" />
 
             {/* Commands Reference Section */}
-            <CommandsReference />
+            <Suspense fallback={<SectionSkeleton />}>
+              <CommandsReference />
+            </Suspense>
 
             {/* Footer */}
             <footer className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700 text-center text-gray-600 dark:text-gray-400 transition-colors duration-300">

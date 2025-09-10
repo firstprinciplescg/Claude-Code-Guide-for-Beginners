@@ -4,9 +4,7 @@ import { Badge } from '@/components/ui/badge.jsx'
 import { OptimizedImage } from '@/components/ui/optimized-image.jsx'
 import { ChevronRight, ExternalLink } from 'lucide-react'
 import workflowDiagram from '../assets/claude_code_workflow_diagram.png'
-import featuresOverview from '../assets/claude_code_features_overview.png'
 import workflowDiagramWebp from '../assets/claude_code_workflow_diagram.webp'
-import featuresOverviewWebp from '../assets/claude_code_features_overview.webp'
 
 const Introduction = ({ features, scrollToSection }) => {
   return (
@@ -112,6 +110,7 @@ const Introduction = ({ features, scrollToSection }) => {
               pngSrc={workflowDiagram} 
               alt="Claude Code Development Process" 
               className="w-full rounded-lg border"
+              priority={true}
             />
           </CardContent>
         </Card>

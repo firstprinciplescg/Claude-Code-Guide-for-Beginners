@@ -22,7 +22,10 @@
       "Bash(git log:*)",
       "Read(//c/Users/Owner/**)",
       "Bash(curl:*)",
-      "WebFetch(domain:claudecodeforbeginners.com)"
+      "WebFetch(domain:claudecodeforbeginners.com)",
+      "Bash(gh release create:*)",
+      "Bash(gh release view:*)",
+      "Bash(lighthouse:*)"
     ],
     "deny": [],
     "ask": []

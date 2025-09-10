@@ -3,6 +3,7 @@ export const OptimizedImage = ({
   pngSrc, 
   alt, 
   className = '', 
+  priority = false,
   ...props 
 }) => {
   return (
@@ -12,7 +13,7 @@ export const OptimizedImage = ({
         src={pngSrc} 
         alt={alt} 
         className={className}
-        loading="lazy"
+        loading={priority ? "eager" : "lazy"}
         {...props}
       />
     </picture>
