@@ -20,7 +20,7 @@ const Introduction = ({ features, scrollToSection }) => {
         <p className="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
           Imagine having an experienced developer sitting next to you who understands your entire codebase, can write and modify code directly, and communicates in plain English rather than cryptic commands.
         </p>
-        <p>
+        <p className="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
           That's Claude Code.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
