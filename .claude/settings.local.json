@@ -20,7 +20,9 @@
       "Bash(sed:*)",
       "Read(//c/Users/Owner/Documents/GitHub/claude code interactive guide/**)",
       "Bash(git log:*)",
-      "Read(//c/Users/Owner/**)"
+      "Read(//c/Users/Owner/**)",
+      "Bash(curl:*)",
+      "WebFetch(domain:claudecodeforbeginners.com)"
     ],
     "deny": [],
     "ask": []
