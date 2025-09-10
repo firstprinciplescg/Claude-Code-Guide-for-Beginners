@@ -109,7 +109,9 @@ function App() {
   const scrollToSection = (sectionId) => {
     const element = document.querySelector(`[data-section="${sectionId}"]`)
     if (element) {
-      const headerHeight = 80 // Account for sticky header height
+      // Dynamically calculate header height for better mobile compatibility
+      const header = document.querySelector('header')
+      const headerHeight = header ? header.offsetHeight + 20 : 100 // 20px extra padding, fallback to 100px
       const elementPosition = element.offsetTop - headerHeight
       window.scrollTo({
         top: elementPosition,
@@ -162,7 +164,7 @@ function App() {
       <div className="flex">
         {/* Sidebar Navigation */}
         <aside className={`fixed left-0 z-40 w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 shadow-lg transform transition-all duration-300 ease-in-out ${
-          isMobileMenuOpen ? 'translate-x-0 top-0 bottom-0' : '-translate-x-full top-0 bottom-0'
+          isMobileMenuOpen ? 'translate-x-0 top-20 bottom-0' : '-translate-x-full top-20 bottom-0'
         } md:translate-x-0 md:shadow-none md:top-20 md:bottom-0 overflow-hidden`}>
           <div className="pt-4 md:pt-0">
             <ScrollArea className="h-[calc(100vh-6rem)] md:h-full">
