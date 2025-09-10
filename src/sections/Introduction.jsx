@@ -16,8 +16,8 @@ const Introduction = ({ features, scrollToSection }) => {
           AI-Powered Development
         </Badge>
         <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 dark:text-gray-100 mb-6">
-          Claude Code
-          <span className="block text-blue-600 dark:text-blue-400">Complete Guide</span>
+          Claude Code For Beginners
+          <span className="block text-blue-600 dark:text-blue-400">The Complete Guide</span>
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
           Imagine having an experienced developer sitting next to you who understands your entire codebase, can write and modify code directly, and communicates in plain English rather than cryptic commands. That's Claude Code.
