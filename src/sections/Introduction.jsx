@@ -13,7 +13,7 @@ const Introduction = ({ features, scrollToSection }) => {
     <section data-section="introduction" className="mb-16">
       <div className="text-center mb-12">
         <Badge variant="secondary" className="mb-4">
-          AI-Powered Development
+          AI-Powered Development and Vibe Coding
         </Badge>
         <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 dark:text-gray-100 mb-6">
           Claude Code For Beginners
