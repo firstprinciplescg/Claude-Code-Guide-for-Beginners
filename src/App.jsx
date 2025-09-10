@@ -129,8 +129,8 @@ function App() {
               <Terminal className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100 transition-colors duration-300">Claude Code Guide</h1>
-              <p className="text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">Complete guide for novice users</p>
+              <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100 transition-colors duration-300">Claude Code for Beginners</h1>
+              <p className="text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">The easy to use guide to Claude Code for vibe coders and new users.</p>
             </div>
           </div>
           
