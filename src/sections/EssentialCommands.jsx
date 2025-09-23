@@ -21,8 +21,8 @@ const EssentialCommands = () => {
       <div className="space-y-8">
         <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
           <p className="text-blue-800 dark:text-blue-200 text-sm">
-            <strong>Note:</strong> Claude Code uses slash commands for system operations, distinct from your 
-            conversational requests. Understanding these commands helps you manage your sessions effectively.
+            <strong>Pro Tip:</strong> Start with <code className="bg-blue-100 dark:bg-blue-800 text-blue-800 dark:text-blue-200 px-1 rounded">/init</code> in new projects, then use other slash commands
+            for session management. Understanding these commands helps you manage your sessions effectively.
           </p>
         </div>
 
@@ -31,6 +31,37 @@ const EssentialCommands = () => {
           <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6">Core Slash Commands</h3>
           
           <div className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center space-x-2">
+                  <code className="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded font-mono text-sm">/init</code>
+                  <span>- Initialize Project Understanding</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 dark:text-gray-400 mb-4">
+                  The foundation command for any new project or major changes. Creates comprehensive project context
+                  and a CLAUDE.md file that helps future Claude Code instances work effectively with your codebase.
+                </p>
+
+                <ExpandableSection title="Best Practices for /init">
+                  <ul className="text-gray-600 dark:text-gray-400 space-y-2 text-sm">
+                    <li>• Run in your project root directory</li>
+                    <li>• Use after setting up a new repository</li>
+                    <li>• Re-run when adding major dependencies</li>
+                    <li>• Review the generated CLAUDE.md file</li>
+                    <li>• Commit the CLAUDE.md to version control</li>
+                  </ul>
+                </ExpandableSection>
+
+                <CodeBlock
+                  code="/init"
+                  title="Initialize project analysis"
+                  language="bash"
+                />
+              </CardContent>
+            </Card>
+
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">

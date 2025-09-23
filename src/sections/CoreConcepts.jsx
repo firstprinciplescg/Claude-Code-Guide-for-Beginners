@@ -162,8 +162,14 @@ const CoreConcepts = () => {
           <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6">The CLAUDE.md File</h3>
           <Card>
             <CardContent className="p-6 pt-6">
-              <p className="text-gray-600 dark:text-gray-400 mb-6">
+              <p className="text-gray-600 dark:text-gray-400 mb-4">
                 A powerful but often overlooked feature is the CLAUDE.md file. This special file, placed in your project root, is automatically read by Claude at the start of each conversation.
+              </p>
+
+              <p className="text-gray-600 dark:text-gray-400 mb-6">
+                The CLAUDE.md file is typically created automatically when you run <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">/init</code> in a new project.
+                This command analyzes your codebase and generates comprehensive guidance that helps future Claude Code
+                instances understand your project's architecture, conventions, and development workflows.
               </p>
               
               <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg mb-6">

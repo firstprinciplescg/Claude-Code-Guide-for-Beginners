@@ -35,6 +35,50 @@ const YourFirstSession = () => {
 
         <Card>
           <CardHeader>
+            <CardTitle>Understanding Your Project with /init</CardTitle>
+            <CardDescription>Let Claude analyze and understand your codebase</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-gray-600 dark:text-gray-400 mb-6">
+              Before diving into specific tasks, it's valuable to let Claude understand your project structure.
+              The <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">/init</code> command is like giving Claude a comprehensive tour of your codebase.
+            </p>
+
+            <CodeBlock
+              code="/init"
+              title="Initialize project understanding"
+              language="bash"
+            />
+
+            <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg my-6">
+              <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">What /init Does</h4>
+              <ul className="text-blue-800 dark:text-blue-200 text-sm space-y-1">
+                <li>• Analyzes your codebase structure and architecture</li>
+                <li>• Identifies technology stack and dependencies</li>
+                <li>• Reads configuration files and documentation</li>
+                <li>• Creates or updates a CLAUDE.md file with project context</li>
+                <li>• Establishes baseline understanding for future sessions</li>
+              </ul>
+            </div>
+
+            <ExpandableSection title="When to Use /init">
+              <div className="space-y-3 text-gray-600 dark:text-gray-400 text-sm">
+                <p><strong>First time in a project:</strong> Essential for Claude to understand your codebase</p>
+                <p><strong>After major changes:</strong> When you've added new frameworks or restructured</p>
+                <p><strong>New team members:</strong> Helps Claude provide better onboarding assistance</p>
+                <p><strong>Documentation updates:</strong> Ensures Claude's understanding stays current</p>
+              </div>
+            </ExpandableSection>
+
+            <p className="text-gray-600 dark:text-gray-400 mt-6">
+              Running <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">/init</code> is like introducing Claude to your project. It takes a few moments but pays
+              dividends throughout your development session by enabling more accurate, context-aware assistance.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
             <CardTitle>Your First Conversation</CardTitle>
             <CardDescription>Experience Claude's contextual awareness</CardDescription>
           </CardHeader>

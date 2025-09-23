@@ -5,14 +5,14 @@ import { ScrollArea } from '@/components/ui/scroll-area.jsx'
 import { BuyMeCoffeeButton } from '@/components/ui/buy-me-coffee-button.jsx'
 import { ThemeToggle } from '@/components/ui/theme-toggle.jsx'
 import { SectionSkeleton } from '@/components/ui/section-skeleton.jsx'
-import { 
-  BookOpen, 
-  Code, 
-  Terminal, 
-  Zap, 
-  Bug, 
-  FolderTree, 
-  Settings, 
+import {
+  BookOpen,
+  Code,
+  Terminal,
+  Zap,
+  Bug,
+  FolderTree,
+  Settings,
   Github,
   Menu,
   X
@@ -87,33 +87,74 @@ function App() {
     { command: '/ide', description: 'Connect Claude Code to your IDE', example: '/ide' }
   ]
 
+  // Handle hash changes and intersection observer for active section tracking
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll('[data-section]')
-      const scrollPosition = window.scrollY + 100
-
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop
-        const sectionHeight = section.offsetHeight
-        const sectionId = section.getAttribute('data-section')
-
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-          setActiveSection(sectionId)
-        }
-      })
+    // Set initial active section from hash
+    const hash = window.location.hash.replace('#', '')
+    if (hash && sections.find(s => s.id === hash)) {
+      setActiveSection(hash)
     }
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    // Handle hash changes
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '')
+      if (hash && sections.find(s => s.id === hash)) {
+        setActiveSection(hash)
+      } else {
+        setActiveSection('introduction')
+      }
+    }
+
+    window.addEventListener('hashchange', handleHashChange)
+
+    // Intersection Observer for scroll-based active section detection
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.getAttribute('data-section')
+            if (sectionId) {
+              setActiveSection(sectionId)
+              // Update URL hash without triggering scroll
+              if (window.location.hash !== `#${sectionId}`) {
+                window.history.replaceState(null, '', `#${sectionId}`)
+              }
+            }
+          }
+        })
+      },
+      {
+        rootMargin: '-50% 0px -50% 0px', // Trigger when section is in the middle of viewport
+        threshold: 0.1
+      }
+    )
+
+    // Observe all sections after a short delay to ensure DOM is ready
+    const observeSections = () => {
+      const sectionElements = document.querySelectorAll('[data-section]')
+      sectionElements.forEach((section) => observer.observe(section))
+    }
+
+    // Delay observation to ensure lazy-loaded components are rendered
+    setTimeout(observeSections, 100)
+
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('hashchange', handleHashChange)
+    }
+  }, [sections])
 
   const scrollToSection = (sectionId) => {
     const element = document.querySelector(`[data-section="${sectionId}"]`)
     if (element) {
-      // Dynamically calculate header height for better mobile compatibility
+      // Update hash first
+      window.location.hash = sectionId
+
+      // Calculate header height for proper offset
       const header = document.querySelector('header')
-      const headerHeight = header ? header.offsetHeight + 20 : 100 // 20px extra padding, fallback to 100px
+      const headerHeight = header ? header.offsetHeight + 20 : 100
       const elementPosition = element.offsetTop - headerHeight
+
       window.scrollTo({
         top: elementPosition,
         behavior: 'smooth'
@@ -195,12 +236,12 @@ function App() {
         {/* Main Content */}
         <main className="flex-1 min-w-0 md:ml-64">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            
+
             {/* Introduction Section */}
             <Suspense fallback={<SectionSkeleton />}>
               <Introduction features={features} scrollToSection={scrollToSection} />
             </Suspense>
-            
+
             <Separator className="my-16" />
 
             {/* Installation and Setup Section */}
