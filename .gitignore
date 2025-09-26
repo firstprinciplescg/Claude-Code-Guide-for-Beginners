@@ -36,3 +36,6 @@ _notes/
 
 # Generated reports
 lighthouse-report*.json
+
+# Workstation sync file (local to each machine)
+WORKSTATION.md

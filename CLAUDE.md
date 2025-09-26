@@ -2,6 +2,35 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Workstation Sync Check
+
+**IMPORTANT**: At the start of each session, check for and handle the WORKSTATION.md file:
+
+1. **Check if WORKSTATION.md exists** - If it exists, read it to understand:
+   - What was being worked on last
+   - Any uncommitted changes
+   - Which machine was last used
+   - Next planned steps
+
+2. **If WORKSTATION.md doesn't exist**, create it with:
+   - Current machine identifier
+   - Current git status and branch
+   - Timestamp of session start
+   - Any work in progress
+
+3. **Before making changes**:
+   - Always run `git pull` first
+   - Check WORKSTATION.md for context from other workstation
+   - Update WORKSTATION.md with your current session info
+
+4. **End of session**:
+   - Update WORKSTATION.md with current state
+   - Note any uncommitted work
+   - Add clear next steps for the other workstation
+   - Commit and push all completed work
+
+This helps maintain continuity when development happens across multiple computers.
+
 ## Project Overview
 
 This is an interactive React-based web guide for Claude Code beginners. The project demonstrates modern web development patterns and serves as both documentation and a practical learning resource.
