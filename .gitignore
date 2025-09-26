@@ -23,7 +23,16 @@ build/
 .DS_Store
 Thumbs.db
 
-# Package manager locks
-package-lock.json
+# Package manager locks (keep package-lock.json for reproducible builds)
+# package-lock.json
 yarn.lock
 pnpm-lock.yaml
+
+# Local settings
+.claude/
+
+# Personal notes (use docs/ for public documentation)
+_notes/
+
+# Generated reports
+lighthouse-report*.json
