@@ -31,6 +31,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This helps maintain continuity when development happens across multiple computers.
 
+**Custom Commands Available**:
+- `/workstation-start` - Run at session start to sync and check status
+- `/workstation-end` - Run before leaving to commit and document work
+- Commands are defined in the `commands/` directory
+
 ## Project Overview
 
 This is an interactive React-based web guide for Claude Code beginners. The project demonstrates modern web development patterns and serves as both documentation and a practical learning resource.
