@@ -1,0 +1,95 @@
+{
+  "lastUpdated": "2025-01-23",
+  "lastChecked": "2025-09-23T01:57:46.771Z",
+  "source": "https://claude.ai/pricing",
+  "plans": {
+    "free": {
+      "name": "Free",
+      "displayName": "Claude Free",
+      "monthlyPrice": 0,
+      "annualPrice": 0,
+      "currency": "USD",
+      "model": "Claude 3 Haiku",
+      "features": [
+        "Talk with Claude on the web, iOS, and Android",
+        "Ask about images and documents",
+        "Limited usage"
+      ],
+      "usage": "Limited conversations per day",
+      "priority": "Standard",
+      "availability": "Subject to capacity"
+    },
+    "pro": {
+      "name": "pro",
+      "displayName": "Claude Pro",
+      "monthlyPrice": 20,
+      "annualPrice": 216,
+      "currency": "USD",
+      "model": "Claude 3.5 Sonnet",
+      "features": [
+        "5x more usage compared to our free service",
+        "Access to Claude 3 Opus and Haiku",
+        "Create Projects to work with Claude around a set of docs, code, or ideas",
+        "Priority bandwidth and availability",
+        "Early access to new features"
+      ],
+      "usage": "5x more usage than free",
+      "priority": "Priority",
+      "availability": "Priority access"
+    },
+    "team": {
+      "name": "team",
+      "displayName": "Claude Team",
+      "monthlyPrice": 25,
+      "annualPrice": 300,
+      "currency": "USD",
+      "billingUnit": "per member per month",
+      "model": "Claude 3.5 Sonnet",
+      "features": [
+        "Everything in Pro",
+        "Higher usage limits compared to Pro",
+        "Central billing and administration",
+        "Early access to collaboration features"
+      ],
+      "usage": "Higher usage limits than Pro",
+      "priority": "Priority",
+      "availability": "Priority access",
+      "minimumSeats": 5
+    }
+  },
+  "enterprise": {
+    "name": "enterprise",
+    "displayName": "Enterprise",
+    "pricing": "Contact sales",
+    "features": [
+      "Everything in Team",
+      "Highest usage limits",
+      "Enterprise-grade security",
+      "SSO and domain capture",
+      "Enhanced support",
+      "Dedicated customer success"
+    ],
+    "contactRequired": true
+  },
+  "api": {
+    "name": "API",
+    "description": "Pay per token for API access",
+    "models": {
+      "claude-3-5-sonnet": {
+        "inputPrice": 3,
+        "outputPrice": 15,
+        "unit": "per million tokens"
+      },
+      "claude-3-5-haiku": {
+        "inputPrice": 0.25,
+        "outputPrice": 1.25,
+        "unit": "per million tokens"
+      },
+      "claude-3-opus": {
+        "inputPrice": 15,
+        "outputPrice": 75,
+        "unit": "per million tokens"
+      }
+    }
+  }
+}

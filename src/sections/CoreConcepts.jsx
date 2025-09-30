@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.j
 import { ExpandableSection } from '@/components/ui/expandable-section.jsx'
 import { CodeBlock, InlineCode } from '@/components/ui/code-block.jsx'
 import { SectionTOC } from '@/components/ui/section-toc.jsx'
+import PricingSection from '@/components/PricingSection.jsx'
 
 const CoreConcepts = () => {
   return (
@@ -14,6 +15,7 @@ const CoreConcepts = () => {
           { id: 'context-window-memory', title: 'Context Window and Memory' },
           { id: 'file-access', title: 'File Access and Project Awareness' },
           { id: 'model-selection', title: 'Model Selection and Capabilities' },
+          { id: 'pricing', title: 'Claude Pricing Plans' },
           { id: 'claude-md', title: 'The CLAUDE.md File' }
         ]}
         className="mb-8"
@@ -155,6 +157,11 @@ const CoreConcepts = () => {
               </CardContent>
             </Card>
           </div>
+        </div>
+
+        {/* Claude Pricing Plans */}
+        <div data-subsection="pricing">
+          <PricingSection className="mb-8" />
         </div>
 
         {/* The CLAUDE.md File */}
