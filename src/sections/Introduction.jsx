@@ -13,7 +13,7 @@ const Introduction = ({ features, scrollToSection }) => {
         <Badge variant="secondary" className="mb-4">
           AI-Powered Development and Vibe Coding
         </Badge>
-        <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 dark:text-gray-100 mb-6">
+        <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-6">
           Claude Code For Beginners
           <span className="block text-blue-600 dark:text-blue-400">The Complete Guide</span>
         </h1>
@@ -72,7 +72,7 @@ const Introduction = ({ features, scrollToSection }) => {
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600 dark:text-gray-400 dark:text-gray-400">{feature.description}</p>
+                    <p className="text-gray-600 dark:text-gray-400">{feature.description}</p>
                   </CardContent>
                 </Card>
               )
