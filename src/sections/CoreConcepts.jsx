@@ -124,22 +124,31 @@ const CoreConcepts = () => {
                 </p>
                 
                 <div className="space-y-4">
-                  <div className="border-l-4 border-purple-500 pl-4">
-                    <h5 className="font-semibold text-purple-900 mb-2">Claude Opus 4.1</h5>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">The most capable model, excelling at complex reasoning and architectural decisions.</p>
-                    <p className="text-xs text-purple-700"><strong>Best for:</strong> System design, complex refactoring, nuanced problem analysis</p>
+                  <div className="border-l-4 border-indigo-500 pl-4 bg-indigo-50 dark:bg-indigo-900/20 p-3 rounded">
+                    <div className="flex items-center gap-2 mb-2">
+                      <h5 className="font-semibold text-indigo-900 dark:text-indigo-100">Claude Sonnet 4.5</h5>
+                      <span className="text-xs font-bold bg-indigo-600 text-white px-2 py-0.5 rounded">NEW DEFAULT</span>
+                    </div>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Anthropic's most intelligent model, particularly excelling at coding, autonomous work, and real-world agent tasks. Can maintain focus for 30+ hours on complex multi-step tasks.</p>
+                    <p className="text-xs text-indigo-700 dark:text-indigo-300"><strong>Best for:</strong> Advanced coding, long-running autonomous tasks, complex debugging, system architecture</p>
                   </div>
-                  
+
+                  <div className="border-l-4 border-purple-500 pl-4">
+                    <h5 className="font-semibold text-purple-900 dark:text-purple-100 mb-2">Claude Opus 4.1</h5>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Exceptionally capable model for complex reasoning and architectural decisions.</p>
+                    <p className="text-xs text-purple-700 dark:text-purple-300"><strong>Best for:</strong> System design, complex refactoring, nuanced problem analysis</p>
+                  </div>
+
                   <div className="border-l-4 border-blue-500 pl-4">
                     <h5 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Claude Sonnet 4</h5>
                     <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Excellent balance of capability and speed for most development tasks.</p>
-                    <p className="text-xs text-blue-700"><strong>Best for:</strong> Day-to-day coding, debugging, feature implementation</p>
+                    <p className="text-xs text-blue-700 dark:text-blue-300"><strong>Best for:</strong> Day-to-day coding, debugging, feature implementation</p>
                   </div>
-                  
+
                   <div className="border-l-4 border-green-500 pl-4">
                     <h5 className="font-semibold text-green-900 dark:text-green-100 mb-2">Claude Haiku 3.5</h5>
                     <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Optimized for speed and efficiency with quick responses.</p>
-                    <p className="text-xs text-green-700"><strong>Best for:</strong> Quick answers, simple code generation, straightforward tasks</p>
+                    <p className="text-xs text-green-700 dark:text-green-300"><strong>Best for:</strong> Quick answers, simple code generation, straightforward tasks</p>
                   </div>
                 </div>
                 

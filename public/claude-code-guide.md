@@ -199,7 +199,9 @@ This awareness persists throughout your session, so Claude can make informed dec
 
 Claude Code can utilize different AI models, each optimized for different types of tasks:
 
-**Claude Opus 4.1**: The most capable model, excelling at complex reasoning, architectural decisions, and nuanced understanding of large codebases. Best for challenging problems requiring deep analysis.
+**Claude Sonnet 4.5** (NEW DEFAULT): Anthropic's most intelligent model, particularly excelling at coding, autonomous work, and real-world agent tasks. Can maintain focus for 30+ hours on complex multi-step tasks. Best-in-class for software development and long-running autonomous operations.
+
+**Claude Opus 4.1**: Exceptionally capable model for complex reasoning, architectural decisions, and nuanced understanding of large codebases. Best for challenging problems requiring deep analysis and system design.
 
 **Claude Sonnet 4**: Offers an excellent balance of capability and speed, handling most coding tasks efficiently while maintaining high quality output.
 
@@ -237,9 +239,14 @@ Use `/clear` when:
 - Starting a new feature or debugging session
 
 **`/model`**: Allows you to switch between available AI models mid-session. Simply typing `/model` shows available options, and you can select based on your current needs:
-- Choose Opus 4.1 for complex architectural decisions
-- Select Sonnet 4 for balanced performance on most tasks
-- Use Haiku 3.5 for quick questions or simple changes
+- Choose Sonnet 4.5 (NEW DEFAULT) for advanced coding and autonomous tasks
+- Select Opus 4.1 for complex architectural decisions
+- Use Sonnet 4 for balanced performance on most tasks
+- Pick Haiku 3.5 for quick questions or simple changes
+
+**`/rewind`** (NEW): Rewind to previous checkpoints in your session. Restore code, conversation, or both to an earlier state. Press Esc twice for quick rewind, or use the command for more control.
+
+**`/security-review`** (NEW): Perform automated security review of your code, identifying potential vulnerabilities and security concerns. Integrates with GitHub Actions for CI/CD workflows.
 
 **`/config`**: Opens configuration options for Claude Code. Here you can adjust:
 - How diffs are displayed
@@ -536,6 +543,50 @@ When using Claude Code in a team environment, consider these practices:
 
 As you become comfortable with Claude Code's core capabilities, exploring its advanced features opens new possibilities for automation, integration, and sophisticated development workflows.
 
+### Checkpoints and Time Travel (NEW)
+
+One of Claude Code's most requested features, checkpoints provide automatic state saving that lets you rewind to previous points in your session. Think of it as "undo on steroids" for your entire coding conversation.
+
+**How Checkpoints Work:**
+
+Claude Code automatically creates checkpoints before each significant change to your codebase. This happens transparently in the background, so you can focus on development without worrying about manually saving states.
+
+**Using Checkpoints:**
+- **Quick Rewind**: Press `Esc` twice to instantly rewind to the previous checkpoint
+- **Command-Based**: Use `/rewind` for more control over checkpoint navigation
+- **Selective Restore**: Choose to restore code only, conversation only, or both
+- **Multiple Checkpoints**: Navigate through several checkpoints to find the exact state you need
+
+**Common Use Cases:**
+- **Experimentation**: Try different implementation approaches and easily revert to compare
+- **Error Recovery**: Quickly undo changes that introduced bugs or broke functionality
+- **Exploratory Coding**: Safely explore complex refactoring with the ability to backtrack
+- **Learning**: Compare different solutions side-by-side by rewinding between them
+
+### Subagents and Hooks (NEW)
+
+Advanced automation features that let you delegate specialized tasks and trigger automatic actions throughout your development workflow.
+
+**Subagents for Specialized Tasks:**
+
+Subagents are specialized AI assistants that you can delegate specific tasks to, enabling parallel processing and domain-specific expertise within your Claude Code sessions.
+
+Benefits:
+- **Parallel Processing**: Handle multiple tasks simultaneously
+- **Specialized Expertise**: Different subagents for testing, documentation, security, etc.
+- **Complex Projects**: More efficient handling of multi-faceted development work
+- **Custom Subagents**: Create organization-specific subagents for your unique workflows
+
+**Hooks - Automated Actions:**
+
+Hooks allow you to automatically trigger actions at specific points in your workflow:
+- Pre-commit validation
+- Post-change testing
+- Automated documentation updates
+- Custom workflow triggers
+
+Hooks can work with background tasks via GitHub Actions integration, allowing long-running processes to continue even after your session ends. Perfect for comprehensive test suites or extensive refactoring operations.
+
 ### Model Context Protocol (MCP) Servers
 
 MCP represents one of Claude Code's most powerful extensibility features. MCP servers are bridges that connect Claude to external tools and services, extending its capabilities far beyond code analysis and generation.
@@ -792,7 +843,9 @@ If you can't access certain models:
 
 **Slash Commands**:
 - `/clear` - Reset conversation context while maintaining project awareness
-- `/model` - Switch between AI models (Opus 4.1, Sonnet 4, Haiku 3.5)
+- `/model` - Switch between AI models (Sonnet 4.5, Opus 4.1, Sonnet 4, Haiku 3.5)
+- `/rewind` - Rewind to previous checkpoints (NEW)
+- `/security-review` - Run automated security review (NEW)
 - `/config` - Open configuration options
 - `/logout` - Sign out of Claude Code
 - `/status` - View session information and usage statistics
@@ -814,6 +867,6 @@ If you can't access certain models:
 
 ---
 
-*Last Updated: January 2025*  
-*For Claude Code with Claude Opus 4.1, Sonnet 4, and Haiku 3.5 models*  
+*Last Updated: September 2024*
+*For Claude Code with Claude Sonnet 4.5, Opus 4.1, Sonnet 4, and Haiku 3.5 models*
 *Complete guide available at: https://claudecodeforbeginners.com*

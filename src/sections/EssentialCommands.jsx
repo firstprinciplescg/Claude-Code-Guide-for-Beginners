@@ -105,18 +105,25 @@ const EssentialCommands = () => {
                   based on your current needs.
                 </p>
                 
-                <div className="grid md:grid-cols-3 gap-4 mb-4">
-                  <div className="p-3 bg-purple-50 rounded-lg">
-                    <h5 className="font-semibold text-purple-900 text-sm mb-1">Opus 4.1</h5>
-                    <p className="text-purple-700 text-xs">Complex reasoning</p>
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+                  <div className="p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg border-2 border-indigo-500">
+                    <div className="flex items-center gap-1 mb-1">
+                      <h5 className="font-semibold text-indigo-900 dark:text-indigo-100 text-sm">Sonnet 4.5</h5>
+                      <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400">NEW</span>
+                    </div>
+                    <p className="text-indigo-700 dark:text-indigo-300 text-xs">Best for coding & agents</p>
+                  </div>
+                  <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                    <h5 className="font-semibold text-purple-900 dark:text-purple-100 text-sm mb-1">Opus 4.1</h5>
+                    <p className="text-purple-700 dark:text-purple-300 text-xs">Complex reasoning</p>
                   </div>
                   <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                     <h5 className="font-semibold text-blue-900 dark:text-blue-100 text-sm mb-1">Sonnet 4</h5>
-                    <p className="text-blue-700 text-xs">Balanced capability</p>
+                    <p className="text-blue-700 dark:text-blue-300 text-xs">Balanced capability</p>
                   </div>
                   <div className="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
                     <h5 className="font-semibold text-green-900 dark:text-green-100 text-sm mb-1">Haiku 3.5</h5>
-                    <p className="text-green-700 text-xs">Speed optimized</p>
+                    <p className="text-green-700 dark:text-green-300 text-xs">Speed optimized</p>
                   </div>
                 </div>
                 
@@ -215,9 +222,47 @@ const EssentialCommands = () => {
                   <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
                     Connect Claude Code to your IDE when used in external terminal.
                   </p>
-                  <CodeBlock 
+                  <CodeBlock
                     code="/ide"
                     title="Connect to IDE"
+                    language="bash"
+                  />
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center space-x-2">
+                    <span className="text-lg">/rewind</span>
+                    <span className="text-xs font-bold bg-indigo-600 text-white px-2 py-0.5 rounded">NEW</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
+                    Rewind to previous checkpoints in your session. Restore code, conversation, or both to an earlier state.
+                  </p>
+                  <CodeBlock
+                    code="/rewind"
+                    title="Rewind to checkpoint"
+                    language="bash"
+                  />
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center space-x-2">
+                    <span className="text-lg">/security-review</span>
+                    <span className="text-xs font-bold bg-indigo-600 text-white px-2 py-0.5 rounded">NEW</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
+                    Perform automated security review of your code, identifying potential vulnerabilities and security concerns.
+                  </p>
+                  <CodeBlock
+                    code="/security-review"
+                    title="Run security review"
                     language="bash"
                   />
                 </CardContent>

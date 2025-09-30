@@ -12,7 +12,9 @@ export default function CommandsReference() {
 
   const slashCommands = [
     { command: '/clear', description: 'Reset conversation context while maintaining project awareness', example: '/clear' },
-    { command: '/model', description: 'Switch between available AI models (Opus 4.1, Sonnet 4, Haiku 3.5)', example: '/model' },
+    { command: '/model', description: 'Switch between available AI models (Sonnet 4.5, Opus 4.1, Sonnet 4, Haiku 3.5)', example: '/model' },
+    { command: '/rewind', description: 'Rewind to previous checkpoints - restore code, conversation, or both to an earlier state', example: '/rewind', badge: 'NEW' },
+    { command: '/security-review', description: 'Perform automated security review identifying vulnerabilities and security concerns', example: '/security-review', badge: 'NEW' },
     { command: '/config', description: 'Open configuration options for Claude Code settings', example: '/config' },
     { command: '/logout', description: 'Sign out of Claude Code', example: '/logout' },
     { command: '/status', description: 'Display session information, model in use, and usage statistics', example: '/status' },

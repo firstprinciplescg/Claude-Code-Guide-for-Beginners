@@ -160,6 +160,37 @@ const IDEIntegration = () => {
                 </div>
               </CardContent>
             </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center space-x-2">
+                  <span>Native VS Code Extension</span>
+                  <span className="text-xs font-bold bg-indigo-600 text-white px-2 py-0.5 rounded">BETA</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 dark:text-gray-400 mb-4">
+                  Claude Code now offers a native VS Code extension available in Beta. This provides an even deeper integration with enhanced UI and management features.
+                </p>
+
+                <div className="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-lg mb-4">
+                  <h5 className="font-semibold text-indigo-900 dark:text-indigo-100 mb-2">Enhanced Features</h5>
+                  <ul className="text-indigo-800 dark:text-indigo-200 text-sm space-y-1">
+                    <li>• Direct installation from VS Code marketplace</li>
+                    <li>• Enhanced UI for managing conversations</li>
+                    <li>• Better diff visualization</li>
+                    <li>• Integrated checkpoint management</li>
+                    <li>• Streamlined configuration interface</li>
+                  </ul>
+                </div>
+
+                <div className="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+                  <p className="text-amber-800 dark:text-amber-200 text-sm">
+                    <strong>Note:</strong> The native extension is currently in Beta. Both the auto-install method and the native extension work seamlessly, so you can choose based on your preference.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
 

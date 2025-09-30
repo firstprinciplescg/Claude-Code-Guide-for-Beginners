@@ -13,8 +13,10 @@ const AdvancedTopics = () => {
         As you become comfortable with Claude Code's core capabilities, exploring its advanced features opens new possibilities for automation, integration, and sophisticated development workflows.
       </p>
 
-      <SectionTOC 
+      <SectionTOC
         sections={[
+          { id: 'checkpoints', title: 'Checkpoints and Time Travel' },
+          { id: 'subagents-hooks', title: 'Subagents and Hooks' },
           { id: 'mcp-servers', title: 'MCP Servers' },
           { id: 'print-mode', title: 'Print Mode and Automation' },
           { id: 'multi-directory', title: 'Multi-Directory Access' },
@@ -24,6 +26,135 @@ const AdvancedTopics = () => {
       />
 
       <div className="space-y-12">
+        {/* Checkpoints and Time Travel Section */}
+        <div data-subsection="checkpoints">
+          <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6">Checkpoints and Time Travel</h3>
+
+          <div className="space-y-6">
+            <p className="text-gray-700 dark:text-gray-300 text-lg">
+              One of Claude Code's most requested features, checkpoints provide automatic state saving that lets you rewind to previous points in your session. Think of it as "undo on steroids" for your entire coding conversation.
+            </p>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center space-x-2">
+                  <span>How Checkpoints Work</span>
+                  <span className="text-xs font-bold bg-indigo-600 text-white px-2 py-0.5 rounded">NEW</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-gray-700 dark:text-gray-300">
+                  Claude Code automatically creates checkpoints before each significant change to your codebase. This happens transparently in the background, so you can focus on development without worrying about manually saving states.
+                </p>
+
+                <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                  <h6 className="font-semibold text-blue-900 dark:text-blue-100 mb-3">Using Checkpoints</h6>
+                  <div className="space-y-2 text-blue-800 dark:text-blue-200 text-sm">
+                    <p><strong>Quick Rewind:</strong> Press <code className="bg-blue-100 dark:bg-blue-800 px-2 py-0.5 rounded">Esc</code> twice to instantly rewind to the previous checkpoint</p>
+                    <p><strong>Command-Based:</strong> Use <code className="bg-blue-100 dark:bg-blue-800 px-2 py-0.5 rounded">/rewind</code> for more control over checkpoint navigation</p>
+                    <p><strong>Selective Restore:</strong> Choose to restore code only, conversation only, or both</p>
+                    <p><strong>Multiple Checkpoints:</strong> Navigate through several checkpoints to find the exact state you need</p>
+                  </div>
+                </div>
+
+                <ExpandableSection title="Common Use Cases">
+                  <ul className="text-gray-600 dark:text-gray-400 space-y-2 text-sm">
+                    <li>• <strong>Experimentation:</strong> Try different implementation approaches and easily revert to compare</li>
+                    <li>• <strong>Error Recovery:</strong> Quickly undo changes that introduced bugs or broke functionality</li>
+                    <li>• <strong>Exploratory Coding:</strong> Safely explore complex refactoring with the ability to backtrack</li>
+                    <li>• <strong>Learning:</strong> Compare different solutions side-by-side by rewinding between them</li>
+                  </ul>
+                </ExpandableSection>
+
+                <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                  <h6 className="font-semibold text-green-900 dark:text-green-100 mb-2">Pro Tip</h6>
+                  <p className="text-green-800 dark:text-green-200 text-sm">
+                    Checkpoints are invaluable when working on complex features. Don't hesitate to experiment boldly—you can always rewind if an approach doesn't work out. This encourages more creative problem-solving.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* Subagents and Hooks Section */}
+        <div data-subsection="subagents-hooks">
+          <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6">Subagents and Hooks</h3>
+
+          <div className="space-y-6">
+            <p className="text-gray-700 dark:text-gray-300 text-lg">
+              Advanced automation features that let you delegate specialized tasks and trigger automatic actions throughout your development workflow.
+            </p>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center space-x-2">
+                  <span>Subagents for Specialized Tasks</span>
+                  <span className="text-xs font-bold bg-indigo-600 text-white px-2 py-0.5 rounded">NEW</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-gray-700 dark:text-gray-300">
+                  Subagents are specialized AI assistants that you can delegate specific tasks to, enabling parallel processing and domain-specific expertise within your Claude Code sessions.
+                </p>
+
+                <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                  <h6 className="font-semibold text-purple-900 dark:text-purple-100 mb-3">Benefits of Subagents</h6>
+                  <ul className="text-purple-800 dark:text-purple-200 text-sm space-y-2">
+                    <li>• <strong>Parallel Processing:</strong> Handle multiple tasks simultaneously</li>
+                    <li>• <strong>Specialized Expertise:</strong> Different subagents for testing, documentation, security, etc.</li>
+                    <li>• <strong>Complex Projects:</strong> More efficient handling of multi-faceted development work</li>
+                    <li>• <strong>Custom Subagents:</strong> Create organization-specific subagents for your unique workflows</li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center space-x-2">
+                  <span>Hooks - Automated Actions</span>
+                  <span className="text-xs font-bold bg-indigo-600 text-white px-2 py-0.5 rounded">NEW</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-gray-700 dark:text-gray-300">
+                  Hooks allow you to automatically trigger actions at specific points in your workflow, creating a more seamless and automated development experience.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                    <h6 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Common Hook Types</h6>
+                    <ul className="text-blue-800 dark:text-blue-200 text-sm space-y-1">
+                      <li>• Pre-commit validation</li>
+                      <li>• Post-change testing</li>
+                      <li>• Automated documentation updates</li>
+                      <li>• Custom workflow triggers</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                    <h6 className="font-semibold text-green-900 dark:text-green-100 mb-2">Use Cases</h6>
+                    <ul className="text-green-800 dark:text-green-200 text-sm space-y-1">
+                      <li>• Enforce code quality standards</li>
+                      <li>• Auto-run security checks</li>
+                      <li>• Keep docs in sync with code</li>
+                      <li>• Trigger CI/CD pipelines</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+                  <h6 className="font-semibold text-amber-900 dark:text-amber-100 mb-2">Background Tasks</h6>
+                  <p className="text-amber-800 dark:text-amber-200 text-sm">
+                    Hooks can work with background tasks via GitHub Actions integration, allowing long-running processes to continue even after your session ends. Perfect for comprehensive test suites or extensive refactoring operations.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
         {/* MCP Servers Section */}
         <div data-subsection="mcp-servers">
           <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6 flex items-center space-x-3">
