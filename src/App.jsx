@@ -168,7 +168,11 @@ function App() {
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
+          <button
+            onClick={() => scrollToSection('introduction')}
+            className="flex items-center space-x-3 hover:opacity-80 transition-opacity cursor-pointer text-left"
+            aria-label="Return to introduction"
+          >
             <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
               <Terminal className="w-6 h-6 text-white" />
             </div>
@@ -176,7 +180,7 @@ function App() {
               <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100 transition-colors duration-300">Claude Code for Beginners</h1>
               <p className="text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">The easy to use guide to Claude Code for vibe coders and new users.</p>
             </div>
-          </div>
+          </button>
           
           <div className="flex items-center space-x-3">
             <div className="hidden sm:block">
@@ -188,6 +192,9 @@ function App() {
               size="sm"
               className="md:hidden min-h-[48px] min-w-[48px] p-3"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-navigation"
+              aria-label="Toggle navigation menu"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </Button>
@@ -205,7 +212,7 @@ function App() {
 
       <div className="flex">
         {/* Sidebar Navigation */}
-        <aside className={`fixed left-0 z-40 w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 shadow-lg transform transition-all duration-300 ease-in-out ${
+        <aside id="mobile-navigation" className={`fixed left-0 z-40 w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 shadow-lg transform transition-all duration-300 ease-in-out ${
           isMobileMenuOpen ? 'translate-x-0 top-20 bottom-0' : '-translate-x-full top-20 bottom-0'
         } md:translate-x-0 md:shadow-none md:top-20 md:bottom-0 overflow-hidden`}>
           <div className="pt-4 md:pt-0">
@@ -217,7 +224,9 @@ function App() {
                     <button
                       key={section.id}
                       onClick={() => scrollToSection(section.id)}
-                      className={`w-full flex items-center space-x-2 px-3 py-2 min-h-[40px] rounded-lg text-left transition-colors ${
+                      aria-label={`Navigate to ${section.title}`}
+                      aria-current={activeSection === section.id ? 'page' : undefined}
+                      className={`w-full flex items-center space-x-2 px-3 py-2 min-h-[44px] rounded-lg text-left transition-colors ${
                         activeSection === section.id
                           ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-700'
                           : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
