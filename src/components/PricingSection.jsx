@@ -56,6 +56,7 @@ const PricingSection = ({ className = "" }) => {
     const icons = {
       free: Zap,
       pro: Users,
+      max: Zap,
       team: Building,
       enterprise: Building
     }
@@ -131,6 +132,19 @@ const PricingSection = ({ className = "" }) => {
                   <div className="mt-4">
                     {plan.monthlyPrice === 0 ? (
                       <div className="text-3xl font-bold">Free</div>
+                    ) : plan.tiers ? (
+                      <div>
+                        <span className="text-3xl font-bold">
+                          ${plan.monthlyPrice}
+                          {Object.keys(plan.tiers).length > 1 && ` - $${Math.max(...Object.values(plan.tiers).map(t => t.monthlyPrice))}`}
+                        </span>
+                        <span className="text-gray-600 dark:text-gray-400">/month</span>
+                        {plan.billingUnit && (
+                          <div className="text-sm text-gray-500 dark:text-gray-500 mt-1">
+                            {plan.billingUnit}
+                          </div>
+                        )}
+                      </div>
                     ) : (
                       <div>
                         <span className="text-3xl font-bold">${plan.monthlyPrice}</span>

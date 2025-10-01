@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2025-01-23",
-  "lastChecked": "2025-09-23T01:57:46.771Z",
-  "source": "https://claude.ai/pricing",
+  "lastUpdated": "2025-10-01",
+  "lastChecked": "2025-10-01T15:54:42.575Z",
+  "source": "https://claude.com/pricing",
   "plans": {
     "free": {
       "name": "Free",
@@ -27,34 +27,79 @@
       "currency": "USD",
       "model": "Claude 3.5 Sonnet",
       "features": [
-        "5x more usage compared to our free service",
-        "Access to Claude 3 Opus and Haiku",
-        "Create Projects to work with Claude around a set of docs, code, or ideas",
-        "Priority bandwidth and availability",
-        "Early access to new features"
+        "More usage compared to our free service",
+        "Claude Code in terminal",
+        "Unlimited projects",
+        "Research access",
+        "Google Workspace integration",
+        "Extended thinking capabilities"
       ],
-      "usage": "5x more usage than free",
+      "usage": "More usage than free",
       "priority": "Priority",
       "availability": "Priority access"
+    },
+    "max": {
+      "name": "max",
+      "displayName": "Claude Max",
+      "monthlyPrice": 100,
+      "currency": "USD",
+      "billingUnit": "per person per month",
+      "model": "Claude 3.5 Sonnet",
+      "features": [
+        "5x more usage than Pro (5x tier)",
+        "20x more usage than Pro (20x tier)",
+        "Higher output limits",
+        "Early access to advanced features",
+        "Priority access during high traffic",
+        "Everything in Pro"
+      ],
+      "usage": "5x or 20x more usage than Pro",
+      "priority": "Highest",
+      "availability": "Priority access during high traffic",
+      "tiers": {
+        "5x": {
+          "monthlyPrice": 100,
+          "displayName": "Claude Max 5x",
+          "usage": "5x more usage than Pro"
+        },
+        "20x": {
+          "monthlyPrice": 200,
+          "displayName": "Claude Max 20x",
+          "usage": "20x more usage than Pro"
+        }
+      }
     },
     "team": {
       "name": "team",
       "displayName": "Claude Team",
-      "monthlyPrice": 25,
+      "monthlyPrice": 30,
       "annualPrice": 300,
       "currency": "USD",
-      "billingUnit": "per member per month",
+      "billingUnit": "per person per month",
       "model": "Claude 3.5 Sonnet",
       "features": [
-        "Everything in Pro",
-        "Higher usage limits compared to Pro",
         "Central billing and administration",
-        "Early access to collaboration features"
+        "Collaboration features",
+        "Team workspace management"
       ],
-      "usage": "Higher usage limits than Pro",
+      "usage": "Team usage limits",
       "priority": "Priority",
       "availability": "Priority access",
-      "minimumSeats": 5
+      "tiers": {
+        "standard": {
+          "monthlyPrice": 30,
+          "annualPrice": 300,
+          "displayName": "Team Standard"
+        },
+        "premium": {
+          "monthlyPrice": 150,
+          "displayName": "Team Premium",
+          "features": [
+            "Everything in Team Standard",
+            "Claude Code access"
+          ]
+        }
+      }
     }
   },
   "enterprise": {
