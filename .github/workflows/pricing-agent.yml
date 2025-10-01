@@ -71,7 +71,7 @@ jobs:
             🤖 Update Claude pricing data - $(date +%Y-%m-%d)
 
             Automated pricing update detected changes:
-            - Updated pricing.json with latest data from claude.ai/pricing
+            - Updated pricing.json with latest data from claude.com/pricing
             - Archived previous version for history
             - Updated "Accurate as of" timestamp
 
@@ -85,7 +85,7 @@ jobs:
             The pricing agent has detected changes in Claude's pricing structure.
 
             ### What Changed
-            This PR updates the pricing data with the latest information from [claude.ai/pricing](https://claude.ai/pricing).
+            This PR updates the pricing data with the latest information from [claude.com/pricing](https://claude.com/pricing).
 
             ### Files Modified
             - `src/data/pricing.json` - Updated with latest pricing

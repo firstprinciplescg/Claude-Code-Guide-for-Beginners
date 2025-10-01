@@ -7,7 +7,7 @@ import fetch from 'node-fetch';
 
 export class PricingScraper {
   constructor() {
-    this.pricingUrl = 'https://claude.ai/pricing';
+    this.pricingUrl = 'https://claude.com/pricing';
     this.userAgent = 'Claude-Pricing-Agent/1.0 (+https://github.com/firstprinciplescg/Claude-Code-Guide-for-Beginners)';
   }
 
