@@ -19,9 +19,8 @@ const PricingSection = ({ className = "" }) => {
 
   const loadPricingData = async () => {
     try {
-      // In development, load from public folder
-      // In production, this would be bundled or served from API
-      const response = await fetch('/src/data/pricing.json')
+      // Load from public folder - works in both dev and production
+      const response = await fetch('/pricing.json')
       if (!response.ok) {
         throw new Error('Failed to load pricing data')
       }
@@ -95,6 +94,23 @@ const PricingSection = ({ className = "" }) => {
         <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
           Choose the plan that's right for you. All plans include access to Claude's advanced AI capabilities.
         </p>
+
+        {/* Pricing Disclaimer */}
+        <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4 mb-4">
+          <p className="text-sm text-amber-900 dark:text-amber-100">
+            <strong>Note:</strong> Pricing information is subject to change. For the most current and detailed pricing, including all tiers and features, please visit{' '}
+            <a
+              href="https://claude.com/pricing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-amber-700 dark:text-amber-300 hover:underline font-medium"
+            >
+              claude.com/pricing
+            </a>
+            .
+          </p>
+        </div>
+
         {lastUpdated && (
           <div className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-500">
             <span>Accurate as of:</span>
@@ -255,7 +271,7 @@ const PricingSection = ({ className = "" }) => {
       )}
 
       {/* API Pricing */}
-      {api && api.models && (
+      {api && (
         <Card>
           <CardHeader>
             <div className="flex items-center space-x-3">
@@ -270,28 +286,57 @@ const PricingSection = ({ className = "" }) => {
           </CardHeader>
 
           <CardContent>
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b">
-                    <th className="text-left py-2">Model</th>
-                    <th className="text-right py-2">Input</th>
-                    <th className="text-right py-2">Output</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {Object.entries(api.models).map(([modelName, model]) => (
-                    <tr key={modelName} className="border-b border-gray-100 dark:border-gray-800">
-                      <td className="py-3 font-medium">{modelName}</td>
-                      <td className="text-right py-3">${model.inputPrice}</td>
-                      <td className="text-right py-3">${model.outputPrice}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              <p className="text-xs text-gray-500 dark:text-gray-500 mt-2">
-                All prices {api.models[Object.keys(api.models)[0]]?.unit || 'per million tokens'}
-              </p>
+            <div className="space-y-4">
+              {/* Simplified Model Overview */}
+              {api.models && (
+                <div className="grid md:grid-cols-3 gap-4">
+                  {Object.entries(api.models).map(([modelKey, model]) => {
+                    // Handle both simple and tiered pricing
+                    const inputPriceDisplay = model.pricing === 'tiered' && model.tiers
+                      ? `$${model.tiers.small.inputPrice}-${model.tiers.large.inputPrice}`
+                      : `$${model.inputPrice}`;
+                    const outputPriceDisplay = model.pricing === 'tiered' && model.tiers
+                      ? `$${model.tiers.small.outputPrice}-${model.tiers.large.outputPrice}`
+                      : `$${model.outputPrice}`;
+
+                    return (
+                      <div key={modelKey} className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-800">
+                        <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-1">
+                          {model.displayName}
+                        </h4>
+                        <p className="text-xs text-gray-600 dark:text-gray-400 mb-3">
+                          {model.description}
+                        </p>
+                        <div className="space-y-1 text-sm">
+                          <div className="flex justify-between">
+                            <span className="text-gray-600 dark:text-gray-400">Input:</span>
+                            <span className="font-medium">{inputPriceDisplay}/MTok</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-600 dark:text-gray-400">Output:</span>
+                            <span className="font-medium">{outputPriceDisplay}/MTok</span>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+
+              {/* Additional API Features Note */}
+              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+                <p className="text-sm text-blue-900 dark:text-blue-100">
+                  <strong>Additional Features:</strong> Prompt caching, batch processing (50% discount), web search, and code execution available.{' '}
+                  <a
+                    href="https://claude.com/pricing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-700 dark:text-blue-300 hover:underline font-medium"
+                  >
+                    See full API pricing details →
+                  </a>
+                </p>
+              </div>
             </div>
           </CardContent>
         </Card>
@@ -322,8 +367,9 @@ const PricingSection = ({ className = "" }) => {
  */
 function getFallbackPricingData() {
   return {
-    lastUpdated: "2025-01-23",
+    lastUpdated: "2025-10-07",
     lastChecked: new Date().toISOString(),
+    notice: "Pricing subject to change. Visit claude.com/pricing for the most current information.",
     plans: {
       free: {
         name: "free",
@@ -331,9 +377,9 @@ function getFallbackPricingData() {
         monthlyPrice: 0,
         annualPrice: 0,
         features: [
-          "Talk with Claude on the web, iOS, and Android",
-          "Ask about images and documents",
-          "Limited usage"
+          "Chat on web, iOS, Android, and on your desktop",
+          "Generate code and visualize data",
+          "Analyze text and images"
         ],
         usage: "Limited conversations per day"
       },
@@ -341,34 +387,63 @@ function getFallbackPricingData() {
         name: "pro",
         displayName: "Claude Pro",
         monthlyPrice: 20,
-        annualPrice: 216,
+        annualPrice: 200,
         features: [
-          "5x more usage compared to our free service",
-          "Access to Claude 3 Opus and Haiku",
-          "Create Projects to work with Claude around a set of docs, code, or ideas",
-          "Priority bandwidth and availability",
-          "Early access to new features"
+          "More usage*",
+          "Access Claude Code directly in your terminal",
+          "Access to unlimited projects",
+          "Access to Research"
         ],
-        usage: "5x more usage than free"
+        usage: "More usage than free"
+      },
+      max: {
+        name: "max",
+        displayName: "Claude Max",
+        monthlyPrice: 100,
+        features: [
+          "5x or 20x more usage than Pro*",
+          "Higher output limits",
+          "Early access to features"
+        ],
+        usage: "5x or 20x more usage than Pro"
       }
     },
     enterprise: {
       displayName: "Enterprise",
       pricing: "Contact sales",
       features: [
-        "Everything in Team",
-        "Highest usage limits",
-        "Enterprise-grade security",
-        "Enhanced support"
+        "Everything in Team, plus:",
+        "More usage*",
+        "Enhanced context window",
+        "Enterprise-grade security"
       ]
     },
     api: {
       name: "API",
-      description: "Pay per token for API access",
+      description: "Pay-as-you-go pricing per million tokens",
       models: {
-        "claude-3-5-sonnet": {
-          inputPrice: 3.00,
-          outputPrice: 15.00,
+        "opus-4.1": {
+          displayName: "Opus 4.1",
+          description: "Powerful model for complex tasks",
+          inputPrice: 15,
+          outputPrice: 75,
+          unit: "per million tokens"
+        },
+        "sonnet-4.5": {
+          displayName: "Sonnet 4.5",
+          description: "Most intelligent model",
+          pricing: "tiered",
+          tiers: {
+            small: { inputPrice: 3, outputPrice: 15 },
+            large: { inputPrice: 6, outputPrice: 22.50 }
+          },
+          unit: "per million tokens"
+        },
+        "haiku-3.5": {
+          displayName: "Haiku 3.5",
+          description: "Fastest, most cost-effective",
+          inputPrice: 0.80,
+          outputPrice: 4,
           unit: "per million tokens"
         }
       }

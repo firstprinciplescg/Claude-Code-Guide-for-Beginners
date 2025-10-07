@@ -360,21 +360,21 @@ git diff --name-only main | \\
 
                   <div className="p-4 border border-green-200 dark:border-green-700 rounded-lg bg-green-50 dark:bg-green-900/20">
                     <h5 className="font-semibold text-green-900 dark:text-green-100 mb-2">Pro Plan</h5>
-                    <p className="text-green-800 dark:text-green-200 text-sm mb-3">$20/month</p>
+                    <p className="text-green-800 dark:text-green-200 text-sm mb-3">$20/month or $200/year</p>
                     <ul className="text-green-800 dark:text-green-200 text-xs space-y-1">
                       <li>• Substantial usage included</li>
-                      <li>• Claude Sonnet 4 access</li>
+                      <li>• Claude Code in terminal</li>
                       <li>• Individual developers</li>
                     </ul>
                   </div>
 
                   <div className="p-4 border border-purple-200 dark:border-purple-700 rounded-lg bg-purple-50 dark:bg-purple-900/20">
                     <h5 className="font-semibold text-purple-900 dark:text-purple-100 mb-2">Max Plans</h5>
-                    <p className="text-purple-800 dark:text-purple-200 text-sm mb-3">$100-200/month</p>
+                    <p className="text-purple-800 dark:text-purple-200 text-sm mb-3">From $100/month</p>
                     <ul className="text-purple-800 dark:text-purple-200 text-xs space-y-1">
-                      <li>• Extensive usage</li>
-                      <li>• Claude Opus 4.1 access</li>
-                      <li>• Professional/team use</li>
+                      <li>• 5x or 20x more usage than Pro</li>
+                      <li>• Higher output limits</li>
+                      <li>• Early access to features</li>
                     </ul>
                   </div>
                 </div>
@@ -383,7 +383,7 @@ git diff --name-only main | \\
                   <h6 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">💡 Usage Optimization Tips</h6>
                   <ul className="text-gray-700 dark:text-gray-300 text-sm space-y-1">
                     <li>• Use <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">/status</code> command to monitor usage patterns</li>
-                    <li>• Use Sonnet 4 for routine tasks, switch to Opus 4.1 for complex problems</li>
+                    <li>• Use Sonnet 4.5 for routine tasks, switch to Opus 4.1 for complex problems</li>
                     <li>• Consider using print mode for batch operations to optimize API calls</li>
                     <li>• Use <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">/clear</code> strategically to manage context window efficiently</li>
                   </ul>
