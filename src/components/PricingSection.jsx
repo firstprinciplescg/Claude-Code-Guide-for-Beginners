@@ -185,24 +185,63 @@ const PricingSection = ({ className = "" }) => {
                 </Card>
               )
             })}
+
+          {/* Team and Enterprise Card */}
+          <Card className="border border-gray-200 dark:border-gray-700">
+            <CardHeader className="pb-4">
+              <div className="flex items-center space-x-3 mb-3">
+                <div className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800">
+                  <Building className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                </div>
+                <CardTitle className="text-xl">Team & Enterprise</CardTitle>
+              </div>
+
+              <div className="mt-2">
+                <div>
+                  <span className="text-2xl font-bold text-gray-900 dark:text-gray-100">From $25</span>
+                  <span className="text-gray-600 dark:text-gray-400">/person/month</span>
+                </div>
+              </div>
+
+              <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                For teams and organizations
+              </p>
+            </CardHeader>
+
+            <CardContent>
+              <ul className="space-y-2 mb-4">
+                <li className="flex items-start space-x-2">
+                  <Check className="w-4 h-4 text-green-600 dark:text-green-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-gray-700 dark:text-gray-300">Team collaboration features</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <Check className="w-4 h-4 text-green-600 dark:text-green-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-gray-700 dark:text-gray-300">Central billing and administration</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <Check className="w-4 h-4 text-green-600 dark:text-green-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-gray-700 dark:text-gray-300">Enterprise security options</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <Check className="w-4 h-4 text-green-600 dark:text-green-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-gray-700 dark:text-gray-300">SSO and compliance features</span>
+                </li>
+              </ul>
+
+              <div className="pt-2 border-t border-gray-200 dark:border-gray-700">
+                <a
+                  href="https://claude.com/pricing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-blue-600 dark:text-blue-400 hover:underline font-medium"
+                >
+                  See full Team & Enterprise details →
+                </a>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       )}
-
-      {/* Team and Enterprise Note */}
-      <div className="mb-8 p-5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
-        <p className="text-gray-700 dark:text-gray-300">
-          <strong>Team and Enterprise Plans:</strong> Claude also offers Team plans (starting at $25/person/month) and Enterprise plans with advanced features for organizations. Visit{' '}
-          <a
-            href="https://claude.com/pricing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
-          >
-            claude.com/pricing
-          </a>
-          {' '}for complete details.
-        </p>
-      </div>
 
       {/* API Pricing */}
       {api && (

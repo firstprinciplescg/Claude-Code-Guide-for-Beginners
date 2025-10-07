@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.j
 import { ExpandableSection } from '@/components/ui/expandable-section.jsx'
 import { CodeBlock } from '@/components/ui/code-block.jsx'
 import { SectionTOC } from '@/components/ui/section-toc.jsx'
-import { Server, Terminal, Folders, CreditCard } from 'lucide-react'
+import { Server, Terminal, Folders, Zap } from 'lucide-react'
 
 const AdvancedTopics = () => {
   return (
@@ -20,7 +20,7 @@ const AdvancedTopics = () => {
           { id: 'mcp-servers', title: 'MCP Servers' },
           { id: 'print-mode', title: 'Print Mode and Automation' },
           { id: 'multi-directory', title: 'Multi-Directory Access' },
-          { id: 'subscription-optimization', title: 'Subscription Optimization' }
+          { id: 'token-usage-optimization', title: 'Token Usage Optimization' }
         ]}
         className="mb-8"
       />
@@ -330,63 +330,70 @@ git diff --name-only main | \\
           </div>
         </div>
 
-        {/* Subscription Optimization Section */}
-        <div data-subsection="subscription-optimization" className="mt-12">
+        {/* Token Usage Optimization Section */}
+        <div data-subsection="token-usage-optimization" className="mt-12">
           <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6 flex items-center space-x-3">
-            <CreditCard className="w-6 h-6 text-gray-700 dark:text-gray-300" />
-            <span>Subscription Tiers and Optimization</span>
+            <Zap className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+            <span>Token Usage Optimization</span>
           </h3>
-          
+
           <div className="space-y-6">
             <p className="text-gray-700 dark:text-gray-300 text-lg">
-              Understanding Claude Code's subscription model helps you optimize usage for your needs and budget.
+              Optimizing how you use Claude Code helps manage costs, improve performance, and get the most value from your subscription.
             </p>
 
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg text-indigo-700 dark:text-indigo-300">💳 Subscription Options</CardTitle>
+                <CardTitle className="text-lg text-indigo-700 dark:text-indigo-300">⚡ Smart Usage Strategies</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="grid md:grid-cols-3 gap-4">
-                  <div className="p-4 border border-blue-200 dark:border-blue-700 rounded-lg bg-blue-50 dark:bg-blue-900/20">
-                    <h5 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">API Model</h5>
-                    <p className="text-blue-800 dark:text-blue-200 text-sm mb-3">Pay-as-you-go pricing</p>
-                    <ul className="text-blue-800 dark:text-blue-200 text-xs space-y-1">
-                      <li>• Ideal for occasional use</li>
-                      <li>• Cost-effective for specific projects</li>
-                      <li>• No monthly commitment</li>
+                <div className="space-y-4">
+                  <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-700">
+                    <h6 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Monitor Your Usage</h6>
+                    <p className="text-blue-800 dark:text-blue-200 text-sm mb-2">
+                      Use the <code className="bg-blue-100 dark:bg-blue-900 px-1 rounded">/status</code> command to track usage patterns and understand your consumption.
+                    </p>
+                  </div>
+
+                  <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-700">
+                    <h6 className="font-semibold text-green-900 dark:text-green-100 mb-2">Choose the Right Model</h6>
+                    <ul className="text-green-800 dark:text-green-200 text-sm space-y-1">
+                      <li>• <strong>Sonnet 4.5</strong> for routine tasks, code reviews, and general development</li>
+                      <li>• <strong>Opus 4.1</strong> for complex architectural decisions and challenging problems</li>
+                      <li>• <strong>Haiku 3.5</strong> for quick queries and simple edits (API usage)</li>
                     </ul>
                   </div>
 
-                  <div className="p-4 border border-green-200 dark:border-green-700 rounded-lg bg-green-50 dark:bg-green-900/20">
-                    <h5 className="font-semibold text-green-900 dark:text-green-100 mb-2">Pro Plan</h5>
-                    <p className="text-green-800 dark:text-green-200 text-sm mb-3">$20/month or $200/year</p>
-                    <ul className="text-green-800 dark:text-green-200 text-xs space-y-1">
-                      <li>• Substantial usage included</li>
-                      <li>• Claude Code in terminal</li>
-                      <li>• Individual developers</li>
+                  <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-200 dark:border-purple-700">
+                    <h6 className="font-semibold text-purple-900 dark:text-purple-100 mb-2">Manage Context Window</h6>
+                    <p className="text-purple-800 dark:text-purple-200 text-sm mb-2">
+                      Use <code className="bg-purple-100 dark:bg-purple-900 px-1 rounded">/clear</code> strategically to reset context when:
+                    </p>
+                    <ul className="text-purple-800 dark:text-purple-200 text-sm space-y-1">
+                      <li>• Switching to a completely different task</li>
+                      <li>• Context is filled with irrelevant conversation history</li>
+                      <li>• Starting a fresh approach to a problem</li>
+                      <li>• Your session feels sluggish or repetitive</li>
                     </ul>
                   </div>
 
-                  <div className="p-4 border border-purple-200 dark:border-purple-700 rounded-lg bg-purple-50 dark:bg-purple-900/20">
-                    <h5 className="font-semibold text-purple-900 dark:text-purple-100 mb-2">Max Plans</h5>
-                    <p className="text-purple-800 dark:text-purple-200 text-sm mb-3">From $100/month</p>
-                    <ul className="text-purple-800 dark:text-purple-200 text-xs space-y-1">
-                      <li>• 5x or 20x more usage than Pro</li>
-                      <li>• Higher output limits</li>
-                      <li>• Early access to features</li>
+                  <div className="p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-200 dark:border-amber-700">
+                    <h6 className="font-semibold text-amber-900 dark:text-amber-100 mb-2">Batch Similar Operations</h6>
+                    <p className="text-amber-800 dark:text-amber-200 text-sm">
+                      Group related tasks together and consider using print mode for repetitive operations to optimize API calls and reduce token consumption.
+                    </p>
+                  </div>
+
+                  <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+                    <h6 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Additional Best Practices</h6>
+                    <ul className="text-gray-700 dark:text-gray-300 text-sm space-y-1">
+                      <li>• Be specific in your requests to get accurate answers faster</li>
+                      <li>• Use file reading tools instead of pasting large code blocks</li>
+                      <li>• Close completed conversations rather than continuing indefinitely</li>
+                      <li>• Leverage tools like grep and glob instead of asking Claude to search</li>
+                      <li>• Review CLAUDE.md to reduce repetitive context setting</li>
                     </ul>
                   </div>
-                </div>
-
-                <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-                  <h6 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">💡 Usage Optimization Tips</h6>
-                  <ul className="text-gray-700 dark:text-gray-300 text-sm space-y-1">
-                    <li>• Use <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">/status</code> command to monitor usage patterns</li>
-                    <li>• Use Sonnet 4.5 for routine tasks, switch to Opus 4.1 for complex problems</li>
-                    <li>• Consider using print mode for batch operations to optimize API calls</li>
-                    <li>• Use <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">/clear</code> strategically to manage context window efficiently</li>
-                  </ul>
                 </div>
               </CardContent>
             </Card>
