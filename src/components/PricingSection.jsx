@@ -92,18 +92,18 @@ const PricingSection = ({ className = "" }) => {
           Claude Pricing
         </h2>
         <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
-          Choose the plan that's right for you. All plans include access to Claude's advanced AI capabilities.
+          Understanding the costs and features of Claude's main subscription tiers for individual users.
         </p>
 
         {/* Pricing Disclaimer */}
-        <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4 mb-4">
-          <p className="text-sm text-amber-900 dark:text-amber-100">
-            <strong>Note:</strong> Pricing information is subject to change. For the most current and detailed pricing, including all tiers and features, please visit{' '}
+        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mb-4">
+          <p className="text-sm text-blue-900 dark:text-blue-100">
+            <strong>Reference Only:</strong> This pricing information is provided for reference. For complete details, team plans, and enterprise options, visit{' '}
             <a
               href="https://claude.com/pricing"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-amber-700 dark:text-amber-300 hover:underline font-medium"
+              className="text-blue-700 dark:text-blue-300 hover:underline font-medium"
             >
               claude.com/pricing
             </a>
@@ -112,7 +112,7 @@ const PricingSection = ({ className = "" }) => {
         </div>
 
         {lastUpdated && (
-          <div className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-500">
+          <div className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-500 mb-4">
             <span>Accurate as of:</span>
             <Badge variant="outline" className="text-xs">
               {formatLastUpdated(lastUpdated)}
@@ -121,154 +121,88 @@ const PricingSection = ({ className = "" }) => {
         )}
       </div>
 
-      {/* Main Plans Grid */}
+      {/* Individual Plans Grid */}
       {plans && (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          {Object.entries(plans).map(([key, plan]) => {
-            const Icon = getPlanIcon(key)
-            const isPopular = key === 'pro'
+        <div className="grid md:grid-cols-2 gap-6 mb-8">
+          {Object.entries(plans)
+            .filter(([key]) => ['free', 'pro', 'max'].includes(key))
+            .map(([key, plan]) => {
+              const Icon = getPlanIcon(key)
 
-            return (
-              <Card key={key} className={`relative ${isPopular ? 'border-blue-500 shadow-lg scale-105' : ''}`}>
-                {isPopular && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <Badge className="bg-blue-600 text-white">Most Popular</Badge>
-                  </div>
-                )}
-
-                <CardHeader className="text-center pb-4">
-                  <div className="flex justify-center mb-2">
-                    <div className={`p-3 rounded-full ${isPopular ? 'bg-blue-100 dark:bg-blue-900' : 'bg-gray-100 dark:bg-gray-800'}`}>
-                      <Icon className={`w-6 h-6 ${isPopular ? 'text-blue-600' : 'text-gray-600 dark:text-gray-400'}`} />
+              return (
+                <Card key={key} className="border border-gray-200 dark:border-gray-700">
+                  <CardHeader className="pb-4">
+                    <div className="flex items-center space-x-3 mb-3">
+                      <div className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800">
+                        <Icon className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                      </div>
+                      <CardTitle className="text-xl">{plan.displayName}</CardTitle>
                     </div>
-                  </div>
 
-                  <CardTitle className="text-xl">{plan.displayName}</CardTitle>
+                    <div className="mt-2">
+                      {plan.monthlyPrice === 0 ? (
+                        <div className="text-2xl font-bold text-gray-900 dark:text-gray-100">Free</div>
+                      ) : plan.tiers ? (
+                        <div>
+                          <span className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                            From ${plan.monthlyPrice}
+                          </span>
+                          <span className="text-gray-600 dark:text-gray-400">/month</span>
+                        </div>
+                      ) : (
+                        <div>
+                          <span className="text-2xl font-bold text-gray-900 dark:text-gray-100">${plan.monthlyPrice}</span>
+                          <span className="text-gray-600 dark:text-gray-400">/month</span>
+                        </div>
+                      )}
 
-                  <div className="mt-4">
-                    {plan.monthlyPrice === 0 ? (
-                      <div className="text-3xl font-bold">Free</div>
-                    ) : plan.tiers ? (
-                      <div>
-                        <span className="text-3xl font-bold">
-                          ${plan.monthlyPrice}
-                          {Object.keys(plan.tiers).length > 1 && ` - $${Math.max(...Object.values(plan.tiers).map(t => t.monthlyPrice))}`}
-                        </span>
-                        <span className="text-gray-600 dark:text-gray-400">/month</span>
-                        {plan.billingUnit && (
-                          <div className="text-sm text-gray-500 dark:text-gray-500 mt-1">
-                            {plan.billingUnit}
-                          </div>
-                        )}
-                      </div>
-                    ) : (
-                      <div>
-                        <span className="text-3xl font-bold">${plan.monthlyPrice}</span>
-                        <span className="text-gray-600 dark:text-gray-400">/month</span>
-                        {plan.billingUnit && (
-                          <div className="text-sm text-gray-500 dark:text-gray-500 mt-1">
-                            {plan.billingUnit}
-                          </div>
-                        )}
-                      </div>
-                    )}
-
-                    {plan.annualPrice && plan.annualPrice !== plan.monthlyPrice * 12 && (
-                      <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                        ${plan.annualPrice}/year (save ${(plan.monthlyPrice * 12) - plan.annualPrice})
-                      </div>
-                    )}
-                  </div>
-
-                  {plan.minimumSeats && (
-                    <div className="text-sm text-gray-500 dark:text-gray-500 mt-2">
-                      Minimum {plan.minimumSeats} seats
+                      {plan.annualPrice && plan.annualPrice > 0 && (
+                        <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                          ${plan.annualPrice}/year when billed annually
+                        </div>
+                      )}
                     </div>
-                  )}
-                </CardHeader>
 
-                <CardContent>
-                  {plan.usage && (
-                    <div className="mb-4 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                      <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                        {plan.usage}
+                    {plan.description && (
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                        {plan.description}
                       </p>
-                    </div>
-                  )}
+                    )}
+                  </CardHeader>
 
-                  {plan.features && plan.features.length > 0 && (
-                    <ul className="space-y-2 mb-6">
-                      {plan.features.map((feature, index) => (
-                        <li key={index} className="flex items-start space-x-2">
-                          <Check className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-sm text-gray-600 dark:text-gray-400">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-
-                  <Button
-                    className="w-full"
-                    variant={isPopular ? "default" : "outline"}
-                    onClick={() => window.open('https://claude.ai/', '_blank')}
-                  >
-                    {plan.monthlyPrice === 0 ? 'Get Started' : 'Choose Plan'}
-                    <ExternalLink className="w-4 h-4 ml-2" />
-                  </Button>
-                </CardContent>
-              </Card>
-            )
-          })}
+                  <CardContent>
+                    {plan.features && plan.features.length > 0 && (
+                      <ul className="space-y-2">
+                        {plan.features.slice(0, 6).map((feature, index) => (
+                          <li key={index} className="flex items-start space-x-2">
+                            <Check className="w-4 h-4 text-green-600 dark:text-green-500 mt-0.5 flex-shrink-0" />
+                            <span className="text-sm text-gray-700 dark:text-gray-300">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </CardContent>
+                </Card>
+              )
+            })}
         </div>
       )}
 
-      {/* Enterprise Plan */}
-      {enterprise && (
-        <Card className="mb-8 border-purple-200 dark:border-purple-800">
-          <CardHeader>
-            <div className="flex items-center space-x-3">
-              <div className="p-3 rounded-full bg-purple-100 dark:bg-purple-900">
-                <Building className="w-6 h-6 text-purple-600" />
-              </div>
-              <div>
-                <CardTitle className="text-xl">{enterprise.displayName}</CardTitle>
-                <CardDescription>For large organizations with advanced needs</CardDescription>
-              </div>
-            </div>
-          </CardHeader>
-
-          <CardContent>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <div className="text-2xl font-bold text-purple-600 mb-4">
-                  {enterprise.pricing}
-                </div>
-
-                {enterprise.features && (
-                  <ul className="space-y-2">
-                    {enterprise.features.map((feature, index) => (
-                      <li key={index} className="flex items-start space-x-2">
-                        <Check className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-gray-600 dark:text-gray-400">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-
-              <div className="flex items-center justify-center">
-                <Button
-                  size="lg"
-                  onClick={() => window.open('https://claude.ai/contact', '_blank')}
-                >
-                  Contact Sales
-                  <ExternalLink className="w-4 h-4 ml-2" />
-                </Button>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      )}
+      {/* Team and Enterprise Note */}
+      <div className="mb-8 p-5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
+        <p className="text-gray-700 dark:text-gray-300">
+          <strong>Team and Enterprise Plans:</strong> Claude also offers Team plans (starting at $25/person/month) and Enterprise plans with advanced features for organizations. Visit{' '}
+          <a
+            href="https://claude.com/pricing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
+          >
+            claude.com/pricing
+          </a>
+          {' '}for complete details.
+        </p>
+      </div>
 
       {/* API Pricing */}
       {api && (
@@ -345,17 +279,21 @@ const PricingSection = ({ className = "" }) => {
       {/* Data Source Attribution */}
       <div className="mt-6 text-center text-xs text-gray-500 dark:text-gray-500">
         <p>
-          Pricing data automatically updated from{' '}
+          Information sourced from{' '}
           <a
-            href="https://claude.ai/pricing"
+            href="https://claude.com/pricing"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 dark:text-blue-400 hover:underline"
           >
-            claude.ai/pricing
+            claude.com/pricing
           </a>
-          {' • '}
-          Last checked: {pricingData?.lastChecked ? formatLastUpdated(pricingData.lastChecked) : 'Unknown'}
+          {lastUpdated && (
+            <>
+              {' • '}
+              Updated: {formatLastUpdated(lastUpdated)}
+            </>
+          )}
         </p>
       </div>
     </section>
